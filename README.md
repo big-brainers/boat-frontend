@@ -88,3 +88,4 @@ https://www.udemy.com/course/the-complete-web-development-bootcamp/
 https://www.freepik.com/vectors/background
 https://fonts.google.com/specimen/Inconsolata?preview.text_type=custom
 https://avataaars.com/
+https://favicon.io/favicon-converter/
