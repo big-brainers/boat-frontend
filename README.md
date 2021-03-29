@@ -6,10 +6,10 @@
 
 ### Contributors
 
-[Simão Neves](https://github.com/Nevsimao03)
-[Jalen Foreman](https://github.com/Jalen-Foreman)
-[Susana Martins](https://github.com/5usana)
-[Kim Cinco](https://github.com/kccrtv)
+- [Simão Neves](https://github.com/Nevsimao03)
+- [Jalen Foreman](https://github.com/Jalen-Foreman)
+- [Susana Martins](https://github.com/5usana)
+- [Kim Cinco](https://github.com/kccrtv)
 
 # The Approach Taken
 
