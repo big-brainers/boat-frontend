@@ -2,7 +2,8 @@
   "name": "frontend",
   "version": "0.1.0",
   "engines": {
-    "node": "14.16.0"
+    "node": "14.16.0",
+    "npm": "6.14.11"
   },
   "private": true,
   "dependencies": {
@@ -21,7 +22,7 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
-    "start": "NODE_ENV=production node_modules/react-scripts/bin/react-scripts.js start",
+    "start": "NODE_ENV=production npm start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
