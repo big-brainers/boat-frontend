@@ -20,6 +20,12 @@ const GlobalStyle = createGlobalStyle`
 body {
 	font-family: 'Inconsolata', monospace;
 	margin: 0;
+	background-color: #e5e7f0;
+	height: 100vh;
+	// display: grid;
+	// grid-template-columns: 448px 2fr;
+	// grid-template-rows: auto
+
 }
 `;
 
