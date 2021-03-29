@@ -1,10 +1,6 @@
 # BOAT (aka Bridging Our Advocates Together) app
 
-<<<<<<< HEAD
-This project was boot with [Create React App](https://github.com/facebook/create-react-app).
-=======
 ### Project 3 for General Assembly's remote Software Engineering Immersive program
->>>>>>> cb518a0... edit readme
 
 > Bridging our Advocates Together (aka BOAT) is a documentation system stored in a private dashboard for advocate volunteers. This dashboard includes a logs manager, a scheduler, and a way to manage your tasks all in one platform.
 
@@ -84,10 +80,11 @@ Your app is ready to be deployed!
 <<<<<<< HEAD
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-By: BIG BRAINERS
-=======
+# By: BIG BRAINERS
+
 https://www.udemy.com/course/the-complete-web-development-bootcamp/
 https://www.freepik.com/vectors/background
 https://fonts.google.com/specimen/Inconsolata?preview.text_type=custom
 https://avataaars.com/
->>>>>>> cb518a0... edit readme
+
+> > > > > > > cb518a0... edit readme
