@@ -1,7 +1,7 @@
 ### COMMITTING WITH CO-AUTHORS
 
 ```js
-git commit -m "Refactor usability tests.
+git commit -m "commit message here.
 >
 >
 Co-authored-by: Jalen Foreman <jalenforeman594@gmail.com>
@@ -15,19 +15,25 @@ Co-authored-by: Susana Martins <susana.debug@gmail.com>
 
 ## FRONTEND
 
-### Landing Page
+### Landing Page [Susana]
 
-### Sign Up Page
+- Nav, Footer, Hero text and image
+- Desktop, MacBook, Tablet, Mobile breakpoints
+
+### Sign Up Page [Jalen + Simi]
+
+- Nav, Form with inputs and buttons (Google sign-in optional stretch goal)
+- Desktop, MacBook, Tablet, Mobile breakpoints
 
 ## BACKEND
 
-### Sign Up Page / Log In
+### Sign Up Page / Log In [Simi + Jalen]
 
-- http://www.passportjs.org/packages/passport-google-oauth20/
+- React Router routes for signin, signup, home
+- Google sign-in stretch goal research
+- Implement into front-end pages
 
-1. Create application on https://console.developers.google.com/
-
-## LOGISTICS
+## LOGISTICS [Kim]
 
 ## Repositories
 
