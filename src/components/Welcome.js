@@ -3,14 +3,9 @@ import styled from 'styled-components';
 import sailboatsmall from '../images/sailboat.png';
 
 const DashboardContainer = styled.main`
-	// display: grid;
-	// grid-template-columns: 448px 2fr;
-	// grid-template-rows: auto
 	margin: 0;
 	padding: 0 24px;
 	text-align: center;
-	background-color: #e5e7f0;
-	height: 100vh;
 `;
 
 const SmallLogo = styled.img`

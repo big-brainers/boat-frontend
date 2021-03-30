@@ -14,12 +14,18 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import LandingPage from './landing-components/LandingPage';
 import SignInPage from './components/SignInPage';
 import SignUpPage from './components/SignUpPage';
-import Welcome from './components/Welcome';
+import TasksCard from './components/TasksCard';
 
 const GlobalStyle = createGlobalStyle`
 body {
 	font-family: 'Inconsolata', monospace;
 	margin: 0;
+	background-color: #e5e7f0;
+	height: 100vh;
+
+	// display: grid;
+	// grid-template-columns: 448px 2fr;
+	// grid-template-rows: auto
 }
 `;
 
@@ -44,7 +50,7 @@ export default function App() {
 					</Route>
 				</Switch>
 			</Router>
-			<Welcome />
+			<TasksCard />
 		</>
 	);
 }
