@@ -1,7 +1,11 @@
 ### COMMITTING WITH CO-AUTHORS
 
 ```js
+<<<<<<< HEAD
 git commit -m "commit message here.
+=======
+git commit -m "Refactor usability tests.
+>>>>>>> 0e4f1a9... edit build folder for deployment
 >
 >
 Co-authored-by: Jalen Foreman <jalenforeman594@gmail.com>
@@ -11,6 +15,7 @@ Co-authored-by: Susana Martins <susana.debug@gmail.com>
 "
 ```
 
+<<<<<<< HEAD
 # 1️⃣ MONDAY 1️⃣
 
 ## ▸▸▸ FRONTEND ◂◂◂
@@ -40,6 +45,27 @@ Co-authored-by: Susana Martins <susana.debug@gmail.com>
 ## ▸▸▸ LOGISTICS ◂◂◂
 
 ## Repositories [Kim]
+=======
+# MONDAY
+
+## FRONTEND
+
+### Landing Page
+
+### Sign Up Page
+
+## BACKEND
+
+### Sign Up Page / Log In
+
+- http://www.passportjs.org/packages/passport-google-oauth20/
+
+1. Create application on https://console.developers.google.com/
+
+## LOGISTICS
+
+## Repositories
+>>>>>>> 0e4f1a9... edit build folder for deployment
 
 - GitHub frontend
 - GitHub backend
@@ -49,6 +75,7 @@ Co-authored-by: Susana Martins <susana.debug@gmail.com>
 ✔️ Git commit
 ✔️ Deploy
 
+<<<<<<< HEAD
 # 2️⃣ TUESDAY 2️⃣
 
 ## ▸▸▸ FRONTEND ◂◂◂
@@ -107,11 +134,19 @@ Co-authored-by: Susana Martins <susana.debug@gmail.com>
 - update README
 - update planning
 - deploy
+=======
+# TUESDAY
+
+## FRONTEND
+
+## BACKEND
+>>>>>>> 0e4f1a9... edit build folder for deployment
 
 ⚠️ Don't forget to:
 ✔️ Git commit
 ✔️ Deploy
 
+<<<<<<< HEAD
 # 3️⃣ WEDNESDAY 3️⃣
 
 ## ▸▸▸ FRONTEND ◂◂◂
@@ -174,6 +209,31 @@ Accessibility-and-Refactor-palooza today!
 ## ▸▸▸ BACKEND ◂◂◂
 
 ## ▸▸▸ LOGISTICS ◂◂◂
+=======
+# WEDNESDAY
+
+## FRONTEND
+
+## BACKEND
+
+⚠️ Don't forget to:
+✔️ Git commit
+✔️ Deploy
+
+# THURSDAY
+
+## FRONTEND
+
+## BACKEND
+
+# FRIDAY
+
+Accessibility-and-Refactor-palooza today!
+
+## FRONTEND
+
+## BACKEND
+>>>>>>> 0e4f1a9... edit build folder for deployment
 
 ⚠️ Don't forget to:
 ✔️ Git commit
