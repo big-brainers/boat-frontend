@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 // import styled from "styled-components";
 
 // const NavBar = styled.nav`
@@ -20,20 +20,20 @@ import React from "react";
 // `;
 
 const Nav = () => {
-  return (
-    //having issues with styled components
-    // <NavBar>
-    //   <h2> BOAT </h2>
-    //   <SecondaryButton onClick="">Sign In </SecondaryButton>
-    //   <PrimaryButton onClick="">Sign Up </PrimaryButton>
-    // </NavBar>
+	return (
+		//having issues with styled components
+		// <NavBar>
+		//   <h2> BOAT </h2>
+		//   <SecondaryButton onClick="">Sign In </SecondaryButton>
+		//   <PrimaryButton onClick="">Sign Up </PrimaryButton>
+		// </NavBar>
 
-    <nav>
-      <h2> BOAT </h2>
-      <button onClick="">Sign In </button>
-      <button onClick="">Sign Up </button>
-    </nav>
-  );
+		<nav>
+			<h2> BOAT </h2>
+			<button onClick=''>Sign In </button>
+			<button onClick=''>Sign Up </button>
+		</nav>
+	);
 };
 
 export default Nav;
