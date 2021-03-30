@@ -1,24 +1,38 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import validate from './validate';
-import useForm from './UseForm';
-import SignIn from './signin';
+import styled from 'styled-components';
 
-const SignupFunc = ({ submitForm }) => {
-	const { handleChange, handleSubmit, values, errors } = useForm(
+import validate from '../landing-components/validate';
+import UseForm from '../landing-components/UseForm';
+import SignIn from '../landing-components/signin';
+
+const SignUpContainer = styled.div`
+	margin: 0 auto;
+	text-align: center;
+`;
+
+const TertiaryButton = styled.button`
+	width: 350px;
+	height: 48px;
+	border: 1px solid #111b47;
+	border-radius: 2px;
+	color: #222f65;
+	background-color: #fff;
+	font-family: 'Inconsolata', monospace;
+`;
+
+const SignUpFunc = ({ submitForm }) => {
+	const { handleChange, handleSubmit, values, errors } = UseForm(
 		submitForm,
 		validate
 	);
 
 	return (
 		<>
-			<div className='Nav'>
-				<h1>BOAT</h1>
-			</div>
-			<div className='signup'>
+			<SignUpContainer>
 				<form onSubmit={handleSubmit} className='form' noValidate>
-					<h3>Sign Up</h3>
-					<h5>Continue With GOOGLE</h5>
+					<h1>Sign Up</h1>
+					<TertiaryButton>Continue with Google</TertiaryButton>
 					<h6>or continue with email</h6>
 
 					<div className='signup-group'>
@@ -88,9 +102,9 @@ const SignupFunc = ({ submitForm }) => {
 						</Router>
 					</div>
 				</form>
-			</div>
+			</SignUpContainer>
 		</>
 	);
 };
 
-export default SignupFunc;
+export default SignUpFunc;

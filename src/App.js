@@ -16,7 +16,6 @@ export default function App() {
 			<Link to='/signIn'>SignIn</Link>
 			<Link to='/signUp'>SignUp</Link>
 			<NavPanel />
-      
 
 			<Switch>
 				<Route exact path='/'>
