@@ -26,6 +26,7 @@ body {
 
 export default function App() {
 	return (
+<<<<<<< HEAD
 		<>
 			<Router>
 				<Link to='/'>Home</Link>
@@ -47,5 +48,24 @@ export default function App() {
 			</Router>
 			<Welcome />
 		</>
+=======
+		<Router>
+			<Link to='/'>Home</Link>
+			<Link to='/signin'>Sign In</Link>
+			<Link to='/signup'>Sign Up</Link>
+
+			<Switch>
+				<Route exact path='/'>
+					<Home />
+				</Route>
+				<Route path='/signin'>
+					<SignInPage />
+				</Route>
+				<Route path='/signUp'>
+					<SignUp />
+				</Route>
+			</Switch>
+		</Router>
+>>>>>>> 187d3cb... style sign in page
 	);
 }
