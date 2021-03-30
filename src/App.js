@@ -8,21 +8,30 @@ import NavPanel from './dashboard/NavPanel';
 import Dashboard from './dashboard/Dashboard';
 import Schedule from './dashboard/Schedule';
 import Logs from './dashboard/Logs';
+// import SignIn from './landing-components/signin';
+import SignInPage from './components/SignInPage';
+import SignUpPage from './components/SignUpPage';
+
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+const GlobalStyle = createGlobalStyle`
+body {
+	font-family: 'Inconsolata', monospace;
+}
+`;
 
 export default function App() {
 	return (
 		<Router>
 			<Link to='/'>Home</Link>
-			<Link to='/signIn'>SignIn</Link>
-			<Link to='/signUp'>SignUp</Link>
-			<NavPanel />
+			<Link to='/signin'>Sign In</Link>
+			<Link to='/signup'>Sign Up</Link>
 
 			<Switch>
 				<Route exact path='/'>
 					<LandingPage />
 				</Route>
-				<Route path='/signIn'>
-					<SignIn />
+				<Route path='/signin'>
+					<SignInPage />
 				</Route>
 				<Route path='/signUp'>
 					<SignUp />
