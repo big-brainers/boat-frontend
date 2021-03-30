@@ -6,7 +6,7 @@ import {
   Link
 } from "react-router-dom"
 
-import Home from './landing-components/home'
+import LandingPage from './landing-components/LandingPage';
 import SignIn from './landing-components/signin';
 import SignUp from './landing-components/signup';
 
@@ -19,7 +19,7 @@ export default function App() {
 
     <Switch>
           <Route exact path="/">
-            <Home />
+            <LandingPage />
           </Route>
           <Route path="/signIn">
             <SignIn />
