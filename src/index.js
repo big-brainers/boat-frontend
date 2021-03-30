@@ -12,4 +12,13 @@ ReactDOM.render(
 	document.getElementById('root')
 );
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <React.StrictMode>
+    <Router>
+      <App />
+    </Router>
+  </React.StrictMode>,
+  document.getElementById('root')
+)
+
+reportWebVitals()
