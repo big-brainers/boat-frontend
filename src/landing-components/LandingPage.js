@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import Nav from "./Nav";
 import sailboat from "../images/sailboat.png";
+import LearnMore from "./LearnMore";
+import JoinUs from "./JoinUs";
+// import signup from "./signup";
 
 const Footer = styled.footer`
   background-color: #f2f2f2;
@@ -20,10 +23,8 @@ function LandingPage() {
         Join our private networking space, The BOAT, where you can keep
         organized and keep in touch with amazing advocates, like yourself.
       </h6>
-      {/* seperate buttons into components, add onClick */}
-      <button className="primary">Join Us</button>
-      <button className="secondary">Learn More</button>
-      {/* <img src="./sailboat.png" alt="sailboat" /> */}
+      <JoinUs />
+      <LearnMore />
       <img src={sailboat} alt="sailboat" />
       <img src="./blob.png" alt="background style-blob" />
       <Footer>
