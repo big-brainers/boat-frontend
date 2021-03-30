@@ -4,10 +4,28 @@ import Nav from "./Nav";
 import sailboat from "../images/sailboat.png";
 import LearnMore from "./LearnMore";
 import JoinUs from "./JoinUs";
-// import signup from "./signup";
+// import blobArt from "../images/blob.png";
+
+
+const Boat = styled.img`
+
+  
+  filter: drop-shadow(22px 13px 4px rgba(0, 0, 0, 0.25));
+`
+
+// const Blob = styled.img`
+
+  
+//   background: #E1EFFA;
+//   mix-blend-mode: normal;
+//   opacity: 0.5;
+
+// `
 
 const Footer = styled.footer`
+  display: grid;
   background-color: #f2f2f2;
+
   color: #222f65;
   height: 70px;
   text-align: center;
@@ -25,8 +43,8 @@ function LandingPage() {
       </h6>
       <JoinUs />
       <LearnMore />
-      <img src={sailboat} alt="sailboat" />
-      <img src="./blob.png" alt="background style-blob" />
+      <Boat src={sailboat} alt="sailboat" />
+      {/* <Blob src={blobArt} alt="background blob-art" /> */}
       <Footer>
         <hr />
         <a href="https://github.com/big-brainers">2021 © Big Brainers</a>
