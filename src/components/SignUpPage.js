@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react';
 import styled from 'styled-components';
 import UseForm from '../landing-components/UseForm';
 import SignUpFunc from './SignUpFunc';
-import SignIn from '../landing-components/signin';
+import SignInPage from './SignInPage';
 
 const SignInNav = styled.nav`
 	height: 72px;
@@ -30,7 +30,11 @@ function SignUpPage(props) {
 				</a>
 			</SignInNav>
 			<div>
-				{!isSubmitted ? <SignUpFunc submitSignUp={submitSignUp} /> : <SignIn />}
+				{!isSubmitted ? (
+					<SignUpFunc submitSignUp={submitSignUp} />
+				) : (
+					<SignInPage />
+				)}
 			</div>
 		</Fragment>
 	);

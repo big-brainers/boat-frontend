@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import SignUp from '../landing-components/signin';
+import SignUpPage from './SignUpPage';
 import styled from 'styled-components';
 
 import google from '../images/google-logo.png';
@@ -121,10 +121,10 @@ function SignInPage() {
 
 					<div className='new-member'>
 						<Router>
-							Not yet a member? <Link to='/signUp'>Sign Up</Link>
+							Not yet a crew member? <Link to='/signup'>Sign Up</Link>
 							<Switch>
 								<Route path='/signUp'>
-									<SignUp />
+									<SignUpPage />
 								</Route>
 							</Switch>
 						</Router>
