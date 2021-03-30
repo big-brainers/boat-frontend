@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React from 'react'
 import {
 	BrowserRouter as Router,
@@ -9,13 +9,8 @@ import {
 import validate from './validate'
 import useForm from './useForm'
 import SignIn from './signin'
-=======
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import validate from './validate';
-import useForm from './UseForm';
-import SignIn from './signin';
->>>>>>> f0687a9... pull pushes for landing page and nav panel components
+
+
 
 const SignupFunc = ({ submitForm }) => {
     const { handleChange, handleSubmit, values, errors } = useForm(
