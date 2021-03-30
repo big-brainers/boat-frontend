@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import validate from '../landing-components/validate';
 import UseForm from '../landing-components/UseForm';
-import SignIn from '../landing-components/signin';
+import SignInPage from './SignInPage';
 
 const SignUpContainer = styled.div`
 	margin: 0 auto;
@@ -93,10 +93,10 @@ const SignUpFunc = ({ submitForm }) => {
 
 					<div className='new-member'>
 						<Router>
-							Already have an account <Link to='/signIn'>Sign In</Link>
+							Already have an account <Link to='/signin'>Sign In</Link>
 							<Switch>
-								<Route path='/signIn'>
-									<SignIn />
+								<Route path='/signin'>
+									<SignInPage />
 								</Route>
 							</Switch>
 						</Router>
