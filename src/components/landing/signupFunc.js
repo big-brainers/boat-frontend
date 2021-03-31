@@ -1,12 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
-
-import validate from '../landing-components/validate';
-import UseForm from '../landing-components/UseForm';
+import validate from './validate';
+import UseForm from './UseForm';
 import SignInPage from './SignInPage';
-
-import google from '../images/google-logo.png';
+import google from '../../images/google-logo.png';
 
 const HeaderOne = styled.h1`
 	font-size: 3rem;
