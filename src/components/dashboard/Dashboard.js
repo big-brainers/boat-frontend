@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import TasksForm from './Tasks/TasksForm';
+<<<<<<< HEAD
 import TasksList from './Tasks/TasksList';
 import NavPanel from './NavPanel';
 import './CSS/Navpanel.css'
+=======
+// import TasksList from './Tasks/TasksList';
+>>>>>>> 95f282c... style tasks card with material ui
 
 const Dashboard = () => {
 	const [input, setInput] = useState('');
@@ -42,11 +46,8 @@ const Dashboard = () => {
 			<NavPanel />
 			<div className='Tasks'>
 				<h2>Tasks</h2>
-				<TasksForm
-					handleChange={handleChange}
-					handleSubmit={handleSubmit}
-				/>
-				<TasksList tasks={tasks} />
+				<TasksForm handleChange={handleChange} handleSubmit={handleSubmit} />
+				{/* <TasksList tasks={tasks} /> */}
 			</div>
 		</div>
 		// make onClick function which has a plus button that allows you to insert your todo into it
