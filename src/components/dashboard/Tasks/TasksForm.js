@@ -21,7 +21,7 @@ const TasksForm = ({ handleChange, handleSubmit }) => {
     return (
 			<form onSubmit={handleSubmit}>
 				<TaskContainer>
-					<TaskCheck type='checkbox' />
+					
 					<TaskItem onChange={handleChange} placeholder='Add Tasks' required />
 					<button>save</button>
 				</TaskContainer>
