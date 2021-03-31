@@ -37,7 +37,8 @@ export default function App() {
 					<Route path='/signup'>
 						<SignUpPage />
 					</Route>
-				</Switch>
+				</Switch>{' '}
+				*/}
 			</Router>
 		</>
 	);

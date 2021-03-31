@@ -7,11 +7,16 @@ import sailboat from '../../images/sailboat-desktop.png';
 const LandingMain = styled.main`
 	display: grid;
 	grid-template-columns: 3fr 1fr;
+<<<<<<< HEAD
 
 	width: 635px;
 	height: 968px;
 
 
+=======
+	width: 635px;
+	height: 968px;
+>>>>>>> 6c6b1e6... initiated Calendar component, CalendarCard, & GoToSchedule. Minimal styling started
 `;
 
 const HeroDiv = styled.div`
