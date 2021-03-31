@@ -116,13 +116,48 @@ Co-authored-by: Susana Martins <susana.debug@gmail.com>
 
 ## ▸▸▸ FRONTEND ◂◂◂
 
+### Calendar Schedule Card [Susana]
+
+    • Focus on coding the mockup + styling
+
+### Modals and Snackbars [Jalen]
+
+    • Create components for Modals and Snackbars
+
+Confirmation Modals:
+○ ① Ready to publish?
+○ ② Are you sure you want to delete this entry?
+Snackbars:
+○ ① Draft Saved!
+○ ② Successfully published!
+
+### Dashboard - Nav Panel [Jalen]
+
+    • Nav panel (Desktop, MacBook, Tablet, Mobile)
+    • State changes for active selected panel links for Dashboard, Schedule (optional), and Logs
+
+### Dashboard - Tasks Card, Quick Entry Card [Kim]
+
+    • Tasks list functionality
+    • Quick create entry styling
+
+### Landing Page [Kim]
+
+    • Nav, Footer, Hero text and image
+    • Desktop, MacBook, Tablet, Mobile breakpoints
+
 ## ▸▸▸ BACKEND ◂◂◂
 
-## ▸▸▸ LOGISTICS ◂◂◂
+### Entry [Simi]
 
-⚠️ Don't forget to:
-✔️ Git commit
-✔️ Deploy
+    • Continue setting up database for Entries and Users
+    • Set up models and seed test data to render on page (Logs/Entries) -- hold off on Users until NavPanel is complete
+
+## ▸▸▸ LOGISTICS ◂◂◂ [Kim]
+
+    - Merge pushes, deploy to Heroku, push frontend to main?, send PM updates
+
+⚠️ Don't forget to: ✔️ Git commit ✔️ Deploy
 
 # 4️⃣ THURSDAY 4️⃣
 
