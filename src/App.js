@@ -1,18 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { createGlobalStyle } from 'styled-components';
-
-import LandingPage from './components/landing/LandingPage';
-import SignInPage from './components/landing/SignInPage';
-import SignUpPage from './components/landing/SignUpPage';
-import NavPanel from './components/dashboard/NavPanel';
-import Dashboard from './components/dashboard/Dashboard';
-import Schedule from './components/dashboard/Schedule';
-import Logs from './components/dashboard/Logs';
-import Overview from './components/dashboard/Overview';
+import NavPanel from './dashboard/NavPanel';
+import Dashboard from './dashboard/Dashboard';
+import Schedule from './dashboard/Schedule';
+import Logs from './dashboard/Logs';
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import LandingPage from './landing-components/LandingPage';
+import LandingPage from './components/landing/LandingPage';
 import SignInPage from './components/SignInPage';
 import SignUpPage from './components/SignUpPage';
 import Welcome from './components/Welcome';
@@ -28,9 +22,9 @@ export default function App() {
 	return (
 		<>
 			<Router>
-				<Link to='/'>Home</Link>
+				{/* <Link to='/'>Home</Link>
 				<Link to='/signin'>Sign In</Link>
-				<Link to='/signup'>Sign Up</Link>
+				<Link to='/signup'>Sign Up</Link> */}
 
 				<GlobalStyle />
 				<Switch>
@@ -45,7 +39,7 @@ export default function App() {
 					</Route>
 				</Switch>
 			</Router>
-			<Welcome />
+			{/* <TasksCard /> */}
 		</>
 	);
 }

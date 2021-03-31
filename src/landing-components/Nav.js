@@ -1,14 +1,12 @@
-import React from "react";
+import React from 'react';
 import { Route } from 'react-router-dom';
-import SignUp from "./signup";
-import SignIn from "./signin";
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const NavBar = styled.nav`
-  background-color: #f2f2f2;
-  color: #222f65;
-  height: 70px;
-  padding-bottom: 45px;
+	background-color: #f2f2f2;
+	color: #222f65;
+	height: 70px;
+	padding-bottom: 45px;
 `;
 
 // const SecondaryButton = styled.secondaryButton`
@@ -23,26 +21,22 @@ const NavBar = styled.nav`
 // `;
 
 const Nav = () => {
-  return (
-
-    <div>
-    {/* //having issues with styled components */}
-      <NavBar>
-        <h2> BOAT </h2>
-        {/* <button onClick="">Sign In </button>
+	return (
+		<div>
+			{/* //having issues with styled components */}
+			<NavBar>
+				<h2> BOAT </h2>
+				{/* <button onClick="">Sign In </button>
         <button onClick="">Sign Up </button> */}
-        <Route path='/signIn'>
-									<SignIn />
-			  </Route>
-        <Route path='/signUp'>
-									<SignUp />
-			  </Route>
-      </NavBar>
-    </div>
-
-
-   
-  );
+				{/* <Route path='/signIn'>
+					<SignIn />
+				</Route>
+				<Route path='/signUp'>
+					<SignUp />
+				</Route> */}
+			</NavBar>
+		</div>
+	);
 };
 
 export default Nav;
