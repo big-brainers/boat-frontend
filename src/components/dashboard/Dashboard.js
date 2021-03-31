@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 // import React, { useState } from 'react';
 
@@ -15,6 +16,51 @@ import TasksForm from './Tasks/TasksForm';
 				<h2>Tasks</h2>
 				<TasksForm handleChange={handleChange} handleSubmit={handleSubmit} />
 				{/* <TasksList tasks={tasks} /> */}
+=======
+import React, { useState } from 'react';
+import TasksForm from './Tasks/TasksForm';
+import TasksList from './Tasks/TasksList';
+
+const Dashboard = () => {
+	const [input, setInput] = useState('');
+	const [tasks, setTasks] = useState([
+		{
+			title: 'Wash the dishes',
+			complete: false,
+		},
+		{
+			title: 'Walk the dog',
+			complete: false,
+		},
+		{
+			title: 'Make the bed',
+			complete: true,
+		},
+	]);
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		setTasks([
+			...tasks,
+			{
+				title: input,
+				complete: false,
+			},
+		]);
+	};
+
+	const handleChange = (e) => {
+		setInput(e.target.value);
+	};
+
+	return (
+		<div>
+			<div className='Tasks'>
+				<h2>Tasks</h2>
+                <TasksForm handleChange={handleChange} handleSubmit={handleSubmit} />
+                <TasksList tasks={tasks} />
+				
+>>>>>>> 999b763... rebase
 			</div>
 		</div>
 		// make onClick function which has a plus button that allows you to insert your todo into it
@@ -24,6 +70,7 @@ import TasksForm from './Tasks/TasksForm';
 	);
 };
 
+<<<<<<< HEAD
 // const Dashboard = () => {
 // 	const [input, setInput] = useState('');
 // 	const [tasks, setTasks] = useState([
@@ -73,3 +120,6 @@ import TasksForm from './Tasks/TasksForm';
 // };
 
 // export default Dashboard;
+=======
+export default Dashboard;
+>>>>>>> 999b763... rebase

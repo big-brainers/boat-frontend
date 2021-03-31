@@ -1,35 +1,16 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import sailboatsmall from '../../images/sailboat-mobile.png';
+import sailboatsmall from '../images/sailboat.png';
 
-const NavBox = styled.nav`
-	width: 256px;
-	height: 100vh;
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	background: white;
-	box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
-	text-align: center;
-`;
-
-const DashboardMain = styled.main`
+const DashboardContainer = styled.main`
 	margin: 0;
 	padding: 0 24px;
 	text-align: center;
-	display: grid;
-	grid-template-columns: repeat(8, 32px 3fr);
-`;
-
-const DashboardContainer = styled.section`
-	grid-column: 4 / 18;
-	display: grid;
-	grid-template-rows: 2fr 1fr;
 `;
 
 const SmallLogo = styled.img`
-	margin: 0 auto;
-	padding-top: 32px;
+	width: auto;
+	height: 152px;
 `;
 
 const HeaderOne = styled.h1`
@@ -43,15 +24,12 @@ const LightBlueText = styled.p`
 
 function Welcome(props) {
 	return (
-		<DashboardMain>
-			<NavBox />
-			<DashboardContainer>
-				<SmallLogo src={sailboatsmall} alt='small sailboat' />
-				<HeaderOne>Welcome aboard!</HeaderOne>
-				<LightBlueText>Click on your Dashboard to get started.</LightBlueText>
-				<LightBlueText>Anchors aweigh!</LightBlueText>
-			</DashboardContainer>
-		</DashboardMain>
+		<DashboardContainer>
+			<SmallLogo src={sailboatsmall} alt='small sailboat' />
+			<HeaderOne>Welcome aboard!</HeaderOne>
+			<LightBlueText>Click on your Dashboard to get started.</LightBlueText>
+			<LightBlueText>Anchors aweigh!</LightBlueText>
+		</DashboardContainer>
 	);
 }
 

@@ -1,5 +1,6 @@
 import './CSS/Navpanel.css';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
 import pie from '../../images/pie-gray.png';
 import sheet from '../../images/sheet-gray.png';
 import styled from 'styled-components';
@@ -33,11 +34,14 @@ const logo = styled.img`
 const boath1 = styled.h1`
 	text-align: center;
 `
+=======
+>>>>>>> 999b763... rebase
 
 
 export default function App() {
 	return (
 		<div className='leftNavBox'>
+<<<<<<< HEAD
 			<boath1>BOAT</boath1>
 			<LinksNavBar>
 				<logo>
@@ -60,6 +64,12 @@ export default function App() {
 					Logs
 				</Link>
 			</LinksNavBar>
+=======
+			<h1>BOAT</h1>
+			<Link to='/dashboard'>Dashboard</Link>
+			<Link to='/schedule'>Schedule</Link>
+			<Link to='/logs'>Logs</Link>
+>>>>>>> 999b763... rebase
 			{/* Each one of these titles has to be enclosed in Link tags to set up routes for them.
             They are also going to need their own components.
             Make a main area for the routes */}
