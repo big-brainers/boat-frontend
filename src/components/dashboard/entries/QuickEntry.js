@@ -128,7 +128,7 @@ function QuickEntry(props) {
 				/>
 			</InputContainer>
 
-			<ButtonDiv padding='8px'>
+			<ButtonDiv padding='8px 24px 8px 8px'>
 				<Link>
 					<Button className='tertiary'>More options</Button>
 				</Link>
