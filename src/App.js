@@ -25,7 +25,6 @@ body {
 	// display: grid;
 	// grid-template-columns: 448px 2fr;
 	// grid-template-rows: auto
-
 }
 `;
 
