@@ -6,7 +6,8 @@ import sailboat from '../../images/sailboat.png';
 const LandingMain = styled.main`
 	display: grid;
 	grid-template-columns: 3fr 1fr;
-	height: 85vh;
+	width: 635px;
+	height: 968px;
 `;
 
 const HeroDiv = styled.div`
