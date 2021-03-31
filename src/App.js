@@ -9,6 +9,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import Schedule from './components/dashboard/Schedule';
 import Logs from './components/dashboard/Logs';
 import TasksCard from './components/dashboard/Tasks/TasksCard';
+import TasksList from './components/dashboard/Tasks/TasksList';
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -26,8 +27,8 @@ export default function App() {
 	return (
 		<>
 			<GlobalStyle />
-			<TasksCard />
-
+			{/* <TasksCard /> */}
+			<TasksList />
 			{/* <Router>
 				<GlobalStyle />
 				<Switch>

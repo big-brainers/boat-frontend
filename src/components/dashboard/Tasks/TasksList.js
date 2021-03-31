@@ -1,28 +1,41 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import TaskForm from './TaskForm';
+import TaskItem from './TaskItem';
 
+function TasksList(props) {
+	const [taskList, setTaskList] = useState([]);
+	const [taskString, setTaskString] = useState(null);
 
-const TaskCheck = styled.input`
-	margin: 24px;
-    
-`;
+	function addTask(newTask) {
+		setTaskList((lastTask) => {
+			return [...lastTask, newTask];
+		});
+		setTaskString(taskString);
+	}
 
-// Returns the task's list items so they are visible on the page
-const TasksList = ({ tasks }) => {
+	function deleteTask(id) {
+		setTaskList((lastTask) => {
+			return lastTask.filter((taskItem, index) => {
+				return index !== id;
+			});
+		});
+	}
 
-
-    return (
-        <div key={tasks.title}>
-            {tasks.map((task) => {
-               return (
-                        <p>
-                            <TaskCheck type='checkbox' id='cb'/>
-                            {task.title}
-                        </p>
-                    );
-            })}
-        </div>
-    );
-};
+	return (
+		<div>
+			<TaskForm onAdd={addTask} />
+			{taskList.map((taskItem, index) => {
+				return (
+					<TaskItem
+						key={index}
+						id={index}
+						content={taskItem}
+						onDelete={deleteTask}
+					/>
+				);
+			})}
+		</div>
+	);
+}
 
 export default TasksList;

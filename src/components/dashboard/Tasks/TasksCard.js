@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
 import next from '../../../images/right.png';
 
@@ -70,10 +70,21 @@ const TaskInput = styled.input`
 		box-shadow: inset 0 -3px 0 0 #ffd166;
 	}
 
-	&:checked + p {
+	&:checked {
 		text-decoration: line-through;
 		text-decoration-color: #505f98;
 	}
+`;
+
+const TaskItemContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	height: 56px;
+	align-items: center;
+	border-bottom: 1px solid #b0b8bc;
+	margin: 10px auto;
+	padding: 16px;
+	color: #111b47;
 `;
 
 const TaskForm = styled.form`
@@ -106,11 +117,74 @@ const AddBtn = styled.button`
 	background-color: #222f65;
 	color: #fff;
 	font-size: 2rem;
-
 	border-width: 0;
 `;
 
+function TaskFormFunc(props) {
+	const [task, setTask] = useState({
+		content: '',
+		complete: false,
+	});
+
+	function handleChange(event) {
+		const value = event.target.value;
+		setTask(value);
+	}
+
+	function submitTask(event) {
+		props.onAdd(task);
+		setTask(task);
+		event.preventDefault();
+	}
+
+	return (
+		<TaskForm className='item' action='/' method='post'>
+			<TaskInput
+				type='text'
+				name='content'
+				onChange={handleChange}
+				value={task.content}
+				autocomplete='off'
+				placeholder='type here'
+			/>
+			<AddBtn onClick={submitTask}>+</AddBtn>
+		</TaskForm>
+	);
+}
+
+function TaskItem(props) {
+	function handleClick() {
+		props.onDelete(props.id);
+	}
+	console.log(props.content);
+	return (
+		<form>
+			<TaskItemContainer>
+				<input type='checkbox' />
+				<TaskCheck onChange={handleClick}></TaskCheck>
+				<CardHeader>{props.content}</CardHeader>
+			</TaskItemContainer>
+		</form>
+	);
+}
+
 function TasksCard(props) {
+	const [tasks, setTasks] = useState([]);
+
+	function addTask(newTask) {
+		setTasks((prevItem) => {
+			return [...prevItem, newTask];
+		});
+	}
+
+	function deleteTask(id) {
+		setTasks((prevItem) => {
+			return prevItem.filter((taskItem, index) => {
+				return index !== id;
+			});
+		});
+	}
+
 	return (
 		<CardContainerMedium>
 			<HeaderRow>
@@ -120,7 +194,22 @@ function TasksCard(props) {
 					<img src={next} alt='next' />
 				</IconButton>
 			</HeaderRow>
-			<TaskForm className='item' action='/' method='post'>
+
+			<TaskFormFunc onAdd={addTask} />
+			{tasks.map((taskItem, index) => {
+				return (
+					console.log(taskItem, index),
+					(
+						<TaskItem
+							key={index}
+							id={index}
+							content={taskItem}
+							onDelete={deleteTask}
+						/>
+					)
+				);
+			})}
+			{/* <TaskForm className='item' action='/' method='post'>
 				<TaskInput
 					type='text'
 					name='newItem'
@@ -130,7 +219,7 @@ function TasksCard(props) {
 				<AddBtn type='submit' name='list' value={props.title}>
 					+
 				</AddBtn>
-			</TaskForm>
+			</TaskForm> */}
 		</CardContainerMedium>
 	);
 }
