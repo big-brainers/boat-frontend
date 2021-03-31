@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
-
 import LandingPage from './components/landing/LandingPage';
 import SignInPage from './components/landing/SignInPage';
 import SignUpPage from './components/landing/SignUpPage';
