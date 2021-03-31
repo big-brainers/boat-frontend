@@ -8,7 +8,7 @@ import NavPanel from './components/dashboard/NavPanel';
 import Dashboard from './components/dashboard/Dashboard';
 import Schedule from './components/dashboard/Schedule';
 import Logs from './components/dashboard/Logs';
-import Overview from './components/dashboard/Overview';
+import TasksCard from './components/dashboard/Tasks/TasksCard';
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -24,7 +24,9 @@ export default function App() {
 	return (
 		<>
 			<GlobalStyle />
-			<Router>
+			<TasksCard />
+
+			{/* <Router>
 				<GlobalStyle />
 				<Switch>
 					<Route exact path='/'>

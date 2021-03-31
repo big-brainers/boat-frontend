@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import next from '../../../images/right.png';
+import TaskForm from './TaskForm';
+import TaskItem from './TaskItem';
 
 const CardContainerMedium = styled.div`
 	width: 448px;
@@ -8,9 +10,7 @@ const CardContainerMedium = styled.div`
 	background: #ffffff;
 	box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
 	border-radius: 2px;
-	display: grid;
-	grid-template-columns: repeat(8, 40px 16px);
-	grid-template-rows: repeat(8, 64px auto);
+	overflow-y: scroll;
 `;
 
 const CardHeader = styled.p`
@@ -44,6 +44,7 @@ const IconButton = styled.button`
 	grid-column: 14;
 `;
 
+<<<<<<< HEAD
 const TaskRow = styled.div`
 	height: 56px;
 	align-items: center;
@@ -111,6 +112,27 @@ const AddBtn = styled.button`
 `;
 
 function TasksCard(props) {
+=======
+function TasksCard(props) {
+	const [taskList, setTaskList] = useState([]);
+	const [taskString, setTaskString] = useState(null);
+
+	function addTask(newTask) {
+		setTaskList((lastTask) => {
+			return [...lastTask, newTask];
+		});
+		setTaskString(taskString);
+	}
+
+	function deleteTask(id) {
+		setTaskList((lastTask) => {
+			return lastTask.filter((taskItem, index) => {
+				return index !== id;
+			});
+		});
+	}
+
+>>>>>>> 1c72c3c... style tasks card with material ui
 	return (
 		<CardContainerMedium>
 			<HeaderRow>
@@ -120,6 +142,7 @@ function TasksCard(props) {
 					<img src={next} alt='next' />
 				</IconButton>
 			</HeaderRow>
+<<<<<<< HEAD
 			<TaskForm className='item' action='/' method='post'>
 				<TaskInput
 					type='text'
@@ -131,6 +154,22 @@ function TasksCard(props) {
 					+
 				</AddBtn>
 			</TaskForm>
+=======
+
+			<div>
+				<TaskForm onAdd={addTask} />
+				{taskList.map((taskItem, index) => {
+					return (
+						<TaskItem
+							key={index}
+							id={index}
+							content={taskItem}
+							onDelete={deleteTask}
+						/>
+					);
+				})}
+			</div>
+>>>>>>> 1c72c3c... style tasks card with material ui
 		</CardContainerMedium>
 	);
 }
