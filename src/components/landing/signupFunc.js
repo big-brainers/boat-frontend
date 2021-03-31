@@ -237,7 +237,11 @@ const SignUpFunc = ({ submitForm }) => {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default SignUpFunc;
 =======
 export default SignUpFunc;
 >>>>>>> 3bf4c9d... consolidate merges, style landing, set up routes for landing pages
+=======
+export default SignUpFunc;
+>>>>>>> 59d9559... style welcome with grid
