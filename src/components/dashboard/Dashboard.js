@@ -1,9 +1,28 @@
+
 // import React, { useState } from 'react';
+
+import React, { useState } from 'react';
+import TasksForm from './Tasks/TasksForm';
+// import TasksList from './Tasks/TasksList';
+
 
 // import TasksForm from './Tasks/TasksForm';
 
-// // import TasksForm from './Tasks/TasksForm';
-// // import TasksList from './Tasks/TasksList';
+	return (
+		<div>
+			<NavPanel />
+			<div className='Tasks'>
+				<h2>Tasks</h2>
+				<TasksForm handleChange={handleChange} handleSubmit={handleSubmit} />
+				{/* <TasksList tasks={tasks} /> */}
+			</div>
+		</div>
+		// make onClick function which has a plus button that allows you to insert your todo into it
+		//have a form come up that lets you insert what you want and a submit button that keeps the input in the todo list
+		// have an onClick function with that checkbox that sets complete to true when clicked and false when unclicked
+		// when true, cross out the input
+	);
+};
 
 // const Dashboard = () => {
 // 	const [input, setInput] = useState('');

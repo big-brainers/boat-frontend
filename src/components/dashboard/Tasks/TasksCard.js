@@ -1,11 +1,9 @@
 import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
 import next from '../../../images/right.png';
-<<<<<<< HEAD
+
 import TaskForm from './TaskForm';
 import TaskItem from './TaskItem';
-=======
->>>>>>> 0f3bd8a... style tasks card
 
 const CardContainerMedium = styled.div`
 	width: 448px;
@@ -14,9 +12,6 @@ const CardContainerMedium = styled.div`
 	box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
 	border-radius: 2px;
 	overflow-y: scroll;
-	grid-column: ${(props) => props.column || '2'};
-	grid-row: ${(props) => props.row || '1'};
-	margin-top: 16px;
 `;
 
 const CardHeader = styled.p`
@@ -37,26 +32,6 @@ const HeaderRow = styled.nav`
 	grid-column: 1 / span 16;
 `;
 
-<<<<<<< HEAD
-function TasksCard(props) {
-	const [taskList, setTaskList] = useState([]);
-	const [taskString, setTaskString] = useState(null);
-
-	function addTask(newTask) {
-		setTaskList((lastTask) => {
-			return [...lastTask, newTask];
-		});
-		setTaskString(taskString);
-	}
-
-	function deleteTask(id) {
-		setTaskList((lastTask) => {
-			return lastTask.filter((taskItem, index) => {
-				return index !== id;
-			});
-		});
-	}
-=======
 const IconButton = styled.button`
 	height: 24px;
 	width: 24px;
@@ -135,14 +110,31 @@ const AddBtn = styled.button`
 
 	border-width: 0;
 `;
->>>>>>> 0f3bd8a... style tasks card
+
+function TasksCard(props) {
+	const [taskList, setTaskList] = useState([]);
+	const [taskString, setTaskString] = useState(null);
+
+	function addTask(newTask) {
+		setTaskList((lastTask) => {
+			return [...lastTask, newTask];
+		});
+		setTaskString(taskString);
+	}
+
+	function deleteTask(id) {
+		setTaskList((lastTask) => {
+			return lastTask.filter((taskItem, index) => {
+				return index !== id;
+			});
+		});
+	}
 
 	return (
 		<CardContainerMedium>
 			<HeaderRow>
 				<CardHeader>Tasks</CardHeader>
 			</HeaderRow>
-<<<<<<< HEAD
 
 			<div>
 				<TaskForm onAdd={addTask} />
@@ -157,7 +149,6 @@ const AddBtn = styled.button`
 					);
 				})}
 			</div>
-=======
 			<TaskForm className='item' action='/' method='post'>
 				<TaskInput
 					type='text'
@@ -169,7 +160,6 @@ const AddBtn = styled.button`
 					+
 				</AddBtn>
 			</TaskForm>
->>>>>>> 0f3bd8a... style tasks card
 		</CardContainerMedium>
 	);
 }
