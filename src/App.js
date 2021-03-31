@@ -4,10 +4,10 @@ import { createGlobalStyle } from 'styled-components';
 import LandingPage from './components/landing/LandingPage';
 import SignInPage from './components/landing/SignInPage';
 import SignUpPage from './components/landing/SignUpPage';
-import NavPanel from './dashboard/NavPanel';
-import Dashboard from './dashboard/Dashboard';
-import Schedule from './dashboard/Schedule';
-import Logs from './dashboard/Logs';
+import NavPanel from './components/dashboard/NavPanel';
+import Dashboard from './components/dashboard/Dashboard';
+import Schedule from './components/dashboard/Schedule';
+import Logs from './components/dashboard/Logs';
 
 const GlobalStyle = createGlobalStyle`
 body {
