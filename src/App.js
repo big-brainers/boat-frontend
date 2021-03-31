@@ -8,7 +8,7 @@ import NavPanel from './components/dashboard/NavPanel';
 import Dashboard from './components/dashboard/Dashboard';
 import Schedule from './components/dashboard/Schedule';
 import Logs from './components/dashboard/Logs';
-import QuickEntry from './components/dashboard/entries/QuickEntry';
+import Welcome from './components/dashboard/Welcome';
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -16,9 +16,6 @@ body {
 	margin: 0;
 	background-color: #e5e7f0;
 	height: 100vh;
-	// display: grid;
-	// grid-template-columns: 448px 2fr;
-	// grid-template-rows: auto
 }
 `;
 
@@ -26,7 +23,7 @@ export default function App() {
 	return (
 		<>
 			<GlobalStyle />
-			<QuickEntry />
+			<Welcome />
 
 			{/* <Router>
 				<GlobalStyle />
