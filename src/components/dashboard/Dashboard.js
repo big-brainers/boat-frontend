@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import TasksForm from './Tasks/TasksForm';
 import TasksList from './Tasks/TasksList';
+import NavPanel from './NavPanel';
+import './CSS/Navpanel.css'
 
 const Dashboard = () => {
 	const [input, setInput] = useState('');
@@ -18,7 +20,11 @@ const Dashboard = () => {
 			complete: true,
 		},
 	]);
-
+	
+	const handleChange = (e) => {
+		setInput(e.target.value);
+	};
+	
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setTasks([
@@ -29,18 +35,18 @@ const Dashboard = () => {
 			},
 		]);
 	};
-
-	const handleChange = (e) => {
-		setInput(e.target.value);
-	};
+	
 
 	return (
 		<div>
+			<NavPanel />
 			<div className='Tasks'>
 				<h2>Tasks</h2>
-                <TasksForm handleChange={handleChange} handleSubmit={handleSubmit} />
-                <TasksList tasks={tasks} />
-				
+				<TasksForm
+					handleChange={handleChange}
+					handleSubmit={handleSubmit}
+				/>
+				<TasksList tasks={tasks} />
 			</div>
 		</div>
 		// make onClick function which has a plus button that allows you to insert your todo into it

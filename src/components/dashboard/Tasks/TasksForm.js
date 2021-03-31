@@ -2,10 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const TaskCheck = styled.input`
-    margin: 24px;
-
-`;
 
 const TaskItem = styled.input`
     border: none;
@@ -17,12 +13,18 @@ const TaskContainer = styled.div`
 
 `
 
+
 const TasksForm = ({ handleChange, handleSubmit }) => {
+	
+	
     return (
 			<form onSubmit={handleSubmit}>
 				<TaskContainer>
-					<TaskCheck type='checkbox' />
-					<TaskItem onChange={handleChange} placeholder='Add Tasks' required />
+					<TaskItem
+						onChange={handleChange}
+						placeholder='Add Tasks'
+						required
+					/>
 					<button>save</button>
 				</TaskContainer>
 			</form>
