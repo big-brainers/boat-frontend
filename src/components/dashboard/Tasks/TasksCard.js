@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import next from '../images/right.png';
+import next from '../../../images/right.png';
 
 const CardContainerMedium = styled.div`
 	width: 448px;
@@ -46,24 +46,68 @@ const IconButton = styled.button`
 
 const TaskRow = styled.div`
 	height: 56px;
-	display: flex;
 	align-items: center;
 	border-bottom: 1px solid #b0b8bc;
-	grid-column: 1 / 16;
 `;
 
 const TaskCheck = styled.input`
-	margin: 24px;
+	margin: 20px;
 `;
 
-const TaskTitle = styled.input`
-	grid-column: 3;
+const TaskInput = styled.input`
 	font-family: 'Inconsolata', monospace;
-	font-size: 1rem;
-	color: #111b47;
-	height: 48px;
 	width: 372px;
+	text-align: center;
+	height: 60px;
+	top: 10px;
 	border: none;
+	background: transparent;
+	font-size: 20px;
+	font-weight: 200;
+
+	&:focus {
+		outline: none;
+		box-shadow: inset 0 -3px 0 0 #ffd166;
+	}
+
+	&:checked + p {
+		text-decoration: line-through;
+		text-decoration-color: #505f98;
+	}
+`;
+
+const TaskForm = styled.form`
+	min-height: 70px;
+	width: 416px;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #f1f1f1;
+
+	&.item {
+		text-align: center;
+		margin-left: 20px;
+	}
+
+	&:last-child {
+		border-bottom: 0;
+	}
+
+	&::placeholder {
+		color: grey;
+		opacity: 1;
+	}
+`;
+
+const AddBtn = styled.button`
+	min-height: 48px;
+	width: 48px;
+	border-radius: 50%;
+	border-color: transparent;
+	background-color: #222f65;
+	color: #fff;
+	font-size: 2rem;
+
+	border-width: 0;
 `;
 
 function TasksCard(props) {
@@ -76,10 +120,17 @@ function TasksCard(props) {
 					<img src={next} alt='next' />
 				</IconButton>
 			</HeaderRow>
-			<TaskRow>
-				<TaskCheck type='checkbox'></TaskCheck>
-				<TaskTitle placeholder='item' />
-			</TaskRow>
+			<TaskForm className='item' action='/' method='post'>
+				<TaskInput
+					type='text'
+					name='newItem'
+					autocomplete='off'
+					placeholder='item'
+				/>
+				<AddBtn type='submit' name='list' value={props.title}>
+					+
+				</AddBtn>
+			</TaskForm>
 		</CardContainerMedium>
 	);
 }
