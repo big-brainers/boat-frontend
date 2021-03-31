@@ -36,6 +36,9 @@ export default function App() {
 					<Route path='/signup'>
 						<SignUpPage />
 					</Route>
+          <Route to='/dashboard'>
+            <Dashboard />
+          </Route>
 				</Switch>
 			</Router>
 		</>
