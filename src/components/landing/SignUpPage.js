@@ -1,10 +1,12 @@
 import React, { useState, Fragment } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
-import UseForm from '../landing-components/UseForm';
 import SignUpFunc from './SignUpFunc';
 import SignInPage from './SignInPage';
 
 const SignInNav = styled.nav`
+	margin: 0 auto;
+	padding: 16px 24px;
 	height: 72px;
 	font-size: 3rem;
 
@@ -25,9 +27,9 @@ function SignUpPage(props) {
 	return (
 		<Fragment>
 			<SignInNav>
-				<a className='nav-tag' href=''>
+				<Link className='nav-tag' to='/'>
 					BOAT
-				</a>
+				</Link>
 			</SignInNav>
 			<div>
 				{!isSubmitted ? (

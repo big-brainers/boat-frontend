@@ -2,10 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import SignUpPage from './SignUpPage';
 import styled from 'styled-components';
-
-import google from '../images/google-logo.png';
+import google from '../../images/google-logo.png';
 
 const SignInNav = styled.nav`
+	margin: 0 auto;
+	padding: 16px 24px;
 	height: 72px;
 	font-size: 3rem;
 
@@ -84,9 +85,9 @@ function SignInPage() {
 	return (
 		<>
 			<SignInNav>
-				<a className='nav-tag' href=''>
+				<Link className='nav-tag' to='/'>
 					BOAT
-				</a>
+				</Link>
 			</SignInNav>
 
 			<SignUpContainer>

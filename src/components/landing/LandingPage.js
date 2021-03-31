@@ -1,10 +1,7 @@
 import React, { Fragment } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
-// import Nav from '../../landing-components/Nav';
 import sailboat from '../../images/sailboat.png';
-// import LearnMore from '../../landing-components/LearnMore';
-// import JoinUs from '../../landing-components/JoinUs';
-// import blobArt from "../images/blob.png";
 
 const LandingMain = styled.main`
 	display: grid;
@@ -36,12 +33,16 @@ function Hero() {
 				organized and keep in touch with amazing advocates, like yourself.
 			</HeaderSix>
 			<ButtonDiv padding='0'>
-				<Button className='primary' margin='0'>
-					Join Us
-				</Button>
-				<Button className='tertiary' margin='0 8px'>
-					Learn More
-				</Button>
+				<Link to='/signup'>
+					<Button className='primary' margin='0'>
+						Join Us
+					</Button>
+				</Link>
+				<a href='https://github.com/big-brainers' target='_blank'>
+					<Button className='tertiary' margin='0 8px'>
+						Learn More
+					</Button>
+				</a>
 			</ButtonDiv>
 		</HeroDiv>
 	);
@@ -83,6 +84,10 @@ const ButtonDiv = styled.div`
 	padding: ${(props) => props.padding || '24px'};
 	margin: 0 auto;
 	display: inline-flex;
+
+	& a {
+		margin: 0;
+	}
 `;
 
 const Button = styled.button`
@@ -91,8 +96,9 @@ const Button = styled.button`
 	font-family: 'Inconsolata', monospace;
 	font-size: 1rem;
 	border-radius: 2px;
-	margin: ${(props) => props.margin || '0 16px'};
+	margin: ${(props) => props.margin || '0 16px 16px'};
 	border: 1px solid #111b47;
+	font-decoration: none;
 
 	&.primary {
 		background-color: #111b47;
@@ -109,9 +115,14 @@ function LandingNav() {
 	return (
 		<LandingNavStyle>
 			<a className='nav-tag'>BOAT</a>
+
 			<ButtonDiv>
-				<Button className='tertiary'>Sign Up</Button>
-				<Button className='primary'>Sign In</Button>
+				<Link to='/signup'>
+					<Button className='tertiary'>Sign Up</Button>
+				</Link>
+				<Link to='/signin'>
+					<Button className='primary'>Sign In</Button>
+				</Link>
 			</ButtonDiv>
 		</LandingNavStyle>
 	);
