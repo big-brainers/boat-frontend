@@ -1,20 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
-import LandingPage from './components/landing/LandingPage';
-import SignInPage from './components/landing/SignInPage';
-import SignUpPage from './components/landing/SignUpPage';
-import NavPanel from './dashboard/NavPanel';
-import Dashboard from './dashboard/Dashboard';
-import Schedule from './dashboard/Schedule';
-import Logs from './dashboard/Logs';
-// import SignIn from './landing-components/signin';
-
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import LandingPage from './landing-components/LandingPage';
-import SignInPage from './components/SignInPage';
-import SignUpPage from './components/SignUpPage';
-import Welcome from './components/Welcome';
+// import LandingPage from './components/landing/LandingPage';
+// import SignInPage from './components/landing/SignInPage';
+// import SignUpPage from './components/landing/SignUpPage';
+// import NavPanel from './components/dashboard/NavPanel';
+// import Dashboard from './components/dashboard/Dashboard';
+// import Schedule from './components/dashboard/Schedule';
+// import Logs from './components/dashboard/Logs';
+import Calendar from './components/calendar/Calendar';
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -32,11 +26,8 @@ export default function App() {
 	return (
 		<>
 			<Router>
-				<Link to='/'>Home</Link>
-				<Link to='/signin'>Sign In</Link>
-				<Link to='/signup'>Sign Up</Link>
-
-				<GlobalStyle />
+				<Calendar />
+				{/* <GlobalStyle />
 				<Switch>
 					<Route exact path='/'>
 						<LandingPage />
@@ -47,7 +38,7 @@ export default function App() {
 					<Route path='/signup'>
 						<SignUpPage />
 					</Route>
-				</Switch>
+				</Switch> */}
 			</Router>
 			<Welcome />
 		</>
