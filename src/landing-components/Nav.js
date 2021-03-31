@@ -1,7 +1,5 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import SignUp from './signup';
-import SignIn from './signin';
 import styled from 'styled-components';
 
 const NavBar = styled.nav`
@@ -30,12 +28,12 @@ const Nav = () => {
 				<h2> BOAT </h2>
 				{/* <button onClick="">Sign In </button>
         <button onClick="">Sign Up </button> */}
-				<Route path='/signIn'>
+				{/* <Route path='/signIn'>
 					<SignIn />
 				</Route>
 				<Route path='/signUp'>
 					<SignUp />
-				</Route>
+				</Route> */}
 			</NavBar>
 		</div>
 	);

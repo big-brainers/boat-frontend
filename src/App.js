@@ -26,6 +26,10 @@ export default function App() {
 		<>
 			<GlobalStyle />
 			<Router>
+				{/* <Link to='/'>Home</Link>
+				<Link to='/signin'>Sign In</Link>
+				<Link to='/signup'>Sign Up</Link> */}
+
 				<GlobalStyle />
 				<Switch>
 					<Route exact path='/'>
@@ -42,6 +46,7 @@ export default function App() {
 					</Route>
 				</Switch>
 			</Router>
+			{/* <TasksCard /> */}
 		</>
 	);
 }
