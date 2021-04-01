@@ -1,8 +1,40 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import pie from '../../images/pie-gray.png';
 import sheet from '../../images/sheet-gray.png';
-import styled from 'styled-components';
-import calender from '../../images/schedule.png';
+import schedule from '../../images/schedule-gray.png';
+
+const DashboardNavStyle = styled.nav`
+	margin: 0 auto;
+	padding: 16px 24px;
+	// display: flex;
+	// flex-grow: 3;
+	width: 256px;
+	align-items: center;
+	justify-content: space-between;
+	max-height: 100vh;
+	font-size: 3rem;
+	background: white;
+	box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
+	text-align: center;
+	.nav-tag {
+		color: #222f65;
+		font-weight: 700;
+		text-decoration: none;
+		display: block;
+		margin: 0 auto;
+		align-content: flex-start;
+	}
+`;
+
+const LinkStyle = styled.button`
+	font-family: 'Inconsolata', monospace;
+	display: block;
+	border: none
+	margin: 0 auto;
+	
+`;
 
 const hoverColor = '#929ECC';
 const NavText = '37447E';
@@ -53,39 +85,44 @@ const ProfileNav = styled.div`
 
 const NavPanel = () => {
 	return (
-		<NavBox>
-			<boath1>BOAT</boath1>
+		<DashboardNavStyle>
+			<a className='nav-tag'>BOAT</a>
+			<LinkStyle>Dashboard</LinkStyle>
+		</DashboardNavStyle>
 
-			<LinksNavBar>
-				<img src={pie} alt='' />
-				<Link className='link' to='/dashboard'>
-					Dashboard
-				</Link>
-			</LinksNavBar>
+		// <NavBox>
+		// 	<boath1>BOAT</boath1>
 
-			<LinksNavBar>
-				<img src={calender} alt='' />
-				<Link className='link' to='/schedule'>
-					Schedule
-				</Link>
-			</LinksNavBar>
+		// 	<LinksNavBar>
+		// 		<img src={pie} alt='' />
+		// 		<Link className='link' to='/dashboard'>
+		// 			Dashboard
+		// 		</Link>
+		// 	</LinksNavBar>
 
-			<LinksNavBar>
-				<img src={sheet} alt='' />
-				<Link className='link' to='/logs'>
-					Logs
-				</Link>
-			</LinksNavBar>
+		// 	<LinksNavBar>
+		// 		<img src={schedule} alt='' />
+		// 		<Link className='link' to='/schedule'>
+		// 			Schedule
+		// 		</Link>
+		// 	</LinksNavBar>
 
-			<ProfileNav>
-				<p>profile</p>
-			</ProfileNav>
+		// 	<LinksNavBar>
+		// 		<img src={sheet} alt='' />
+		// 		<Link className='link' to='/logs'>
+		// 			Logs
+		// 		</Link>
+		// 	</LinksNavBar>
 
-			<div>
-				{/* Another div for the link to sign out which should take you 
-                back to the homepage and disconnect you from the database */}
-			</div>
-		</NavBox>
+		// 	<ProfileNav>
+		// 		<p>profile</p>
+		// 	</ProfileNav>
+
+		// 	<div>
+		// 		{/* Another div for the link to sign out which should take you
+		//         back to the homepage and disconnect you from the database */}
+		// 	</div>
+		// </NavBox>
 	);
 };
 
