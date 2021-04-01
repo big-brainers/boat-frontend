@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
-import SignUpFunc from './signupFunc';
+import SignUpFunc from './SignUpFunc';
 import SignInPage from './SignInPage';
 
 const SignInNav = styled.nav`
@@ -17,7 +17,7 @@ const SignInNav = styled.nav`
 	}
 `;
 
-function SignUpPage(props) {
+function SignUpPage() {
 	const [isSubmitted, setIsSubmitted] = useState(false);
 
 	function submitSignUp() {
@@ -33,7 +33,7 @@ function SignUpPage(props) {
 			</SignInNav>
 			<div>
 				{!isSubmitted ? (
-					<SignUpFunc submitSignUp={submitSignUp} />
+					<SignUpFunc handleSubmit={submitSignUp} /> //<-- handleSubmit prop?
 				) : (
 					<SignInPage />
 				)}

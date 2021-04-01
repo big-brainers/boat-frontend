@@ -2,9 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import validate from './validate';
-import UseForm from './UseForm';
+import useForm from './useForm';
 import SignInPage from './SignInPage';
-
 import google from '../../images/google-logo.png';
 
 const HeaderOne = styled.h1`
@@ -83,7 +82,7 @@ const Required = styled.div`
 `;
 
 const SignUpFunc = ({ submitForm }) => {
-	const { handleChange, handleSubmit, values, errors } = UseForm(
+	const { handleChange, handleSubmit, values, errors } = useForm(
 		submitForm,
 		validate
 	);
@@ -166,14 +165,14 @@ const SignUpFunc = ({ submitForm }) => {
 					</PrimaryButton>
 
 					<div className='new-member'>
-						<Router>
-							Already have an account <Link to='/signin'>Sign In</Link>
-							<Switch>
+						{/* <Router> */}
+						Already have an account <Link to='/signin'>Sign In</Link>
+						{/* <Switch>
 								<Route path='/signin'>
 									<SignInPage />
 								</Route>
 							</Switch>
-						</Router>
+						</Router> */}
 					</div>
 				</form>
 			</SignUpContainer>

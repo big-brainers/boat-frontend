@@ -1,7 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import sailboatsmall from '../../images/sailboat-mobile.png';
 import NavPanel from './NavPanel';
+import APIurl from '../../config';
+import Overview from './Overview';
+import axios from 'axios';
 
 const NavBox = styled.nav`
 	width: 256px;
@@ -43,12 +46,39 @@ const LightBlueText = styled.p`
 `;
 
 function Welcome(props) {
+	const [users, setUsers] = useState([]);
+	useEffect(() => {
+		axios(`${APIurl}/users`)
+			.then((res) => {
+				let userArr = res.data[0];
+				setUsers(userArr.email);
+			})
+			.catch(console.error);
+	}, []);
+
+	if (!users) {
+		return (
+			<DashboardMain>
+				<NavPanel />
+				<DashboardContainer>
+					<SmallLogo src={sailboatsmall} alt='small sailboat' />
+					<HeaderOne>Welcome aboard!</HeaderOne>
+					<LightBlueText>Click on your Dashboard to get started.</LightBlueText>
+					<LightBlueText>Anchors aweigh!</LightBlueText>
+				</DashboardContainer>
+			</DashboardMain>
+		);
+	}
+
 	return (
 		<DashboardMain>
 			<NavPanel />
 			<DashboardContainer>
 				<SmallLogo src={sailboatsmall} alt='small sailboat' />
-				<HeaderOne>Welcome aboard!</HeaderOne>
+				<HeaderOne>
+					Welcome aboard!
+					<Overview email={users} />;
+				</HeaderOne>
 				<LightBlueText>Click on your Dashboard to get started.</LightBlueText>
 				<LightBlueText>Anchors aweigh!</LightBlueText>
 			</DashboardContainer>
