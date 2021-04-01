@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import TasksCard from './Tasks/TasksCard';
 import QuickEntry from './entries/QuickEntry';
+import NavPanel from '../dashboard/NavPanel';
 
 const CalBox = styled.figure`
 	background: #ffffff;
@@ -40,7 +41,7 @@ const DashboardContainer = styled.section`
 function Overview(props) {
 	return (
 		<DashboardMain>
-			<NavBox />
+			<NavPanel />
 			<DashboardContainer>
 				<TasksCard />
 				<QuickEntry />

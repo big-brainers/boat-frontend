@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import sailboatsmall from '../../images/sailboat-mobile.png';
+import NavPanel from './NavPanel';
 
 const NavBox = styled.nav`
 	width: 256px;
@@ -44,7 +45,7 @@ const LightBlueText = styled.p`
 function Welcome(props) {
 	return (
 		<DashboardMain>
-			<NavBox />
+			<NavPanel />
 			<DashboardContainer>
 				<SmallLogo src={sailboatsmall} alt='small sailboat' />
 				<HeaderOne>Welcome aboard!</HeaderOne>

@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import pie from '../../images/pie-gray.png';
 import sheet from '../../images/sheet-gray.png';
@@ -38,11 +37,8 @@ const Boath1 = styled.h1`
 const NavBox = styled.div`
 	width: 256px;
 	height: 1024px;
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	background: white;
 
+	background: white;
 	box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
 	text-align: center;
 `;
@@ -51,38 +47,36 @@ const ProfileNav = styled.div`
 	position: absolute;
 	bottom: 50px;
 	right: 1px;
-	
 `;
 
 // const TaskBox = styled.
 
-const NavPanel = () =>  {
-
+const NavPanel = () => {
 	return (
 		<NavBox>
 			<boath1>BOAT</boath1>
-			
+
 			<LinksNavBar>
-					<img src={pie} alt='' />
-					<Link className='link' to='/dashboard'>
-						Dashboard
-					</Link>
+				<img src={pie} alt='' />
+				<Link className='link' to='/dashboard'>
+					Dashboard
+				</Link>
 			</LinksNavBar>
-			
+
 			<LinksNavBar>
-					<img src={calender} alt=''/>	
-					<Link className='link' to='/schedule'>
-						Schedule
-					</Link>
+				<img src={calender} alt='' />
+				<Link className='link' to='/schedule'>
+					Schedule
+				</Link>
 			</LinksNavBar>
-			
+
 			<LinksNavBar>
-					<img src={sheet} alt='' />			
-					<Link className='link' to='/logs'>
-						Logs
-					</Link>
+				<img src={sheet} alt='' />
+				<Link className='link' to='/logs'>
+					Logs
+				</Link>
 			</LinksNavBar>
-			
+
 			<ProfileNav>
 				<p>profile</p>
 			</ProfileNav>
@@ -93,6 +87,6 @@ const NavPanel = () =>  {
 			</div>
 		</NavBox>
 	);
-}
+};
 
 export default NavPanel;

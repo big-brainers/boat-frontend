@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
-
 import LandingPage from './components/landing/LandingPage';
 import SignInPage from './components/landing/SignInPage';
 import SignUpPage from './components/landing/SignUpPage';
@@ -10,6 +9,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import Schedule from './components/dashboard/Schedule';
 import Logs from './components/dashboard/Logs';
 import Overview from './components/dashboard/Overview';
+import Welcome from './components/dashboard/Welcome';
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -25,12 +25,10 @@ export default function App() {
 	return (
 		<>
 			<GlobalStyle />
-			<Router>
-				{/* <Link to='/'>Home</Link>
-				<Link to='/signin'>Sign In</Link>
-				<Link to='/signup'>Sign Up</Link> */}
+			{/* <Router> */}
+			<Overview />
 
-				<GlobalStyle />
+			{/* <GlobalStyle />
 				<Switch>
 					<Route exact path='/'>
 						<LandingPage />
@@ -45,8 +43,7 @@ export default function App() {
 						<Dashboard />
 					</Route>
 				</Switch>
-			</Router>
-			{/* <TasksCard /> */}
+			</Router> */}
 		</>
 	);
 }
