@@ -8,7 +8,7 @@ import NavPanel from './components/dashboard/NavPanel';
 import Dashboard from './components/dashboard/Dashboard';
 import Schedule from './components/dashboard/Schedule';
 import Logs from './components/dashboard/Logs';
-import TasksCard from './components/dashboard/tasks/TasksCard';
+import TasksCard from './components/dashboard/Tasks/TasksCard';
 
 const GlobalStyle = createGlobalStyle`
 body {
