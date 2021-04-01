@@ -51,6 +51,7 @@ function Welcome(props) {
 		axios(`${APIurl}/users`)
 			.then((res) => {
 				let userArr = res.data[0];
+				console.log(userArr);
 				setUsers(userArr.email);
 			})
 			.catch(console.error);
@@ -77,7 +78,7 @@ function Welcome(props) {
 				<SmallLogo src={sailboatsmall} alt='small sailboat' />
 				<HeaderOne>
 					Welcome aboard!
-					<Overview email={users} />;
+					<Overview email={users} />
 				</HeaderOne>
 				<LightBlueText>Click on your Dashboard to get started.</LightBlueText>
 				<LightBlueText>Anchors aweigh!</LightBlueText>
