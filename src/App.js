@@ -25,7 +25,8 @@ export default function App() {
 	return (
 		<>
 			<GlobalStyle />
-			<Router>
+			<Route path='/' component={Welcome} />
+			{/* <Router>
 				<GlobalStyle />
 				<Switch>
 					<Route exact path='/'>
@@ -37,11 +38,11 @@ export default function App() {
 					<Route path='/signup'>
 						<SignUpPage />
 					</Route>
-					<Route to='/dashboard'>
-						<Dashboard />
+					<Route to='/welcome'>
+						<Welcome />
 					</Route>
 				</Switch>
-			</Router>
+			</Router> */}
 		</>
 	);
 }

@@ -40,14 +40,15 @@ const DashboardContainer = styled.section`
 
 function Overview(props) {
 	return (
-		<DashboardMain>
-			<NavPanel />
-			<DashboardContainer>
-				<TasksCard />
-				<QuickEntry />
-				<CalBox />
-			</DashboardContainer>
-		</DashboardMain>
+		// <DashboardMain>
+		// 	<NavPanel />
+		<h1>{props.email}</h1>
+		// 	<DashboardContainer>
+		// 		<TasksCard />
+		// 		<QuickEntry />
+		// 		<CalBox />
+		// 	</DashboardContainer>
+		// </DashboardMain>
 	);
 }
 
