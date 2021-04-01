@@ -9,6 +9,8 @@ const CardContainerSmall = styled.div`
 	background: #ffffff;
 	box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
 	border-radius: 2px;
+	grid-column: ${(props) => props.column || '2'};
+	grid-row: ${(props) => props.row || '3'};
 `;
 
 const CardHeader = styled.p`

@@ -11,6 +11,9 @@ const CardContainerMedium = styled.div`
 	box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
 	border-radius: 2px;
 	overflow-y: scroll;
+	grid-column: ${(props) => props.column || '2'};
+	grid-row: ${(props) => props.row || '1'};
+	margin-top: 16px;
 `;
 
 const CardHeader = styled.p`

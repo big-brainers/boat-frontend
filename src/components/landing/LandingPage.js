@@ -1,17 +1,17 @@
 import React, { Fragment } from 'react';
+import { motion } from 'framer-motion';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
-import sailboat from '../../images/sailboat.png';
+import sailboat from '../../images/sailboat-desktop.png';
 
 const LandingMain = styled.main`
 	display: grid;
 	grid-template-columns: 3fr 1fr;
-	width: 635px;
-	height: 968px;
 `;
 
 const HeroDiv = styled.div`
-	padding: 60px 0 60px 60px;
+	padding: 60px;
+	width: 50vw;
 `;
 
 const HeaderOne = styled.h1`
@@ -19,9 +19,9 @@ const HeaderOne = styled.h1`
 `;
 
 const HeaderSix = styled.h6`
-	font-size: 1rem;
+	font-size: 1.5rem;
 	color: #505f98;
-	line-height: 1.5rem;
+	line-height: 2.2rem;
 `;
 
 function Hero() {
@@ -35,30 +35,48 @@ function Hero() {
 			</HeaderSix>
 			<ButtonDiv padding='0'>
 				<Link to='/signup'>
-					<Button className='primary' margin='0'>
+					<Button
+						className='primary'
+						width='348px'
+						size='1.5rem'
+						margin='0'
+						height='56px'>
 						Join Us
 					</Button>
 				</Link>
-				<a href='https://github.com/big-brainers' target='_blank'>
-					<Button className='tertiary' margin='0 8px'>
-						Learn More
-					</Button>
-				</a>
 			</ButtonDiv>
 		</HeroDiv>
 	);
 }
 
-const HeroPic = styled.figure`
+const HeroPicStyle = styled.figure`
 	margin: 0 auto;
-	padding: 80px;
-	width: 40vw;
+	text-align: center;
+	padding: 40px;
+	width: 20vw;
 `;
 
 const Boat = styled.img`
-	width: 800px;
+	width: 300px;
 	filter: drop-shadow(22px 13px 4px rgba(0, 0, 0, 0.25));
 `;
+
+function HeroPic() {
+	return (
+		<motion.div
+			initial={{ scale: 0 }}
+			animate={{ rotate: 360, scale: 1 }}
+			transition={{
+				type: 'spring',
+				stiffness: 260,
+				damping: 20,
+			}}>
+			<HeroPicStyle>
+				<Boat src={sailboat} alt='sailboat'></Boat>
+			</HeroPicStyle>
+		</motion.div>
+	);
+}
 
 const LandingNavStyle = styled.nav`
 	margin: 0 auto;
@@ -92,10 +110,10 @@ const ButtonDiv = styled.div`
 `;
 
 const Button = styled.button`
-	width: 128px;
-	height: 32px;
+	width: ${(props) => props.width || '128px'};
+	height: ${(props) => props.height || '32px'};
 	font-family: 'Inconsolata', monospace;
-	font-size: 1rem;
+	font-size: ${(props) => props.size || '1rem'};
 	border-radius: 2px;
 	margin: ${(props) => props.margin || '0 16px 16px'};
 	border: 1px solid #111b47;
@@ -108,8 +126,8 @@ const Button = styled.button`
 
 	&.tertiary {
 		color: #222f65;
-		background-color: #fff;
-		border: none;
+		background-color: #e5e7f0;
+		border: ${(props) => props.border || 'none'};
 	}
 `;
 
@@ -172,9 +190,7 @@ function LandingPage() {
 			<LandingNav />
 			<LandingMain>
 				<Hero />
-				<HeroPic>
-					<Boat src={sailboat} alt='sailboat'></Boat>
-				</HeroPic>
+				<HeroPic />
 			</LandingMain>
 			<Footer />
 		</Fragment>
