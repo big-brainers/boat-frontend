@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
+
 import LandingPage from './components/landing/LandingPage';
 import SignInPage from './components/landing/SignInPage';
 import SignUpPage from './components/landing/SignUpPage';
@@ -8,7 +9,7 @@ import NavPanel from './components/dashboard/NavPanel';
 import Dashboard from './components/dashboard/Dashboard';
 import Schedule from './components/dashboard/Schedule';
 import Logs from './components/dashboard/Logs';
-import TasksCard from './components/dashboard/Tasks/TasksCard';
+import Overview from './components/dashboard/Overview';
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -24,9 +25,7 @@ export default function App() {
 	return (
 		<>
 			<GlobalStyle />
-			<TasksCard />
-
-			{/* <Router>
+			<Router>
 				<GlobalStyle />
 				<Switch>
 					<Route exact path='/'>

@@ -8,6 +8,7 @@ const LandingMain = styled.main`
 	display: grid;
 	grid-template-columns: 3fr 1fr;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	width: 635px;
 	height: 968px;
@@ -17,6 +18,8 @@ const LandingMain = styled.main`
 	width: 635px;
 	height: 968px;
 >>>>>>> 6c6b1e6... initiated Calendar component, CalendarCard, & GoToSchedule. Minimal styling started
+=======
+>>>>>>> b8b446a... add framer motion to landing page
 `;
 
 const HeroDiv = styled.div`
