@@ -26,7 +26,9 @@ body {
 export default function App(props) {
 	return (
 		<>
-			<Router>
+			<GlobalStyle />
+			<Route path='/' component={Welcome} />
+			{/* <Router>
 				<GlobalStyle />
 				<Switch>
 					<Route exact path='/' render={LandingPage} />
