@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import TasksCard from './tasks/TasksCard';
+import TasksCard from './Tasks/TasksCard';
 import QuickEntry from './entries/QuickEntry';
 
 const CalBox = styled.figure`

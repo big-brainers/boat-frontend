@@ -1,9 +1,6 @@
 import './CSS/Navpanel.css';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 0c84e95... Dashboard css tweaks
+
 import pie from '../../images/pie-gray.png';
 import sheet from '../../images/sheet-gray.png';
 import styled from 'styled-components';
@@ -22,7 +19,7 @@ const LinksNavBar = styled.div`
 	width: 181px;
 	& .link {
 		text-decoration: none;
-		color: ${NavText}
+		color: ${NavText};
 	}
 	&:hover {
 		background-color: ${hoverColor};
@@ -36,21 +33,11 @@ const logo = styled.img`
 `;
 const boath1 = styled.h1`
 	text-align: center;
-`
-<<<<<<< HEAD
-=======
->>>>>>> 999b763... rebase
-=======
->>>>>>> 0c84e95... Dashboard css tweaks
-
+`;
 
 export default function App() {
 	return (
 		<div className='leftNavBox'>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 0c84e95... Dashboard css tweaks
 			<boath1>BOAT</boath1>
 			<LinksNavBar>
 				<logo>
@@ -66,22 +53,18 @@ export default function App() {
 				</Link>
 			</LinksNavBar>
 			<LinksNavBar>
-				<logo>				
+				<logo>
 					<img src={sheet} alt='' />
 				</logo>
 				<Link className='link' to='/logs'>
 					Logs
 				</Link>
 			</LinksNavBar>
-<<<<<<< HEAD
-=======
 			<h1>BOAT</h1>
 			<Link to='/dashboard'>Dashboard</Link>
 			<Link to='/schedule'>Schedule</Link>
 			<Link to='/logs'>Logs</Link>
->>>>>>> 999b763... rebase
-=======
->>>>>>> 0c84e95... Dashboard css tweaks
+
 			{/* Each one of these titles has to be enclosed in Link tags to set up routes for them.
             They are also going to need their own components.
             Make a main area for the routes */}

@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import next from '../../../images/right.png';
-
 import TaskForm from './TaskForm';
 import TaskItem from './TaskItem';
 
@@ -80,27 +79,27 @@ const TaskInput = styled.input`
 	}
 `;
 
-const TaskForm = styled.form`
-	min-height: 70px;
-	width: 416px;
-	display: flex;
-	align-items: center;
-	border-bottom: 1px solid #f1f1f1;
+// const TaskForm = styled.form`
+// 	min-height: 70px;
+// 	width: 416px;
+// 	display: flex;
+// 	align-items: center;
+// 	border-bottom: 1px solid #f1f1f1;
 
-	&.item {
-		text-align: center;
-		margin-left: 20px;
-	}
+// 	&.item {
+// 		text-align: center;
+// 		margin-left: 20px;
+// 	}
 
-	&:last-child {
-		border-bottom: 0;
-	}
+// 	&:last-child {
+// 		border-bottom: 0;
+// 	}
 
-	&::placeholder {
-		color: grey;
-		opacity: 1;
-	}
-`;
+// 	&::placeholder {
+// 		color: grey;
+// 		opacity: 1;
+// 	}
+// `;
 
 const AddBtn = styled.button`
 	min-height: 48px;

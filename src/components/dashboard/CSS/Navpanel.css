@@ -1,37 +1,21 @@
 .leftNavBox {
-  width: 256px;
-  height: 1024px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  background: white;
-<<<<<<< HEAD
-<<<<<<< HEAD
-  box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
-  text-align: center;
-=======
-  box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06)
->>>>>>> 999b763... rebase
-=======
-  box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
-  text-align: center;
->>>>>>> 0c84e95... Dashboard css tweaks
+	width: 256px;
+	height: 1024px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background: white;
+
+	box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
+	text-align: center;
 }
 
 .Tasks {
-  position: absolute;
-  right: 300px;
-  width: 445px;
-  height: 584px;
-  background: white;
-  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
-  border-radius: 2px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-  
-=======
->>>>>>> 999b763... rebase
-=======
-  
->>>>>>> 0c84e95... Dashboard css tweaks
+	position: absolute;
+	right: 300px;
+	width: 445px;
+	height: 584px;
+	background: white;
+	box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
+	border-radius: 2px;
 }
