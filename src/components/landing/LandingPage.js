@@ -109,6 +109,7 @@ const Button = styled.button`
 	&.tertiary {
 		color: #222f65;
 		background-color: #fff;
+		border: none;
 	}
 `;
 
@@ -119,10 +120,10 @@ function LandingNav() {
 
 			<ButtonDiv>
 				<Link to='/signup'>
-					<Button className='tertiary'>Sign Up</Button>
+					<Button className='tertiary'>Sign In</Button>
 				</Link>
 				<Link to='/signin'>
-					<Button className='primary'>Sign In</Button>
+					<Button className='primary'>Sign Up</Button>
 				</Link>
 			</ButtonDiv>
 		</LandingNavStyle>

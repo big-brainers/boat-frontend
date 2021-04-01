@@ -31,19 +31,6 @@ const HeaderRow = styled.nav`
 	grid-column: 1 / span 16;
 `;
 
-const IconButton = styled.button`
-	height: 24px;
-	width: 24px;
-	background-color: #fff;
-	color: #222f65;
-	border: none;
-	margin: 16px;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	grid-column: 14;
-`;
-
 function TasksCard(props) {
 	const [taskList, setTaskList] = useState([]);
 	const [taskString, setTaskString] = useState(null);
@@ -67,10 +54,6 @@ function TasksCard(props) {
 		<CardContainerMedium>
 			<HeaderRow>
 				<CardHeader>Tasks</CardHeader>
-				<CardHeader className='card-link'>Go to Tasks</CardHeader>
-				<IconButton>
-					<img src={next} alt='next' />
-				</IconButton>
 			</HeaderRow>
 
 			<div>
