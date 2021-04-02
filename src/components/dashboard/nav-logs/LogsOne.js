@@ -21,7 +21,10 @@ function LogsOne(props) {
 	return (
 		<DashboardMain>
 			<NavPanel />
-			<DashboardContainer></DashboardContainer>
+			<DashboardContainer>
+				<h1>Title</h1>
+				<p>Content</p>
+			</DashboardContainer>
 		</DashboardMain>
 	);
 }
