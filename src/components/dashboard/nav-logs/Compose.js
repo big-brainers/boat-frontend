@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import APIurl from '../../../config';
+import axios from 'axios';
 import styled from 'styled-components';
 import NavPanel from '../NavPanel';
 
@@ -78,12 +81,55 @@ const Button = styled.button`
 	}
 `;
 
-function Compose(props) {
+function Compose() {
+	const initialState = {
+		title: '',
+		content: '',
+	};
+	const history = useHistory();
+
+	const [entry, setEntry] = useState(initialState);
+	const handleChange = (event) => {
+		setEntry({ ...entry, [event.target.name]: event.target.value });
+	};
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		axios
+			.post(`${APIurl}/logs`, entry)
+			.then(() => {
+				setEntry(initialState);
+				history.push('/logs');
+			})
+			.catch(console.error);
+	};
+
 	return (
 		<DashboardMain>
 			<NavPanel />
 			<DashboardContainer>
 				<HeaderOne>Compose</HeaderOne>
+				<div>
+					<form onSubmit={handleSubmit} className='create-form'>
+						<label htmlFor='title'>TITLE </label>
+						<input
+							onChange={handleChange}
+							name='title'
+							value={entry.title}
+							placeholder='Title'
+						/>
+						<label htmlFor='content'>DETAILS </label>
+						<input
+							onChange={handleChange}
+							name='content'
+							value={entry.content}
+							placeholder='Content'
+						/>
+						<button id='button' type='submit'>
+							Submit
+						</button>
+					</form>
+				</div>
 				{/* <div class='form-group'>
 					<form class='' action='/compose' method='post'>
 						<Label>Title</Label>
