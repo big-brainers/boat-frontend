@@ -121,14 +121,11 @@ function SignInPage() {
 					</PrimaryButton>
 
 					<div className='new-member'>
-						<Router>
-							Not yet a crew member? <Link to='/signup'>Sign Up</Link>
-							<Switch>
-								<Route path='/signUp'>
+						Not yet a crew member? <Link to='/signup'>Sign Up</Link>
+						{/* <Link to='/signup'>
 									<SignUpPage />
-								</Route>
-							</Switch>
-						</Router>
+								</Link>
+					 */}
 					</div>
 				</form>
 			</SignUpContainer>

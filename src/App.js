@@ -21,22 +21,22 @@ body {
 }
 `;
 
-export default function App() {
+export default function App(props) {
 	return (
 		<>
 			<Router>
 				<GlobalStyle />
 				<Switch>
 					<Route exact path='/' render={LandingPage} />
-					<Route path='/signin' render={SignInPage} />
-					<Route path='/signup' render={SignUpPage} />
+					<Route exact path='/signin' component={SignInPage} />
+					<Route exact path='/signup' component={SignUpPage} />
 					<Route path='/about' render={About} />
 					<Route path='/welcome' render={Welcome} />
 					<Route path='/dashboard' render={Dashboard} />
 					<Route path='/schedule' render={Schedule} />
 					<Route exact path='/logs' render={LogsAll} />
 					<Route path='/logs/:id' render={LogsOne} />
-					<Route path='/compose' render={Compose} />
+					<Route path='/compose' component={Compose} />
 				</Switch>
 			</Router>
 		</>
