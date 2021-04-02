@@ -1,12 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-const UseForm = (callback, validate) => {
+const useForm = (callback, validate) => {
 	const [values, setValues] = useState({
 		email: '',
 		password: '',
 		passconfirm: '',
 	});
+
 	const [errors, setErrors] = useState({});
 	const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -36,4 +37,4 @@ const UseForm = (callback, validate) => {
 	};
 };
 
-export default UseForm;
+export default useForm;

@@ -17,7 +17,7 @@ const SignInNav = styled.nav`
 	}
 `;
 
-function SignUpPage(props) {
+function SignUpPage() {
 	const [isSubmitted, setIsSubmitted] = useState(false);
 
 	function submitSignUp() {
@@ -33,7 +33,7 @@ function SignUpPage(props) {
 			</SignInNav>
 			<div>
 				{!isSubmitted ? (
-					<SignUpFunc submitSignUp={submitSignUp} />
+					<SignUpFunc handleSubmit={submitSignUp} /> //<-- handleSubmit prop?
 				) : (
 					<SignInPage />
 				)}
