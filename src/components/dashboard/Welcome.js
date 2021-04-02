@@ -5,17 +5,6 @@ import NavPanel from './NavPanel';
 // import APIurl from '../../config';
 // import axios from 'axios';
 
-const NavBox = styled.nav`
-	width: 256px;
-	height: 100vh;
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	background: white;
-	box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
-	text-align: center;
-`;
-
 const DashboardMain = styled.main`
 	margin: 0;
 	height: 100vh;
@@ -61,19 +50,19 @@ function Welcome(props) {
 			.catch(console.error);
 	}, []);
 
-	if (!users) {
-		return (
-			<DashboardMain>
-				<NavPanel />
-				<DashboardContainer>
-					<SmallLogo src={sailboatsmall} alt='small sailboat' />
-					<HeaderOne>Welcome aboard!</HeaderOne>
-					<LightBlueText>Click on your Dashboard to get started.</LightBlueText>
-					<LightBlueText>Anchors aweigh!</LightBlueText>
-				</DashboardContainer>
-			</DashboardMain>
-		);
-	}
+	// if (!users) {
+	// 	return (
+	// 		<DashboardMain>
+	// 			<NavPanel />
+	// 			<DashboardContainer>
+	// 				<SmallLogo src={sailboatsmall} alt='small sailboat' />
+	// 				<HeaderOne>Welcome aboard!</HeaderOne>
+	// 				<LightBlueText>Click on your Dashboard to get started.</LightBlueText>
+	// 				<LightBlueText>Anchors aweigh!</LightBlueText>
+	// 			</DashboardContainer>
+	// 		</DashboardMain>
+	// 	);
+	// }
 
 	return (
 		<DashboardMain>

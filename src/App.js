@@ -26,13 +26,7 @@ body {
 export default function App(props) {
 	return (
 		<>
-			<GlobalStyle />
-<<<<<<< HEAD
-			<Route path='/' component={Welcome} />
-=======
-			<Overview />
->>>>>>> 48df358... style nav panel with navlinks
-			{/* <Router>
+			<Router>
 				<GlobalStyle />
 				<Switch>
 					<Route exact path='/' render={LandingPage} />
