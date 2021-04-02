@@ -1,3 +1,4 @@
+// import { Label } from '@material-ui/icons';
 import React from 'react';
 import styled from 'styled-components';
 import NavPanel from '../NavPanel';
@@ -17,11 +18,36 @@ const DashboardContainer = styled.section`
 	grid-template-columns: repeat(8, 32px 1fr 3fr);
 `;
 
+const HeaderOne = styled.h1`
+	font-size: 3rem;
+	color: #091133;
+`;
+
+const Label = styled.label`
+	color: #767676;
+	margin: 0 auto;
+	text-align: left;
+	display: flex;
+	text-transform: uppercase;
+	margin-bottom: 8px;
+	font-weight: 700;
+	font-size: 1.2rem;
+`;
+
 const Logs = () => {
 	return (
 		<DashboardMain>
 			<NavPanel />
-			<DashboardContainer></DashboardContainer>
+			<DashboardContainer>
+				<HeaderOne>Logs</HeaderOne>
+
+				{/* 
+				{ logs.forEach(() => {
+	return (		<Label>{logs.title}</Label> 
+		<p>{`{log.content.substring(0, 100)} ...`} 
+	<a href='/logs/{log._id}'>Read More</a>
+	</p> ))	} } */}
+			</DashboardContainer>
 		</DashboardMain>
 	);
 };
