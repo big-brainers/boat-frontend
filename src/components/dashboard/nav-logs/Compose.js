@@ -25,7 +25,22 @@ const DashboardContainer = styled.section`
 const CardDiv = styled.div`
 	grid-row: 2;
 	grid-column: 2;
-	padding: 24px;
+	background: white;
+	box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
+	text-align: left;
+	width: 75vw;
+	height: 80vh;
+	overflow-y: scroll;
+`;
+
+const PageNav = styled.nav`
+	padding: 0 16px;
+	width: 75vw;
+	height: 56px;
+	grid-column: 1 / span 16;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 `;
 
 const HeaderOne = styled.h1`
