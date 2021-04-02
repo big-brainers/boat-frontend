@@ -32,7 +32,7 @@ const useForm = (callback, validate) => {
 
   useEffect(
     () => {
-      if (Object.keys(errors).length === 0 && isSubmitting) return callback()
+      if (Object.keys(errors).length === 0 && isSubmitting) return callback
     },
     [errors]
   )

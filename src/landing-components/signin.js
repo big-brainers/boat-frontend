@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
 	BrowserRouter as Router,
 	Switch,
@@ -6,8 +6,17 @@ import {
 	Link
   } from "react-router-dom"
 import SignUp from './signup'
+import { userState as userStateAtom } from './signupFunc'
+import { useRecoilState } from 'recoil'
 
 export default function SignIn() {
+
+	const [user, setUser] = useRecoilState(userStateAtom)
+
+    useEffect(() =>{
+        setShow(true)
+    }, [])
+
 	return (
 	<>
 		<div className='Nav'>
@@ -29,7 +38,7 @@ export default function SignIn() {
                     <input type="password" className="form-control" placeholder="Password" />
                 </div>
 
-                <button type="submit" className="btn">Log In</button>
+                <button type="submit" onClick={() => {setUser(true)}} className="btn" >Log In</button>
 
                 <div className="new-member">
                      <Router>

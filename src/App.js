@@ -25,7 +25,7 @@ export default function App() {
 	return (
 		<>
 			<GlobalStyle />
-			<Route path='/' component={Welcome} />
+			<Route path='/' component={SignUpPage} />
 			{/* <Router>
 				<GlobalStyle />
 				<Switch>

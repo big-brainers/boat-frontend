@@ -24,8 +24,9 @@ const UseForm = (callback, validate) => {
 	};
 
 	useEffect(() => {
-		if (Object.keys(errors).length === 0 && isSubmitting) return callback();
-	}, [errors]);
+		if (Object.keys(errors).length === 0 && isSubmitting) return callback
+	}, [errors]
+	)
 
 	return {
 		handleChange,
