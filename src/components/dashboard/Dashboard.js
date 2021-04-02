@@ -8,9 +8,9 @@ const CalBox = styled.figure`
 	background: #ffffff;
 	box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
 	border-radius: 2px;
-	height: 900px;
+	height: 90vh;
 	width: 635px;
-	grid-column: 3;
+	grid-column: 4;
 `;
 
 const DashboardMain = styled.main`
@@ -21,11 +21,25 @@ const DashboardMain = styled.main`
 	grid-template-columns: repeat(8, 1fr 3fr);
 `;
 
+// const DashboardContainer = styled.section`
+// 	grid-column: 2 / 18;
+// 	display: grid;
+// 	grid-template-rows: 532px 2em;
+// 	grid-template-columns: repeat(8, 32px 1fr 3fr);
+// `;
+
 const DashboardContainer = styled.section`
 	grid-column: 2 / 18;
+	text-align: left;
+`;
+
+const CardDiv = styled.div`
+	grid-row: 1;
+	grid-column: 2;
+	padding: 0 24px 24px 24px;
 	display: grid;
-	grid-template-rows: 532px 2em;
 	grid-template-columns: repeat(8, 32px 1fr 3fr);
+	grid-template-rows: repeat(2, 80px 8px 1fr);
 `;
 
 function Dashboard(props) {
@@ -33,9 +47,11 @@ function Dashboard(props) {
 		<DashboardMain>
 			<NavPanel />
 			<DashboardContainer>
-				<TasksCard />
-				<QuickEntry />
-				<CalBox />
+				<CardDiv>
+					<TasksCard row='1' />
+					<QuickEntry row='4' column='2' />
+					<CalBox />
+				</CardDiv>
 			</DashboardContainer>
 		</DashboardMain>
 	);

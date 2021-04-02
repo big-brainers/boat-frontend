@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import APIurl from '../../../config';
 import axios from 'axios';
@@ -16,13 +17,22 @@ const DashboardMain = styled.main`
 const DashboardContainer = styled.section`
 	grid-column: 2 / 18;
 	display: grid;
-	grid-template-rows: 532px 2em;
 	grid-template-columns: repeat(8, 32px 1fr 3fr);
+	grid-template-rows: 80px 1fr;
+	text-align: left;
+`;
+
+const CardDiv = styled.div`
+	grid-row: 2;
+	grid-column: 2;
+	padding: 24px;
 `;
 
 const HeaderOne = styled.h1`
 	font-size: 3rem;
 	color: #091133;
+	padding: 24px;
+	margin: 0;
 `;
 
 const InputContainer = styled.div`
@@ -81,20 +91,22 @@ const Button = styled.button`
 	}
 `;
 
-function Compose() {
-	const initialState = {
+const Compose = (props) => {
+	const history = useHistory();
+	let initialState = {
 		title: '',
 		content: '',
 	};
-	const history = useHistory();
-
 	const [entry, setEntry] = useState(initialState);
+
 	const handleChange = (event) => {
 		setEntry({ ...entry, [event.target.name]: event.target.value });
 	};
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
+		console.log(event);
+
 		axios
 			.post(`${APIurl}/logs`, entry)
 			.then(() => {
@@ -109,7 +121,7 @@ function Compose() {
 			<NavPanel />
 			<DashboardContainer>
 				<HeaderOne>Compose</HeaderOne>
-				<div>
+				<CardDiv>
 					<form onSubmit={handleSubmit} className='create-form'>
 						<label htmlFor='title'>TITLE </label>
 						<input
@@ -129,21 +141,10 @@ function Compose() {
 							Submit
 						</button>
 					</form>
-				</div>
-				{/* <div class='form-group'>
-					<form class='' action='/compose' method='post'>
-						<Label>Title</Label>
-						<input class='form-control' type='text' name='postTitle' />
-						<Label>Details</Label>
-						<textarea class='form-control' name='postBody' rows='5' cols='30' />
-						<Button type='submit' name='button' className='primary'>
-							Publish
-						</Button>
-					</form>
-				</div> */}
+				</CardDiv>
 			</DashboardContainer>
 		</DashboardMain>
 	);
-}
+};
 
 export default Compose;

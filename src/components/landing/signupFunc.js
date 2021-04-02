@@ -165,14 +165,14 @@ const SignUpFunc = ({ submitForm }) => {
 					</PrimaryButton>
 
 					<div className='new-member'>
-						<Router>
-							Already have an account <Link to='/signin'>Sign In</Link>
-							<Switch>
+						{/* <Router> */}
+						Already have an account <Link to='/signin'>Sign In</Link>
+						{/* <Switch>
 								<Route path='/signin'>
 									<SignInPage />
 								</Route>
 							</Switch>
-						</Router>
+						</Router> */}
 					</div>
 				</form>
 			</SignUpContainer>
