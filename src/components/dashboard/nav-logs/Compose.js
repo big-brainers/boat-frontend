@@ -29,13 +29,14 @@ const DashboardContainer = styled.section`
 const CardDiv = styled.div`
 	grid-row: 2;
 	grid-column: 2;
-	background: white;
-	box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
-	text-align: left;
-	width: 75vw;
-	height: 50vh;
-	overflow-y: scroll;
-	overflow-x: hidden;
+	padding: 24px;
+`;
+
+const HeaderOne = styled.h1`
+	font-size: 3rem;
+	color: #091133;
+	padding: 24px;
+	margin: 0;
 `;
 
 const PageNav = styled.nav`
@@ -175,19 +176,17 @@ const Compose = (props) => {
 		setEntry({ ...entry, [event.target.name]: event.target.value });
 	};
 
-
-	
 	function expand() {
 		setExpanded(true);
 	}
-	
+
 	const closeModal = () => {
 		setModal(false);
 	};
 	const openModal = () => {
 		setModal((prev) => !prev);
 	};
-	
+
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		axios
@@ -202,15 +201,11 @@ const Compose = (props) => {
 			.catch(console.error);
 	};
 
-
 	return (
 		<DashboardMain>
 			<NavPanel />
 			<DashboardContainer>
-				<PageNav>
-					<HeaderOne>Compose</HeaderOne>
-				</PageNav>
-
+				<HeaderOne>Compose</HeaderOne>
 				<CardDiv>
 					<HeaderRow>
 						<IconDiv>
@@ -261,7 +256,12 @@ const Compose = (props) => {
 					{/* <Button type='button' onClick={handleSubmit}>
 							Publish
 						</Button> */}
-					<Modal modal={modal} onClick={handleSubmit} setModal={setModal} handleSubmit={handleSubmit}/>
+					<Modal
+						modal={modal}
+						onClick={handleSubmit}
+						setModal={setModal}
+						handleSubmit={handleSubmit}
+					/>
 					{/* </ModalBox> */}
 				</CardDiv>
 			</DashboardContainer>

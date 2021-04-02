@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NavPanel from '../NavPanel';
 import styled from 'styled-components';
+import NavPanel from '../NavPanel';
 import prev from '../../../images/left.png';
+import edit from '../../../images/edit-gray.png';
+
+import Entry from './Entry';
 
 const DashboardMain = styled.main`
 	margin: 0;
@@ -33,16 +36,19 @@ const HeaderOne = styled.h1`
 	margin: 0;
 `;
 
-const Schedule = () => {
+function LogsOne(props) {
 	return (
 		<DashboardMain>
 			<NavPanel />
 			<DashboardContainer>
-				<HeaderOne>Schedule</HeaderOne>
-				<CardDiv></CardDiv>
+				<HeaderOne>Compose Completed</HeaderOne>
+				<CardDiv>
+					<h1>Title</h1>
+					<p>Content</p>
+				</CardDiv>
 			</DashboardContainer>
 		</DashboardMain>
 	);
-};
+}
 
-export default Schedule;
+export default LogsOne;

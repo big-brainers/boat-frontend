@@ -29,39 +29,7 @@ const DashboardContainer = styled.section`
 const CardDiv = styled.div`
 	grid-row: 2;
 	grid-column: 2;
-	background: white;
-	box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
-	text-align: left;
-	width: 75vw;
-	height: 80vh;
-	overflow-y: scroll;
-`;
-
-const IconDiv = styled.div`
-	margin: 0;
-	display: inline-flex;
-
-	& a {
-		margin: 0;
-	}
-`;
-
-const CardHeader = styled.p`
-	font-size: 1rem;
-	color: #192a3e;
-`;
-
-const IconButton = styled.button`
-	height: 24px;
-	width: 24px;
-	background-color: #fff;
-	color: #222f65;
-	border: none;
-	margin: 16px;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	grid-column: 14;
+	padding: 24px;
 `;
 
 const HeaderOne = styled.h1`
@@ -227,12 +195,7 @@ const Logs = () => {
 		<DashboardMain>
 			<NavPanel />
 			<DashboardContainer>
-				<PageNav>
-					<HeaderOne>Logs</HeaderOne>
-					<Link to='/compose'>
-						<Button className='primary'>New Entry</Button>
-					</Link>
-				</PageNav>
+				<HeaderOne>Logs</HeaderOne>
 				<CardDiv>
 					<HeaderRow bottom='none' justify='flex-start'>
 						<IconDiv>
