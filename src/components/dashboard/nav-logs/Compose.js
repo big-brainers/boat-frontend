@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import NavPanel from '../NavPanel';
 
 const DashboardMain = styled.main`
 	margin: 0;
@@ -77,34 +78,26 @@ const Button = styled.button`
 	}
 `;
 
-function LogsOneCompose(props) {
+function Compose(props) {
 	return (
 		<DashboardMain>
 			<NavPanel />
 			<DashboardContainer>
-
-<HeaderOne>Compose</HeaderOne>
-<form class="" action="/compose" method="post">
-      <div class="form-group">
-        <Label>Title</Label>
-        <input class="form-control" type="text" name="postTitle">
-        <Label>Details</Label>
-        <textarea class="form-control" name="postBody" rows="5" cols="30"></textarea>
-      </div>
-
-
-<ButtonDiv padding='8px 24px 8px 8px'>
-			
-				<Link>
-					<Button type="submit" name="button"className='primary'>Publish</Button>
-				</Link>
-			</ButtonDiv>
-
-    </form>
-
-            </DashboardContainer>
+				<HeaderOne>Compose</HeaderOne>
+				{/* <div class='form-group'>
+					<form class='' action='/compose' method='post'>
+						<Label>Title</Label>
+						<input class='form-control' type='text' name='postTitle' />
+						<Label>Details</Label>
+						<textarea class='form-control' name='postBody' rows='5' cols='30' />
+						<Button type='submit' name='button' className='primary'>
+							Publish
+						</Button>
+					</form>
+				</div> */}
+			</DashboardContainer>
 		</DashboardMain>
 	);
 }
 
-export default LogsOneCompose;
+export default Compose;

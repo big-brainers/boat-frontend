@@ -17,11 +17,18 @@ const DashboardContainer = styled.section`
 	grid-template-columns: repeat(8, 32px 1fr 3fr);
 `;
 
+const HeaderOne = styled.h1`
+	font-size: 3rem;
+	color: #091133;
+`;
+
 const Schedule = () => {
 	return (
 		<DashboardMain>
 			<NavPanel />
-			<DashboardContainer></DashboardContainer>
+			<DashboardContainer>
+				<HeaderOne>Schedule</HeaderOne>
+			</DashboardContainer>
 		</DashboardMain>
 	);
 };
