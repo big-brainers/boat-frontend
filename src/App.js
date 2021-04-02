@@ -25,7 +25,8 @@ export default function App() {
 	return (
 		<>
 			<GlobalStyle />
-			<Router>
+			<Overview />
+			{/* <Router>
 				<GlobalStyle />
 				<Switch>
 					<Route exact path='/'>
@@ -41,7 +42,7 @@ export default function App() {
 						<Dashboard />
 					</Route>
 				</Switch>
-			</Router>
+			</Router> */}
 		</>
 	);
 }

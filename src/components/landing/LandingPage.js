@@ -139,10 +139,10 @@ function LandingNav() {
 			<a className='nav-tag'>BOAT</a>
 
 			<ButtonDiv>
-				<Link to='/signup'>
+				<Link to='/signin'>
 					<Button className='tertiary'>Sign In</Button>
 				</Link>
-				<Link to='/signin'>
+				<Link to='/signup'>
 					<Button className='primary'>Sign Up</Button>
 				</Link>
 			</ButtonDiv>
