@@ -50,7 +50,8 @@ export default function App(props) {
 >>>>>>> 6687297... resolve route rendering and invalid hook calls, fix container spacing in dashboard components
 >>>>>>> 398163a... resolve route rendering and invalid hook calls, fix container spacing in dashboard components
 				</Switch>
-			</Router>
+			</Router>{' '}
+			*/}
 		</>
 	);
 }
