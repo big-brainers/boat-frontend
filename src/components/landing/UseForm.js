@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 
 const UseForm = (callback, validate) => {
@@ -24,7 +25,7 @@ const UseForm = (callback, validate) => {
 	};
 
 	useEffect(() => {
-		if (Object.keys(errors).length === 0 && isSubmitting) return callback();
+		if (Object.keys(errors).length === 0 && isSubmitting) return callback;
 	}, [errors]);
 
 	return {

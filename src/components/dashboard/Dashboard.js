@@ -1,56 +1,44 @@
-import React, { useState } from 'react';
-import TasksForm from './Tasks/TasksForm';
-import TasksList from './Tasks/TasksList';
+import React from 'react';
+import styled from 'styled-components';
+import TasksCard from './tasks/TasksCard';
+import QuickEntry from './entries/QuickEntry';
 import NavPanel from './NavPanel';
 
-const Dashboard = () => {
-	
-	const [input, setInput] = useState('');
-	const [tasks, setTasks] = useState([
-		{
-			title: 'Wash the dishes',
-			complete: false,
-		},
-		{
-			title: 'Walk the dog',
-			complete: false,
-		},
-		{
-			title: 'Make the bed',
-			complete: true,
-		},
-	]);
+const CalBox = styled.figure`
+	background: #ffffff;
+	box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
+	border-radius: 2px;
+	height: 900px;
+	width: 635px;
+	grid-column: 3;
+`;
 
-	const handleChange = (e) => {
-		setInput(e.target.value);
-	};
+const DashboardMain = styled.main`
+	margin: 0;
+	height: 100vh;
+	text-align: center;
+	display: grid;
+	grid-template-columns: repeat(8, 1fr 3fr);
+`;
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		setTasks([
-			...tasks,
-			{
-				title: input,
-				complete: false,
-			},
-		]);
-	};
+const DashboardContainer = styled.section`
+	grid-column: 2 / 18;
+	display: grid;
+	grid-template-rows: 532px 2em;
+	grid-template-columns: repeat(8, 32px 1fr 3fr);
+`;
 
+function Dashboard(props) {
 	return (
-		<div>
+		<DashboardMain>
 			<NavPanel />
-			<div className='Tasks'>
-				<h2>Tasks</h2>
-				<TasksForm handleChange={handleChange} handleSubmit={handleSubmit} /> 
-				'
-				<TasksList tasks={tasks} />
-			</div>
-		</div>
-		// make onClick function which has a plus button that allows you to insert your todo into it
-		//have a form come up that lets you insert what you want and a submit button that keeps the input in the todo list
-		// have an onClick function with that checkbox that sets complete to true when clicked and false when unclicked
-		// when true, cross out the input
+			<DashboardContainer>
+				<TasksCard />
+				<QuickEntry />
+				<CalBox />
+			</DashboardContainer>
+		</DashboardMain>
 	);
-};
+}
 
 export default Dashboard;

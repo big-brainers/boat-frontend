@@ -5,25 +5,28 @@ import styled from 'styled-components';
 import sailboat from '../../images/sailboat-desktop.png';
 
 const LandingMain = styled.main`
-	display: grid;
-	grid-template-columns: 3fr 1fr;
-	width: 635px;
-	height: 968px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
 `;
 
 const HeroDiv = styled.div`
-	padding: 60px;
+	padding: 60px 0 0 60px;
 	width: 50vw;
+	display: inline-block;
 `;
 
 const HeaderOne = styled.h1`
 	font-size: 3rem;
+	display: inline;
 `;
 
 const HeaderSix = styled.h6`
 	font-size: 1.5rem;
 	color: #505f98;
 	line-height: 2.2rem;
+	display: inline-block;
+	margin: 24px auto;
 `;
 
 function Hero() {
@@ -66,8 +69,8 @@ const Boat = styled.img`
 function HeroPic() {
 	return (
 		<motion.div
-			initial={{ scale: 0 }}
-			animate={{ rotate: 360, scale: 1 }}
+			initial={{ x: 500, y: 50 }}
+			animate={{ x: -10, y: -50 }}
 			transition={{
 				type: 'spring',
 				stiffness: 260,
@@ -176,12 +179,9 @@ function Footer() {
 		<FooterStyle>
 			<hr />
 			<p className='footer-text'>{currentyear} Copyright ⓒ </p>
-			<a
-				className='footer-text'
-				href='https://github.com/big-brainers'
-				target='_blank'>
+			<Link className='footer-text' to='/about'>
 				Big Brainers
-			</a>
+			</Link>
 		</FooterStyle>
 	);
 }

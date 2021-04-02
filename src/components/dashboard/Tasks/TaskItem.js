@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { Delete } from '@material-ui/icons';
 
 const TaskContainer = styled.div`
 	display: flex;
