@@ -42,7 +42,8 @@ export default function App(props) {
 					<Route path='/logs/:id' render={LogsOne} />
 					<Route path='/compose' component={Compose} />
 				</Switch>
-			</Router>
+			</Router>{' '}
+			*/}
 		</>
 	);
 }
