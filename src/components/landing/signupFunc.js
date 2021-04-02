@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import validate from './validate';
 import UseForm from './UseForm';
 import SignInPage from './SignInPage';
-
 import google from '../../images/google-logo.png';
 
 const HeaderOne = styled.h1`
