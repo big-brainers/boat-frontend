@@ -2,6 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import NavPanel from '../NavPanel';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 const DashboardMain = styled.main`
 	margin: 0;
@@ -40,7 +41,7 @@ const Logs = () => {
 			<NavPanel />
 			<DashboardContainer>
 				<HeaderOne>Logs</HeaderOne>
-
+				<Link to='/compose'>Compose</Link>
 				{/* 
 				{ logs.forEach(() => {
 	return (		<Label>{logs.title}</Label> 

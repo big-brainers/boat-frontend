@@ -7,6 +7,8 @@ import SignUpPage from './components/landing/SignUpPage';
 import Dashboard from './components/dashboard/Dashboard';
 import Schedule from './components/dashboard/nav-schedule/Schedule';
 import LogsAll from './components/dashboard/nav-logs/LogsAll';
+import LogsOne from './components/dashboard/nav-logs/LogsOne';
+import Compose from './components/dashboard/nav-logs/Compose';
 import Welcome from './components/dashboard/Welcome';
 import About from './components/landing/About';
 
@@ -32,7 +34,9 @@ export default function App() {
 					<Route path='/welcome' render={Welcome} />
 					<Route path='/dashboard' render={Dashboard} />
 					<Route path='/schedule' render={Schedule} />
-					<Route path='/logs' render={LogsAll} />
+					<Route exact path='/logs' render={LogsAll} />
+					<Route path='/logs/:id' render={LogsOne} />
+					<Route path='/compose' render={Compose} />
 				</Switch>
 			</Router>
 		</>
