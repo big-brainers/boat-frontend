@@ -6,7 +6,7 @@ import TaskItem from './TaskItem';
 
 const CardContainerMedium = styled.div`
 	width: 448px;
-	height: 584px;
+	height: 488px;
 	background: #ffffff;
 	box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
 	border-radius: 2px;
@@ -47,72 +47,6 @@ const IconButton = styled.button`
 	grid-column: 14;
 `;
 
-const TaskRow = styled.div`
-	height: 56px;
-	align-items: center;
-	border-bottom: 1px solid #b0b8bc;
-`;
-
-const TaskCheck = styled.input`
-	margin: 20px;
-`;
-
-const TaskInput = styled.input`
-	font-family: 'Inconsolata', monospace;
-	width: 372px;
-	text-align: center;
-	height: 60px;
-	top: 10px;
-	border: none;
-	background: transparent;
-	font-size: 20px;
-	font-weight: 200;
-
-	&:focus {
-		outline: none;
-		box-shadow: inset 0 -3px 0 0 #ffd166;
-	}
-
-	&:checked + p {
-		text-decoration: line-through;
-		text-decoration-color: #505f98;
-	}
-`;
-
-// const TaskForm = styled.form`
-// 	min-height: 70px;
-// 	width: 416px;
-// 	display: flex;
-// 	align-items: center;
-// 	border-bottom: 1px solid #f1f1f1;
-
-// 	&.item {
-// 		text-align: center;
-// 		margin-left: 20px;
-// 	}
-
-// 	&:last-child {
-// 		border-bottom: 0;
-// 	}
-
-// 	&::placeholder {
-// 		color: grey;
-// 		opacity: 1;
-// 	}
-// `;
-
-const AddBtn = styled.button`
-	min-height: 48px;
-	width: 48px;
-	border-radius: 50%;
-	border-color: transparent;
-	background-color: #222f65;
-	color: #fff;
-	font-size: 2rem;
-
-	border-width: 0;
-`;
-
 function TasksCard(props) {
 	const [taskList, setTaskList] = useState([]);
 	const [taskString, setTaskString] = useState(null);
@@ -136,12 +70,7 @@ function TasksCard(props) {
 		<CardContainerMedium>
 			<HeaderRow>
 				<CardHeader>Tasks</CardHeader>
-				<CardHeader className='card-link'>Go to Tasks</CardHeader>
-				<IconButton>
-					<img src={next} alt='next' />
-				</IconButton>
 			</HeaderRow>
-
 			<div>
 				<TaskForm onAdd={addTask} />
 				{taskList.map((taskItem, index) => {
@@ -155,17 +84,6 @@ function TasksCard(props) {
 					);
 				})}
 			</div>
-			<TaskForm className='item' action='/' method='post'>
-				<TaskInput
-					type='text'
-					name='newItem'
-					autocomplete='off'
-					placeholder='item'
-				/>
-				<AddBtn type='submit' name='list' value={props.title}>
-					+
-				</AddBtn>
-			</TaskForm>
 		</CardContainerMedium>
 	);
 }

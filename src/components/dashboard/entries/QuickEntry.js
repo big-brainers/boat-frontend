@@ -113,18 +113,13 @@ function QuickEntry(props) {
 
 			<InputContainer>
 				<Label>Title</Label>
-				<InputStyle
-					type='email'
-					className='form-control'
-					placeholder='Short, descriptive title'
-				/>
+				<InputStyle autocomplete='off' placeholder='Short, descriptive title' />
 			</InputContainer>
 
 			<InputContainer>
 				<Label>Details</Label>
 				<InputStyle
-					type='password'
-					className='form-control'
+					autocomplete='off'
 					placeholder='Any additional details...'
 					height='80px'
 				/>
