@@ -40,7 +40,8 @@ export default function App(props) {
 					<Route path='/logs/:id' component={Entry} />
 					<Route path='/compose' component={Compose} />
 				</Switch>
-			</Router>
+			</Router>{' '}
+			*/}
 		</>
 	);
 }
