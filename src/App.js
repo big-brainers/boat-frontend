@@ -25,7 +25,11 @@ export default function App() {
 	return (
 		<>
 			<GlobalStyle />
+<<<<<<< HEAD
 			<Route path='/' component={Welcome} />
+=======
+			<Overview />
+>>>>>>> 48df358... style nav panel with navlinks
 			{/* <Router>
 				<GlobalStyle />
 				<Switch>
