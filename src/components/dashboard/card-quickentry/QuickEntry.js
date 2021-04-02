@@ -107,7 +107,9 @@ function QuickEntry(props) {
 				<CardHeader>Create an entry</CardHeader>
 				<CardHeader className='card-link'>Go to Logs</CardHeader>
 				<IconButton>
-					<img src={next} alt='next' />
+					<Link to='/logs'>
+						<img src={next} alt='next' />
+					</Link>
 				</IconButton>
 			</HeaderRow>
 
@@ -126,11 +128,11 @@ function QuickEntry(props) {
 			</InputContainer>
 
 			<ButtonDiv padding='8px 24px 8px 8px'>
-				<Link>
+				{/* <Link>
 					<Button className='tertiary'>More options</Button>
-				</Link>
+				</Link> */}
 				<Link>
-					<Button className='primary'>Save</Button>
+					<Button className='primary'>Publish</Button>
 				</Link>
 			</ButtonDiv>
 		</CardContainerSmall>

@@ -1,5 +1,5 @@
 import React from 'react';
-import NavPanel from './NavPanel';
+import NavPanel from '../NavPanel';
 import styled from 'styled-components';
 
 const DashboardMain = styled.main`
