@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import APIurl from '../../../config';
 import axios from 'axios';
@@ -71,27 +71,6 @@ const IconDiv = styled.div`
 
 	& a {
 		margin: 0;
-	}
-`;
-
-const Button = styled.button`
-	width: 128px;
-	height: 32px;
-	font-family: 'Inconsolata', monospace;
-	font-size: 1rem;
-	border-radius: 2px;
-	border: 1px solid #111b47;
-	font-decoration: none;
-
-	&.primary {
-		background-color: #111b47;
-		color: #fff;
-	}
-
-	&.tertiary {
-		color: #222f65;
-		background-color: #fff;
-		border: none;
 	}
 `;
 

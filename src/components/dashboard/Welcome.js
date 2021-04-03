@@ -1,9 +1,10 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React from 'react';
+// import React, { Fragment, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import sailboatsmall from '../../images/sailboat-mobile.png';
 import NavPanel from './NavPanel';
-import APIurl from '../../config';
-import axios from 'axios';
+// import APIurl from '../../config';
+// import axios from 'axios';
 
 const DashboardMain = styled.main`
 	margin: 0;

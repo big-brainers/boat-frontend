@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import next from '../../../images/right.png';
 import TaskForm from './TaskForm';
 import TaskItem from './TaskItem';
 
@@ -32,19 +31,6 @@ const HeaderRow = styled.nav`
 	border-bottom: 1px solid #b0b8bc;
 	height: 56px;
 	grid-column: 1 / span 16;
-`;
-
-const IconButton = styled.button`
-	height: 24px;
-	width: 24px;
-	background-color: #fff;
-	color: #222f65;
-	border: none;
-	margin: 16px;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	grid-column: 14;
 `;
 
 function TasksCard(props) {

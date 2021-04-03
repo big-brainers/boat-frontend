@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 import LandingPage from './components/landing/LandingPage';
 import SignInPage from './components/landing/SignInPage';
@@ -11,8 +11,6 @@ import LogsOne from './components/dashboard/nav-logs/LogsOne';
 import Compose from './components/dashboard/nav-logs/Compose';
 import Welcome from './components/dashboard/Welcome';
 import About from './components/landing/About';
-import Logs from './components/dashboard/nav-logs/LogsAll';
-import Entry from './components/dashboard/nav-logs/Entry';
 
 const GlobalStyle = createGlobalStyle`
 body {

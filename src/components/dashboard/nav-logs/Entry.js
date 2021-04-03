@@ -47,7 +47,7 @@ const Label = styled.h6`
 `;
 
 function Entry(props) {
-	let timestamp = '2021-04-02T19:36:44.090Z'; //print like this? or stringify ?
+	// let timestamp = '2021-04-02T19:36:44.090Z'; //print like this? or stringify ?
 
 	function handleClick() {
 		props.onDelete(props.id);
