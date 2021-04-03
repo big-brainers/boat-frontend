@@ -42,7 +42,7 @@ const Dashboard = () => {
 			<div className='Tasks'>
 				<h2>Tasks</h2>
 				<TasksForm handleChange={handleChange} handleSubmit={handleSubmit} /> 
-				'
+				
 				<TasksList tasks={tasks} />
 			</div>
 		</div>

@@ -7,7 +7,7 @@ import SignUpPage from './components/landing/SignUpPage';
 import NavPanel from './components/dashboard/NavPanel';
 import Dashboard from './components/dashboard/Dashboard';
 import Schedule from './components/dashboard/Schedule';
-import Logs from './components/dashboard/Logs';
+import Logs from './components/dashboard/Logs/Logs';
 import Overview from './components/dashboard/Overview';
 import Welcome from './components/dashboard/Welcome';
 
@@ -38,9 +38,15 @@ export default function App() {
 					<Route path='/signup'>
 						<SignUpPage />
 					</Route>
-					<Route to='/dashboard'>
+					<Route path='/dashboard'>
 						<Dashboard />
 					</Route>
+          <Route path='/logs'>
+            <Logs />
+          </Route>
+          <Route path='/draft'>
+            <Draft />
+          </Route>
 				</Switch>
 			</Router> */}
 		</>
