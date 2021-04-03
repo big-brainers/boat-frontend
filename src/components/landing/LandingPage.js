@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { motion } from 'framer-motion';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import sailboat from '../../images/sailboat-desktop.png';
 
@@ -139,7 +139,9 @@ const Button = styled.button`
 function LandingNav() {
 	return (
 		<LandingNavStyle>
-			<a className='nav-tag'>BOAT</a>
+			<Link href='/' className='nav-tag'>
+				BOAT
+			</Link>
 
 			<ButtonDiv>
 				<Link to='/signin'>

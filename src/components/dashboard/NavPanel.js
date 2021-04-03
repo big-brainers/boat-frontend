@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import pie from '../../images/pie-blue.png';
 import sheet from '../../images/sheet-blue.png';
@@ -72,7 +72,9 @@ const StyledLink = styled(NavLink).attrs({ activeClassName })`
 const NavPanel = () => {
 	return (
 		<DashboardNavStyle>
-			<a className='nav-tag'>BOAT</a>
+			<StyledLink href='/welcome' className='nav-tag'>
+				BOAT
+			</StyledLink>
 
 			<StyledLink row='2' to='/dashboard'>
 				<Icon src={pie} alt='dashboard overview'></Icon>Dashboard
