@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import NavPanel from '../NavPanel';
 import prev from '../../../images/left.png';
 import edit from '../../../images/edit-gray.png';
-\;
+
 import Entry from './Entry';
 
 const DashboardMain = styled.main`
