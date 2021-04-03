@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
-import SignUpFunc from './SignUpFunc';
+import SignUpFunc from './signupFunc';
 import SignInPage from './SignInPage';
 
 const SignInNav = styled.nav`
