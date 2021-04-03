@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import NavPanel from '../NavPanel';
 import { Link } from 'react-router-dom';
 import DeleteIcon from '@material-ui/icons/Delete';
+import prev from '../../../images/left.png';
 
 const DashboardMain = styled.main`
 	margin: 0;
@@ -32,6 +33,33 @@ const CardDiv = styled.div`
 	overflow-y: scroll;
 `;
 
+const IconDiv = styled.div`
+	margin: 0;
+	display: inline-flex;
+
+	& a {
+		margin: 0;
+	}
+`;
+
+const CardHeader = styled.p`
+	font-size: 1rem;
+	color: #192a3e;
+`;
+
+const IconButton = styled.button`
+	height: 24px;
+	width: 24px;
+	background-color: #fff;
+	color: #222f65;
+	border: none;
+	margin: 16px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	grid-column: 14;
+`;
+
 const HeaderOne = styled.h1`
 	font-size: 3rem;
 	color: #091133;
@@ -41,12 +69,12 @@ const HeaderOne = styled.h1`
 
 const HeaderRow = styled.div`
 	padding: 0 16px;
-	border-bottom: 1px solid #b0b8bc;
+	border-bottom: ${(props) => props.bottom || '1px solid #b0b8bc'};
 	height: 56px;
 	grid-column: 1 / span 16;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: ${(props) => props.justify || 'center'};
 `;
 
 const PageNav = styled.nav`
@@ -147,9 +175,9 @@ function concatBody() {
 }
 
 const Logs = (props) => {
-	// function handleClick() {
-	// 	props.onDelete(props.id);
-	// }
+	function handleClick() {
+		props.onDelete(props.id);
+	}
 
 	return (
 		<DashboardMain>
@@ -162,6 +190,18 @@ const Logs = (props) => {
 					</Link>
 				</PageNav>
 				<CardDiv>
+					<HeaderRow bottom='none' justify='flex-start'>
+						<IconDiv>
+							<IconButton>
+								<Link to='/dashboard'>
+									<img src={prev} alt='back' />
+								</Link>
+							</IconButton>
+							<CardHeader className='card-link'>
+								Back to the Dashboard
+							</CardHeader>
+						</IconDiv>
+					</HeaderRow>
 					<HeaderRow>
 						<Label>Title</Label>
 						<Label>Status</Label>
@@ -170,7 +210,7 @@ const Logs = (props) => {
 					<EntryContainer>
 						<RowSection className='title-section'>
 							<Link to='/logs/:id'>
-								<RowSectionP>titletitletitletitletitletitle</RowSectionP>
+								<RowSectionP>Day 1</RowSectionP>
 							</Link>
 						</RowSection>
 						<RowSection className='body-section'>
@@ -180,8 +220,7 @@ const Logs = (props) => {
 							<RowSectionP>10:20 AM, March 12, 2021</RowSectionP>
 						</RowSection>
 						<RowSection className='icon-section'>
-							{/* <Trash onClick={handleClick}> */}
-							<Trash>
+							<Trash onClick={handleClick}>
 								<DeleteIcon />
 							</Trash>
 						</RowSection>
