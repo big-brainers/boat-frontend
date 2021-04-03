@@ -14,6 +14,7 @@ import About from './components/landing/About';
 
 const GlobalStyle = createGlobalStyle`
 body {
+	margin: 0;
 	font-family: 'Inconsolata', monospace;
 	box-sizing: border-box;
 	// background-color: #e1effa; 

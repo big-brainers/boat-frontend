@@ -1,10 +1,16 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import APIurl from '../../../config';
 import axios from 'axios';
 import styled from 'styled-components';
 import NavPanel from '../NavPanel';
+import prev from '../../../images/left.png';
+import edit from '../../../images/edit-gray.png';
+import remove from '../../../images/delete-gray.png';
+import AddIcon from '@material-ui/icons/Add';
+import Fab from '@material-ui/core/Fab';
+import Zoom from '@material-ui/core/Zoom';
 
 const DashboardMain = styled.main`
 	margin: 0;
@@ -29,8 +35,9 @@ const CardDiv = styled.div`
 	box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
 	text-align: left;
 	width: 75vw;
-	height: 80vh;
+	height: 50vh;
 	overflow-y: scroll;
+	overflow-x: hidden;
 `;
 
 const PageNav = styled.nav`
@@ -43,6 +50,15 @@ const PageNav = styled.nav`
 	justify-content: space-between;
 `;
 
+const HeaderRow = styled.nav`
+	padding: 0 16px;
+	display: flex;
+	flex-direction: row;
+	border-bottom: 1px solid #b0b8bc;
+	height: 56px;
+	align-items: center;
+	justify-content: space-between;
+`;
 const HeaderOne = styled.h1`
 	font-size: 3rem;
 	color: #091133;
@@ -50,34 +66,9 @@ const HeaderOne = styled.h1`
 	margin: 0;
 `;
 
-const InputContainer = styled.div`
-	padding: 16px 32px 8px 32px;
-`;
-
-const Label = styled.label`
-	color: #767676;
-	margin: 0 auto;
-	text-align: left;
-	display: flex;
-	text-transform: uppercase;
-	margin-bottom: 8px;
-	font-weight: 700;
-	font-size: 1.2rem;
-`;
-
-const InputStyle = styled.input`
-	width: 384px;
-	height: ${(props) => props.height || '40px'};
-	border-radius: 8px;
-	border: 1px solid #b0b8bc;
-	font-family: 'Inconsolata', monospace;
-	font-size: 1rem;
-`;
-
-const ButtonDiv = styled.div`
-	padding: ${(props) => props.padding || '24px'};
-	margin: 0 auto;
-	text-align: right;
+const IconDiv = styled.div`
+	margin: 0;
+	display: inline-flex;
 
 	& a {
 		margin: 0;
@@ -90,7 +81,6 @@ const Button = styled.button`
 	font-family: 'Inconsolata', monospace;
 	font-size: 1rem;
 	border-radius: 2px;
-
 	border: 1px solid #111b47;
 	font-decoration: none;
 
@@ -106,6 +96,73 @@ const Button = styled.button`
 	}
 `;
 
+const CardHeader = styled.p`
+	font-size: 1rem;
+	color: #192a3e;
+`;
+
+const IconButton = styled.button`
+	height: 24px;
+	width: 24px;
+	background-color: #fff;
+	color: #222f65;
+	border: none;
+	margin: 16px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	grid-column: 14;
+`;
+
+const InputContainer = styled.div`
+	padding: 16px 32px 8px 32px;
+	width: 100%;
+	border: none;
+
+	outline: none;
+	font-size: 1.2em;
+	font-family: inherit;
+	resize: none;
+	& button {
+		position: relative;
+		right: 32px;
+		bottom: -72px;
+		background: #111b47;
+		color: #fff;
+		border: none;
+		border-radius: 50%;
+		width: 36px;
+		height: 36px;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+		cursor: pointer;
+		outline: none;
+	}
+`;
+
+const Label = styled.label`
+	color: #767676;
+	margin: 0 auto;
+	text-align: left;
+	display: flex;
+	text-transform: uppercase;
+	margin-bottom: 8px;
+	font-weight: 700;
+	font-size: 1.2rem;
+`;
+
+const InputStyle = styled.input`
+	width: 70vw;
+	height: ${(props) => props.height || '40px'};
+	border-radius: 8px;
+	border: 1px solid #b0b8bc;
+	font-family: 'Inconsolata', monospace;
+	font-size: 1rem;
+
+	&.body {
+		margin-top: 24px;
+	}
+`;
+
 const Compose = (props) => {
 	const history = useHistory();
 	let initialState = {
@@ -113,6 +170,7 @@ const Compose = (props) => {
 		content: '',
 	};
 	const [entry, setEntry] = useState(initialState);
+	const [isExpanded, setExpanded] = useState(false);
 
 	const handleChange = (event) => {
 		setEntry({ ...entry, [event.target.name]: event.target.value });
@@ -125,19 +183,78 @@ const Compose = (props) => {
 		axios
 			.post(`${APIurl}/logs`, entry)
 			.then(() => {
+				props.onAdd(entry);
 				setEntry(initialState);
 				history.push('/logs');
 			})
 			.catch(console.error);
 	};
 
+	function expand() {
+		setExpanded(true);
+	}
+
 	return (
 		<DashboardMain>
 			<NavPanel />
 			<DashboardContainer>
-				<HeaderOne>Compose</HeaderOne>
+				<PageNav>
+					<HeaderOne>Compose</HeaderOne>
+				</PageNav>
+
 				<CardDiv>
-					<form onSubmit={handleSubmit} className='create-form'>
+					<HeaderRow>
+						<IconDiv>
+							<IconButton>
+								<Link to='/logs'>
+									<img src={prev} alt='back' />
+								</Link>
+							</IconButton>
+							<CardHeader className='card-link'>Go to Logs</CardHeader>
+						</IconDiv>
+						<IconDiv>
+							<IconButton>
+								<Link to='/compose'>
+									<img src={edit} alt='edit' />
+								</Link>
+							</IconButton>
+							<IconButton>
+								<img src={remove} alt='delete' />
+							</IconButton>
+						</IconDiv>
+					</HeaderRow>
+					<div>
+						<form onSubmit={handleSubmit} className='create-form'>
+							<InputContainer>
+								<Label>Title</Label>
+								{isExpanded && (
+									<InputStyle
+										name='title'
+										onChange={handleChange}
+										value={entry.title}
+										placeholder='Title'
+									/>
+								)}
+
+								<InputStyle
+									className='body'
+									as='textarea'
+									name='content'
+									onClick={expand}
+									onChange={handleChange}
+									value={entry.content}
+									placeholder='Tell us more!'
+									rows={isExpanded ? 12 : 1}
+								/>
+								<Zoom in={isExpanded}>
+									<Fab onClick={handleSubmit}>
+										<AddIcon />
+									</Fab>
+								</Zoom>
+							</InputContainer>
+						</form>
+					</div>
+					{/* <form onSubmit={handleSubmit} className='create-form'>
 						<label htmlFor='title'>TITLE </label>
 						<input
 							onChange={handleChange}
@@ -145,7 +262,29 @@ const Compose = (props) => {
 							value={entry.title}
 							placeholder='Title'
 						/>
+						<InputContainer>
+							<Label>Title</Label>
+							<InputStyle
+								autocomplete='off'
+								placeholder='Short, descriptive title'
+							/>
+						</InputContainer>
+
 						<label htmlFor='content'>DETAILS </label>
+						<textarea
+							name='content'
+							onClick={expand}
+							onChange={handleChange}
+							value={note.content}
+							placeholder='Take a note...'
+							rows={isExpanded ? 3 : 1}
+						/>
+						<Zoom in={isExpanded}>
+							<Fab onClick={submitNote}>
+								<AddIcon />
+							</Fab>
+						</Zoom>
+
 						<input
 							onChange={handleChange}
 							name='content'
@@ -155,7 +294,7 @@ const Compose = (props) => {
 						<button id='button' type='submit'>
 							Submit
 						</button>
-					</form>
+					</form> */}
 				</CardDiv>
 			</DashboardContainer>
 		</DashboardMain>
