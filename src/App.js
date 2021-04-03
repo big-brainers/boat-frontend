@@ -11,6 +11,8 @@ import LogsOne from './components/dashboard/nav-logs/LogsOne';
 import Compose from './components/dashboard/nav-logs/Compose';
 import Welcome from './components/dashboard/Welcome';
 import About from './components/landing/About';
+import Logs from './components/dashboard/nav-logs/LogsAll';
+import Entry from './components/dashboard/nav-logs/Entry';
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -27,6 +29,7 @@ export default function App(props) {
 		<>
 			<Router>
 				<GlobalStyle />
+
 				<Switch>
 					<Route exact path='/' render={LandingPage} />
 					<Route exact path='/signin' component={SignInPage} />

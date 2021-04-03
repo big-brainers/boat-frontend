@@ -6,8 +6,6 @@ import axios from 'axios';
 import styled from 'styled-components';
 import NavPanel from '../NavPanel';
 import prev from '../../../images/left.png';
-import edit from '../../../images/edit-gray.png';
-import remove from '../../../images/delete-gray.png';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import Zoom from '@material-ui/core/Zoom';
@@ -59,6 +57,7 @@ const HeaderRow = styled.nav`
 	align-items: center;
 	justify-content: space-between;
 `;
+
 const HeaderOne = styled.h1`
 	font-size: 3rem;
 	color: #091133;
@@ -212,21 +211,11 @@ const Compose = (props) => {
 							</IconButton>
 							<CardHeader className='card-link'>Go to Logs</CardHeader>
 						</IconDiv>
-						<IconDiv>
-							<IconButton>
-								<Link to='/compose'>
-									<img src={edit} alt='edit' />
-								</Link>
-							</IconButton>
-							<IconButton>
-								<img src={remove} alt='delete' />
-							</IconButton>
-						</IconDiv>
 					</HeaderRow>
 					<div>
 						<form onSubmit={handleSubmit} className='create-form'>
 							<InputContainer>
-								<Label>Title</Label>
+								<Label htmlFor='title'>Log Entry</Label>
 								{isExpanded && (
 									<InputStyle
 										name='title'
@@ -247,54 +236,13 @@ const Compose = (props) => {
 									rows={isExpanded ? 12 : 1}
 								/>
 								<Zoom in={isExpanded}>
-									<Fab onClick={handleSubmit}>
+									<Fab id='button' type='submit' onClick={handleSubmit}>
 										<AddIcon />
 									</Fab>
 								</Zoom>
 							</InputContainer>
 						</form>
 					</div>
-					{/* <form onSubmit={handleSubmit} className='create-form'>
-						<label htmlFor='title'>TITLE </label>
-						<input
-							onChange={handleChange}
-							name='title'
-							value={entry.title}
-							placeholder='Title'
-						/>
-						<InputContainer>
-							<Label>Title</Label>
-							<InputStyle
-								autocomplete='off'
-								placeholder='Short, descriptive title'
-							/>
-						</InputContainer>
-
-						<label htmlFor='content'>DETAILS </label>
-						<textarea
-							name='content'
-							onClick={expand}
-							onChange={handleChange}
-							value={note.content}
-							placeholder='Take a note...'
-							rows={isExpanded ? 3 : 1}
-						/>
-						<Zoom in={isExpanded}>
-							<Fab onClick={submitNote}>
-								<AddIcon />
-							</Fab>
-						</Zoom>
-
-						<input
-							onChange={handleChange}
-							name='content'
-							value={entry.content}
-							placeholder='Content'
-						/>
-						<button id='button' type='submit'>
-							Submit
-						</button>
-					</form> */}
 				</CardDiv>
 			</DashboardContainer>
 		</DashboardMain>
