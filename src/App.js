@@ -30,9 +30,8 @@ export default function App(props) {
 		<>
 			<Router>
 				<GlobalStyle />
-				{/* <Schedule /> */}
-				<Dashboard />
-				{/* <Switch>
+
+				<Switch>
 					<Route exact path='/' render={LandingPage} />
 					<Route exact path='/signin' component={SignInPage} />
 					<Route exact path='/signup' component={SignUpPage} />
@@ -43,7 +42,7 @@ export default function App(props) {
 					<Route exact path='/logs' component={LogsAll} />
 					<Route path='/logs/:id' component={Entry} />
 					<Route path='/compose' component={Compose} />
-				</Switch> */}
+				</Switch>
 			</Router>
 		</>
 	);
