@@ -207,6 +207,25 @@ const Compose = (props) => {
 			<DashboardContainer>
 				<HeaderOne>Compose</HeaderOne>
 				<CardDiv>
+					<form onSubmit={handleSubmit} className='create-form'>
+						<label htmlFor='title'>TITLE </label>
+						<input
+							onChange={handleChange}
+							name='title'
+							value={entry.title}
+							placeholder='Title'
+						/>
+						<label htmlFor='content'>DETAILS </label>
+						<input
+							onChange={handleChange}
+							name='content'
+							value={entry.content}
+							placeholder='Content'
+						/>
+						<button id='button' type='submit'>
+							Submit
+						</button>
+					</form>
 					<HeaderRow>
 						<IconDiv>
 							<IconButton>

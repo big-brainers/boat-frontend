@@ -93,7 +93,6 @@ const Button = styled.button`
 		color: #222f65;
 	}
 `;
-	
 
 const Modal = ({ modal, setModal, handleSubmit }) => {
 	return (
@@ -114,8 +113,8 @@ const Modal = ({ modal, setModal, handleSubmit }) => {
 								</Button>
 								<Button
 									onClick={(e) => {
-										handleSubmit(e)
-										setModal((prev) => !prev)
+										handleSubmit(e);
+										setModal((prev) => !prev);
 									}}
 									className='primary'
 									type='submit'>
