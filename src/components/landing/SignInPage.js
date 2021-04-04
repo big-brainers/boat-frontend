@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link, useHistory, Redirect } from 'react-router-dom';
+import { BrowserRouter as Link, useHistory } from 'react-router-dom';
 import SignUpPage from './SignUpPage';
 import styled from 'styled-components';
 import google from '../../images/google-logo.png';
 import APIurl from '../../config';
 import axios from 'axios'
+import Welcome from '../dashboard/Welcome'
 
 const SignInNav = styled.nav`
 	margin: 0 auto;
@@ -91,7 +92,6 @@ function SignInPage() {
 
 	const handleChange = (event) => {
 		setCustomerSignIn({ ...customerSignIn, [event.target.name]: event.target.value })
-		console.log(customerSignIn)
 	}
 	const handleSubmit = (event) => {
 		event.preventDefault()
@@ -101,7 +101,7 @@ function SignInPage() {
 		{headers: {'Accept': 'application/json'}})
         .then(function (response) {
             console.log(response);
-        }).then(() => history.push('/Dashboard'))
+        }).then(() => history.push('/Welcome'))
         .catch(function (error) {
             console.log(error);
     });
