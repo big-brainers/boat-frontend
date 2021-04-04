@@ -8,7 +8,7 @@ import SignUpPage from './components/landing/SignUpPage';
 import Dashboard from './components/dashboard/Dashboard';
 import Schedule from './components/dashboard/nav-schedule/Schedule';
 import LogsAll from './components/dashboard/nav-logs/LogsAll';
-import LogsOne from './components/dashboard/nav-logs/LogsOne';
+// import LogsOne from './components/dashboard/nav-logs/LogsOne';
 import Entry from './components/dashboard/nav-logs/Entry';
 import Compose from './components/dashboard/nav-logs/Compose';
 import Welcome from './components/dashboard/Welcome';

@@ -8,6 +8,7 @@ import APIurl from '../../../config';
 import axios from 'axios';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Modal from './Modal';
+// import EntryEdit from './EntryEdit';
 import x from '../../../images/x.png';
 
 const EntryContainer = styled.div`
@@ -39,12 +40,12 @@ const Background = styled.div`
 `;
 
 const ModalWrapper = styled.div`
-	width: 456px;
-	height: 220px;
+	width: ${(props) => props.width || '456px;'};
+	height: ${(props) => props.height || '220px'};
 	box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
 	background: #fff;
 	color: #000;
-	display: grid;
+	display: ${(props) => props.display || 'grid'};
 	position: relative;
 	z-index: 10;
 	border-radius: 10px;
@@ -53,7 +54,7 @@ const ModalWrapper = styled.div`
 const ModalContent = styled.div`
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: ${(props) => props.justify || 'center'};
 	align-items: center;
 	line-height: 1.8;
 	color: #141414;
@@ -83,6 +84,7 @@ const HeaderSix = styled.h6`
 	font-size: 2rem;
 	line-height: 1;
 	padding: 16px;
+	margin: ${(props) => props.margin || '0 auto;'};
 `;
 
 const ButtonDiv = styled.div`
@@ -106,6 +108,11 @@ const Button = styled.button`
 	font-decoration: none;
 
 	&.primary {
+		background-color: #222f65;
+		color: #fff;
+	}
+
+	&.primary-red {
 		background-color: rgba(255, 0, 0, 0.7);
 		border: 1px solid #ff0000;
 		color: #fff;
@@ -200,7 +207,8 @@ const IconButton = styled.button`
 `;
 
 const InputContainer = styled.div`
-	padding: 16px 32px 8px 32px;
+	// padding: 16px 32px 8px 32px;
+	padding: 32px;
 	width: 100%;
 	border: none;
 
@@ -253,7 +261,7 @@ const ModalBox = styled.div`
 	justify-content: center;
 	align-items: center;
 
-	height: 100vh;
+	// height: 100vh;
 `;
 
 // const Button = styled.button`
@@ -408,6 +416,7 @@ const Entry = ({ match }) => {
 	const history = useHistory();
 	const [log, setLog] = useState(null);
 	const [modal, setModal] = useState(false);
+	const [editModal, setEditModal] = useState(false);
 
 	useEffect(() => {
 		const id = match.params.id;
@@ -427,6 +436,23 @@ const Entry = ({ match }) => {
 
 	const closeModal = () => {
 		setModal(false);
+	};
+
+	const closeEditModal = () => {
+		setEditModal(false);
+	};
+
+	const handleEdit = (event) => {
+		setEditModal(true);
+		// <EntryEdit
+		// 	editModal={editModal}
+		// 	setEditModal={setEditModal}
+		// 	handleSubmit={handleSubmit}
+		// 	handleChange={handleChange}
+		// 	log={log}
+		// 	closeModal={closeModal}
+		// />
+		// setEditModal(true)
 	};
 
 	const handleSubmit = (event) => {
@@ -496,6 +522,63 @@ const Entry = ({ match }) => {
 		<DashboardMain>
 			<NavPanel />
 			<DashboardContainer>
+				{editModal ? (
+					<Background>
+						<ModalWrapper
+							showModal={setModal}
+							display='inline-block'
+							width='75vw'
+							height='50vh'>
+							<ModalContent>
+								<HeaderSix>Edit this entry</HeaderSix>
+
+								<ModalBox>
+									<div>
+										<form onSubmit={handleSubmit}>
+											<InputContainer>
+												<label htmlFor='title' />
+												<InputStyle
+													onChange={handleChange}
+													name='title'
+													value={log.title}
+													maxLength='75'
+												/>
+
+												<InputStyle
+													className='body'
+													as='textarea'
+													maxLength='500'
+													onChange={handleChange}
+													name='content'
+													value={log.content}
+												/>
+												<hr />
+												{/* <ButtonDiv>
+													<ButtonDiv type='submit'>Submit</ButtonDiv>
+												</ButtonDiv> */}
+												<ButtonDiv padding='0'>
+													<Button
+														className='secondary'
+														onClick={() => setEditModal((prev) => !prev)}>
+														Cancel
+													</Button>
+
+													<Button
+														className='primary'
+														type='submit'
+														onClick={handleSubmit}>
+														Delete
+													</Button>
+												</ButtonDiv>
+											</InputContainer>
+										</form>
+										{/* <Button onClick={closeEditModal}>Close</Button> */}
+									</div>
+								</ModalBox>
+							</ModalContent>
+						</ModalWrapper>
+					</Background>
+				) : null}
 				<PageNav>
 					<HeaderOne>Logs ﹥ {log.title}</HeaderOne>
 				</PageNav>
@@ -511,8 +594,8 @@ const Entry = ({ match }) => {
 							<CardHeader className='card-link'>Go to Logs</CardHeader>
 						</IconDiv>
 						<IconDiv>
-							<IconButton>
-								{/* <IconButton onClick={editEntryPage}> */}
+							{/* <IconButton> */}
+							<IconButton onClick={handleEdit}>
 								{/* <IconButton onClick={modal}> */}
 								<img src={edit} alt='edit' />
 							</IconButton>
@@ -553,7 +636,7 @@ const Entry = ({ match }) => {
 											Cancel
 										</Button>
 										{/* <Button className='primary' type='submit'> */}
-										<Button className='primary' onClick={handleDelete}>
+										<Button className='primary-red' onClick={handleDelete}>
 											Delete
 										</Button>
 									</ButtonDiv>
