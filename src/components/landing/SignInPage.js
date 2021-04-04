@@ -85,7 +85,7 @@ const InputStyle = styled.input`
 
 function SignInPage(/*{ props }*/) {
 
-	// const history = useHistory()
+	const history = useHistory()
 
 	const [customerSignIn, setCustomerSignIn] = useState({ email: '', password: '' })
 
@@ -102,7 +102,7 @@ function SignInPage(/*{ props }*/) {
         .then(function (response) {
             console.log(response);
 			// return <Redirect to= "/"/>
-        }).then(console.log('hello'))
+        }).then(() => history.push('/Dashboard'))
         .catch(function (error) {
             console.log(error);
     });
