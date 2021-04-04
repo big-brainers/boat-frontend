@@ -7,12 +7,14 @@ import schedule from '../../images/schedule-blue.png';
 import avatar from '../../images/avatar-white.png';
 
 const DashboardNavStyle = styled.nav`
-	display: grid;
-	grid-template-rows: repeat(20, 56px);
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: space-between;
 	margin: 0 auto;
 	padding-top: 24px;
 	width: 256px;
-	height: 100vh;
+	height: 95vh;
 	font-size: 3rem;
 	background: white;
 	box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
@@ -26,6 +28,8 @@ const DashboardNavStyle = styled.nav`
 		align-content: flex-start;
 	}
 `;
+
+const FlexDiv = styled.div``;
 
 const Icon = styled.img`
 	height: 20px;
@@ -52,10 +56,9 @@ const StyledLink = styled(NavLink).attrs({ activeClassName })`
 	font-weight: 500;
 	text-decoration: none;
 	border: none;
-	grid-row: ${(props) => props.row || '1'};
 
 	&.bottom {
-		height: 88px;
+		height: 72px;
 		display: inline-flex;
 		justify-content: center;
 		border: ${(props) => props.border || '1px solid #b0b8bc'};
@@ -69,24 +72,26 @@ const StyledLink = styled(NavLink).attrs({ activeClassName })`
 	}
 `;
 
-const NavPanel = () => {
+function TopLinks() {
 	return (
-		<DashboardNavStyle>
-			<StyledLink href='/welcome' className='nav-tag'>
-				BOAT
-			</StyledLink>
-
-			<StyledLink row='2' to='/dashboard'>
+		<div>
+			<StyledLink to='/dashboard'>
 				<Icon src={pie} alt='dashboard overview'></Icon>Dashboard
 			</StyledLink>
-			<StyledLink row='3' to='/schedule'>
+			<StyledLink to='/schedule'>
 				<Icon src={schedule} alt='schedule'></Icon>Schedule
 			</StyledLink>
-			<StyledLink row='4' to='/logs'>
+			<StyledLink to='/logs'>
 				<Icon src={sheet} alt='logs'></Icon>Logs
 			</StyledLink>
+		</div>
+	);
+}
 
-			<StyledLink className='bottom' row='16' to='/user'>
+function BottomLinks() {
+	return (
+		<div>
+			<StyledLink className='bottom' to='/welcome'>
 				<Icon
 					padding='8px 8px 8px 0'
 					margin='0 0 0 8px'
@@ -94,9 +99,24 @@ const NavPanel = () => {
 					alt='user'></Icon>
 				bessie@email.com
 			</StyledLink>
-			<StyledLink className='bottom' border='none' row='18' exact to='/'>
+
+			<StyledLink className='bottom' border='none' exact to='/'>
 				Sign Out
 			</StyledLink>
+		</div>
+	);
+}
+
+const NavPanel = () => {
+	return (
+		<DashboardNavStyle>
+			<FlexDiv>
+				<a href='/welcome' className='nav-tag'>
+					BOAT
+				</a>
+				<TopLinks />
+			</FlexDiv>
+			<BottomLinks />
 		</DashboardNavStyle>
 	);
 };

@@ -1,14 +1,14 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import NavPanel from '../NavPanel';
+import styled from 'styled-components';
 import { useHistory, Link } from 'react-router-dom';
 import APIurl from '../../../config';
 import axios from 'axios';
-import styled from 'styled-components';
-import NavPanel from '../NavPanel';
 import prev from '../../../images/left.png';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import Zoom from '@material-ui/core/Zoom';
+import Modal from './Modal';
 
 const DashboardMain = styled.main`
 	margin: 0;
@@ -141,14 +141,35 @@ const InputStyle = styled.input`
 	}
 `;
 
+const ModalBox = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	height: 100vh;
+`;
+
+const Button = styled.button`
+	min-width: 100px;
+	padding: 16px 32px;
+	border-radius: 4px;
+	border: none;
+	background: #111b47;
+	color: #fff;
+	font-size: 24px;
+	cursor: pointer;
+`;
+
 const Compose = (props) => {
 	const history = useHistory();
 	let initialState = {
 		title: '',
 		content: '',
 	};
+
 	const [entry, setEntry] = useState(initialState);
 	const [isExpanded, setExpanded] = useState(false);
+	const [showModal, setShowModal] = useState(false);
 
 	const handleChange = (event) => {
 		setEntry({ ...entry, [event.target.name]: event.target.value });
@@ -156,7 +177,6 @@ const Compose = (props) => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log(event);
 
 		axios
 			.post(`${APIurl}/logs`, entry)
@@ -171,6 +191,10 @@ const Compose = (props) => {
 	function expand() {
 		setExpanded(true);
 	}
+
+	const openModal = () => {
+		setShowModal((prev) => !prev);
+	};
 
 	return (
 		<DashboardMain>
@@ -201,6 +225,8 @@ const Compose = (props) => {
 										onChange={handleChange}
 										value={entry.title}
 										placeholder='Title'
+										maxLength='75'
+										required
 									/>
 								)}
 
@@ -213,15 +239,23 @@ const Compose = (props) => {
 									value={entry.content}
 									placeholder='Tell us more!'
 									rows={isExpanded ? 12 : 1}
+									maxLength='500'
+									required
 								/>
 								<Zoom in={isExpanded}>
-									<Fab id='button' type='submit' onClick={handleSubmit}>
+									<Fab id='button' type='submit' onClick={openModal}>
 										<AddIcon />
 									</Fab>
 								</Zoom>
 							</InputContainer>
 						</form>
 					</div>
+					<ModalBox>
+						<Button type='button' onClick={handleSubmit}>
+							Publish
+						</Button>
+						<Modal showModal={showModal} setShowModal={setShowModal} />
+					</ModalBox>
 				</CardDiv>
 			</DashboardContainer>
 		</DashboardMain>

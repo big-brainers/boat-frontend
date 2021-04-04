@@ -27,13 +27,12 @@ export default function App(props) {
 		<>
 			<Router>
 				<GlobalStyle />
-
 				<Switch>
 					<Route exact path='/' render={LandingPage} />
 					<Route exact path='/signin' component={SignInPage} />
 					<Route exact path='/signup' component={SignUpPage} />
 					<Route path='/about' render={About} />
-					<Route path='/welcome' render={Welcome} />
+					<Route path='/welcome' component={Welcome} />
 					<Route path='/dashboard' render={Dashboard} />
 					<Route path='/schedule' render={Schedule} />
 					<Route exact path='/logs' render={LogsAll} />
