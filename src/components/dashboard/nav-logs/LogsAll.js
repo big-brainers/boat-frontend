@@ -1,10 +1,14 @@
 // import { Label } from '@material-ui/icons';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import NavPanel from '../NavPanel';
-import { Link } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
+import APIurl from '../../../config';
+import axios from 'axios';
 import DeleteIcon from '@material-ui/icons/Delete';
 import prev from '../../../images/left.png';
+import EntryRow from './EntryRow';
+import { set } from 'mongoose';
 
 const DashboardMain = styled.main`
 	margin: 0;
@@ -167,20 +171,126 @@ const Trash = styled.button`
 	outline: none;
 `;
 
-const samplebodytext =
-	'Im baby mlkshk pour-over edison bulb kogi, vexillologiststumptown hoodie vegan pok pok raw denim synth lo-fi occupy pabst.';
+// const samplebodytext =
+// 	'Im baby mlkshk pour-over edison bulb kogi, vexillologiststumptown hoodie vegan pok pok raw denim synth lo-fi occupy pabst.';
 
-function concatBody() {
-	return `${samplebodytext.substring(0, 60)} ...`;
-}
+// function concatBody() {
+// 	return `${samplebodytext.substring(0, 60)} ...`;
+// }
 
-const Logs = (props) => {
-	function handleClick() {
-		props.onDelete(props.id);
+const Logs = () => {
+	// const history = useHistory();
+	const [logs, setLogs] = useState([]);
+
+	useEffect(() => {
+		axios(`${APIurl}/logs`)
+			.then((res) => {
+				let logsArray = res.data;
+
+				setLogs(logsArray);
+			})
+			.catch(console.error);
+	}, []);
+
+	if (!logs.length) {
+		return <h1>Loading...</h1>;
 	}
 
+	// function getEntries(entry) {
+	// 	axios
+	// 		.get(`${APIurl}/logs`, entry)
+	// 		.then((res) => res.json())
+	// 		.then((res) => {
+	// 			console.log('res', res);
+	// 			let entryData = res.data;
+	// 			console.log('res.data', entryData);
+	// 			setEntries(res.data);
+	// 			history.push('/logs');
+	// 		})
+	// 		.catch((err) => console.log(err));
+	// }
+
+	// useEffect(() => {
+	// 	getEntries(entries);
+	// }, []);
+
+	// useEffect(() => {
+	// 	axios(`${APIurl}/logs`)
+	// 		.then((res) => {
+	// 			console.log(res.data);
+
+	// 			setEntries(res.data);
+	// 		})
+	// 		.catch(console.error);
+	// }, []);
+
+	// if (!entries.length) {
+	// 	return (
+	// 		<DashboardMain>
+	// 			<NavPanel />
+	// 			<DashboardContainer>
+	// 				<PageNav>
+	// 					<HeaderOne>Logs</HeaderOne>
+	// 					<Link to='/compose'>
+	// 						<Button className='primary'>New Entry</Button>
+	// 					</Link>
+	// 				</PageNav>
+	// 				<CardDiv>
+	// 					<HeaderRow bottom='none' justify='flex-start'>
+	// 						<IconDiv>
+	// 							<IconButton>
+	// 								<Link to='/dashboard'>
+	// 									<img src={prev} alt='back' />
+	// 								</Link>
+	// 							</IconButton>
+	// 							<CardHeader className='card-link'>
+	// 								Back to the Dashboard
+	// 							</CardHeader>
+	// 						</IconDiv>
+	// 					</HeaderRow>
+	// 					<HeaderRow>
+	// 						<Label>Title</Label>
+	// 						<Label>Status</Label>
+	// 						<Label>Date</Label>
+	// 					</HeaderRow>
+	// 					<EntryContainer>
+	// 						<Label>Let's start a new entry in your captain's log! ↗️</Label>
+	// 					</EntryContainer>
+	// 				</CardDiv>
+	// 			</DashboardContainer>
+	// 		</DashboardMain>
+	// 	);
+	// }
+
+	// function handleClick() {
+	// 	props.onDelete(props.id);
+	// }
+
 	return (
-		<DashboardMain>
+		<div>
+			{/* <h1>{logs[2].title}</h1> */}
+			<EntryRow
+				title={logs[0].title}
+				content={logs[0].content}
+				date={logs[0].date}
+				index={logs[0]._id}
+			/>
+			{/* {logs.map((entry, index) => (
+				<EntryRow
+					key={index}
+					title={entry.title}
+					content={entry.content}
+					date={entry.date}
+				/>
+			))} */}
+		</div>
+	);
+};
+
+export default Logs;
+
+/**
+ * <DashboardMain>
 			<NavPanel />
 			<DashboardContainer>
 				<PageNav>
@@ -207,34 +317,17 @@ const Logs = (props) => {
 						<Label>Status</Label>
 						<Label>Date</Label>
 					</HeaderRow>
-					<EntryContainer>
-						<RowSection className='title-section'>
-							<Link to='/logs/:id'>
-								<RowSectionP>Day 1</RowSectionP>
-							</Link>
-						</RowSection>
-						<RowSection className='body-section'>
-							<RowSectionP>{concatBody()}</RowSectionP>
-						</RowSection>
-						<RowSection className='date-section'>
-							<RowSectionP>10:20 AM, March 12, 2021</RowSectionP>
-						</RowSection>
-						<RowSection className='icon-section'>
-							<Trash onClick={handleClick}>
-								<DeleteIcon />
-							</Trash>
-						</RowSection>
-					</EntryContainer>
 				</CardDiv>
-				{/* 
-				{ logs.forEach(() => {
-	return (		<Label>{logs.title}</Label> 
-		<p>{`{log.content.substring(0, 100)} ...`} 
-	<a href='/logs/{log._id}'>Read More</a>
-	</p> ))	} } */}
 			</DashboardContainer>
 		</DashboardMain>
-	);
-};
+ */
 
-export default Logs;
+// {entries.forEach((entry, index) => {
+// 	return( <EntryRow
+// key={index}
+// title={entries.title}
+// content={entries.content}
+// date={entries.date}
+// onClick={handleClick}
+// />  		)
+// });

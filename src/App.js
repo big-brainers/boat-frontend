@@ -26,7 +26,7 @@ export default function App(props) {
 	return (
 		<>
 			<Router>
-				<GlobalStyle />
+				{/* <GlobalStyle /> */}
 				<Switch>
 					<Route exact path='/' render={LandingPage} />
 					<Route exact path='/signin' component={SignInPage} />
@@ -35,7 +35,7 @@ export default function App(props) {
 					<Route path='/welcome' component={Welcome} />
 					<Route path='/dashboard' render={Dashboard} />
 					<Route path='/schedule' render={Schedule} />
-					<Route exact path='/logs' render={LogsAll} />
+					<Route exact path='/logs' component={LogsAll} />
 					<Route path='/logs/:id' render={LogsOne} />
 					<Route path='/compose' component={Compose} />
 				</Switch>
