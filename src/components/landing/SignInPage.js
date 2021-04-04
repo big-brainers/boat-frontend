@@ -1,8 +1,10 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link, useHistory, Redirect } from 'react-router-dom';
 import SignUpPage from './SignUpPage';
 import styled from 'styled-components';
 import google from '../../images/google-logo.png';
+import APIurl from '../../config';
+import axios from 'axios'
 
 const SignInNav = styled.nav`
 	margin: 0 auto;
@@ -81,7 +83,31 @@ const InputStyle = styled.input`
 	margin-bottom: 24px;
 `;
 
-function SignInPage() {
+function SignInPage(/*{ props }*/) {
+
+	// const history = useHistory()
+
+	const [customerSignIn, setCustomerSignIn] = useState({ email: '', password: '' })
+
+	const handleChange = (event) => {
+		setCustomerSignIn({ ...customerSignIn, [event.target.name]: event.target.value })
+	}
+
+	const handleSubmit = (event) => {
+		event.preventDefault()
+		console.log(event)
+
+		axios.post(`${APIurl}/users/login`, customerSignIn,
+		{headers: {'Accept': 'application/json'}})
+        .then(function (response) {
+            console.log(response);
+			return <Redirect to= "/"/>
+        })
+        .catch(function (error) {
+            console.log(error);
+    });
+}
+
 	return (
 		<>
 			<SignInNav>
@@ -91,7 +117,7 @@ function SignInPage() {
 			</SignInNav>
 
 			<SignUpContainer>
-				<form>
+				<form onSubmit={handleSubmit}>
 					<HeaderOne>Welcome Back!</HeaderOne>
 					<TertiaryButton>
 						<Icon src={google} alt='google logo'></Icon>Continue with Google
@@ -101,18 +127,20 @@ function SignInPage() {
 					<div className='form-group'>
 						<Label>Email</Label>
 						<InputStyle
-							type='email'
+							type='text'
 							className='form-control'
 							placeholder='Email'
+							onChange={handleChange}
 						/>
 					</div>
 
 					<div className='form-group'>
 						<Label>Password</Label>
 						<InputStyle
-							type='password'
+							type='text'
 							className='form-control'
 							placeholder='Password'
+							onChange={handleChange}
 						/>
 					</div>
 
