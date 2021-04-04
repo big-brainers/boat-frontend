@@ -186,7 +186,6 @@ const Logs = () => {
 		axios(`${APIurl}/logs`)
 			.then((res) => {
 				let logsArray = res.data;
-
 				setLogs(logsArray);
 			})
 			.catch(console.error);
@@ -267,23 +266,44 @@ const Logs = () => {
 	// }
 
 	return (
-		<div>
-			{/* <h1>{logs[2].title}</h1> */}
-			<EntryRow
-				title={logs[0].title}
-				content={logs[0].content}
-				date={logs[0].date}
-				index={logs[0]._id}
-			/>
-			{/* {logs.map((entry, index) => (
-				<EntryRow
-					key={index}
-					title={entry.title}
-					content={entry.content}
-					date={entry.date}
-				/>
-			))} */}
-		</div>
+		<DashboardMain>
+			<NavPanel />
+			<DashboardContainer>
+				<PageNav>
+					<HeaderOne>Logs</HeaderOne>
+					<Link to='/compose'>
+						<Button className='primary'>New Entry</Button>
+					</Link>
+				</PageNav>
+				<CardDiv>
+					<HeaderRow bottom='none' justify='flex-start'>
+						<IconDiv>
+							<IconButton>
+								<Link to='/dashboard'>
+									<img src={prev} alt='back' />
+								</Link>
+							</IconButton>
+							<CardHeader className='card-link'>
+								Back to the Dashboard
+							</CardHeader>
+						</IconDiv>
+					</HeaderRow>
+					<HeaderRow>
+						<Label>Title</Label>
+						<Label>Status</Label>
+						<Label>Date</Label>
+					</HeaderRow>
+					{logs.map((entry, index) => (
+						<EntryRow
+							title={entry.title.substring(0, 20)}
+							content={entry.content.substring(0, 40)}
+							date={entry.date.substring(0, 10)}
+							index={entry._id}
+						/>
+					))}
+				</CardDiv>
+			</DashboardContainer>
+		</DashboardMain>
 	);
 };
 

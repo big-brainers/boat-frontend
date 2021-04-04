@@ -8,7 +8,7 @@ const EntryContainer = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	flex-flow: row wrap;
-	height: 92px;
+	// height: 92px;
 	align-items: center;
 	border-bottom: 1px solid #b0b8bc;
 	margin: 10px auto;
@@ -18,22 +18,22 @@ const EntryContainer = styled.div`
 `;
 
 const RowSection = styled.div`
-	height: 56px;
+	// height: 56px;
 	padding: 0;
 	margin: 0;
 
 	&.title-section {
-		width: 30%;
+		width: 27%;
 		font-weight: 700;
 	}
 	&.body-section {
-		width: 30%;
+		width: 51%;
 	}
 	&.date-section {
-		width: 20%;
+		width: 13%;
 	}
 	&.icon-section {
-		width: 5%;
+		width: 3%;
 	}
 `;
 
@@ -53,25 +53,30 @@ const Trash = styled.button`
 `;
 
 const EntryRow = (props) => {
+	// function logDate(entry) {
+	// 	logs.map((entry) => {
+	// 		const datestamp = entry.date;
+	// 		const dateStr = datestamp.substring(0, 10);
+	// 		return dateStr;
+	// 	});
 	return (
-		<div>
-			<h1>{props.title}</h1>
-			<h2>{props.content}</h2>
-			<h3>{props.date}</h3>
-			<h4>{props.index}</h4>
-		</div>
+		<EntryContainer>
+			<RowSection className='title-section'>
+				<Link to='/logs/:id'>
+					<RowSectionP>{props.title}...</RowSectionP>
+				</Link>
+			</RowSection>
+			<RowSection className='body-section'>
+				<RowSectionP>{props.content}...</RowSectionP>
+			</RowSection>
+			<RowSection className='date-section'>
+				<RowSectionP>{props.date}</RowSectionP>
+			</RowSection>
 
-		// <EntryContainer>
-		// 	<RowSectionP>{props.title}</RowSectionP>
-
-		// 	<RowSectionP>{`${entry.content.substring(0, 40)} ...`}</RowSectionP>
-
-		// 	<RowSectionP>{entry.date}</RowSectionP>
-
-		// 	<Trash>
-		// 		<DeleteIcon />
-		// 	</Trash>
-		// </EntryContainer>
+			<Trash>
+				<DeleteIcon />
+			</Trash>
+		</EntryContainer>
 	);
 };
 

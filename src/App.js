@@ -26,7 +26,7 @@ export default function App(props) {
 	return (
 		<>
 			<Router>
-				{/* <GlobalStyle /> */}
+				<GlobalStyle />
 				<Switch>
 					<Route exact path='/' render={LandingPage} />
 					<Route exact path='/signin' component={SignInPage} />
