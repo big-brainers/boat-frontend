@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Link } from 'react-router-dom';
 import styled from 'styled-components';
 import sailboat from '../../images/sailboat-desktop.png';
 
@@ -127,11 +127,13 @@ const Button = styled.button`
 	&.primary {
 		background-color: #111b47;
 		color: #fff;
+		cursor: pointer;
 	}
 
 	&.tertiary {
 		color: #222f65;
 		background-color: #e5e7f0;
+		cursor: pointer;
 		border: ${(props) => props.border || 'none'};
 	}
 `;
