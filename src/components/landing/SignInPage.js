@@ -110,13 +110,16 @@ function SignInPage(/*{ props }*/) {
 		console.log(event);
 
 		axios
-			.post(`${APIurl}/users/login`, customerSignIn, {
-				headers: { Accept: 'application/json' },
-			})
+			.post(
+				`${APIurl}/users/login`,
+				customerSignIn /*{ email: 'task@gmail.com', password: '123456'}*/
+				/*{headers: {'Accept': 'application/json'}}*/
+			)
 			.then(function (response) {
 				console.log(response);
-				return <Redirect to='/' />;
+				// return <Redirect to= "/"/>
 			})
+			.then(console.log('hello'))
 			.catch(function (error) {
 				console.log(error);
 			});
@@ -151,7 +154,7 @@ function SignInPage(/*{ props }*/) {
 					<div className='form-group'>
 						<Label>Password</Label>
 						<InputStyle
-							type='text'
+							type='password'
 							className='form-control'
 							placeholder='Password'
 							onChange={handleChange}
