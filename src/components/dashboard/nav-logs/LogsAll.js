@@ -78,7 +78,7 @@ const HeaderRow = styled.div`
 	grid-column: 1 / span 16;
 	display: flex;
 	align-items: center;
-	justify-content: ${(props) => props.justify || 'center'};
+	justify-content: ${(props) => props.justify || 'space-between'};
 `;
 
 const PageNav = styled.nav`
@@ -93,12 +93,12 @@ const PageNav = styled.nav`
 
 const Label = styled.h6`
 	color: #767676;
-	margin: 0 auto;
+	margin: 0 80px;
 	text-transform: uppercase;
 	margin-bottom: 8px;
 	font-weight: 700;
 	font-size: 1.2rem;
-	padding: 0 120px;
+	display: inline-flex;
 `;
 
 const Button = styled.button`

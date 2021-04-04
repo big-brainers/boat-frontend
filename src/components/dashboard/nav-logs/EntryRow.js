@@ -53,16 +53,10 @@ const Trash = styled.button`
 `;
 
 const EntryRow = (props) => {
-	// function logDate(entry) {
-	// 	logs.map((entry) => {
-	// 		const datestamp = entry.date;
-	// 		const dateStr = datestamp.substring(0, 10);
-	// 		return dateStr;
-	// 	});
 	return (
 		<EntryContainer>
 			<RowSection className='title-section'>
-				<Link to='/logs/:id'>
+				<Link to={`/logs/${props.index}`}>
 					<RowSectionP>{props.title}...</RowSectionP>
 				</Link>
 			</RowSection>
@@ -73,9 +67,9 @@ const EntryRow = (props) => {
 				<RowSectionP>{props.date}</RowSectionP>
 			</RowSection>
 
-			<Trash>
+			{/* <Trash onClick={handleDelete}>
 				<DeleteIcon />
-			</Trash>
+			</Trash> */}
 		</EntryContainer>
 	);
 };

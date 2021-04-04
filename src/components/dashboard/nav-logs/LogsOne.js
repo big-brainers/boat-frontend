@@ -1,11 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useHistory, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import NavPanel from '../NavPanel';
 import prev from '../../../images/left.png';
 import edit from '../../../images/edit-gray.png';
-
 import Entry from './Entry';
+import APIurl from '../../../config';
+import axios from 'axios';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const DashboardMain = styled.main`
 	margin: 0;
@@ -88,9 +90,114 @@ const IconButton = styled.button`
 	grid-column: 14;
 `;
 
-function LogsOne(props) {
+const Trash = styled.button`
+	background-color: #fff;
+	color: #222f65;
+	border: none;
+	width: 36px;
+	height: 36px;
+	cursor: pointer;
+	outline: none;
+`;
+
+const LogsOne = ({ match }) => {
+	const history = useHistory();
+	const [log, setLog] = useState(null);
+	const [modal, setModal] = useState(false);
+
+	useEffect(() => {
+		const id = match.params.id;
+		axios
+			.get(`${APIurl}/logs/${id}`)
+			.then(({ data }) => setLog(data))
+			.catch(console.error);
+	}, [match.params.id]);
+
+	const handleChange = (event) => {
+		setLog({ ...log, [event.target.name]: event.target.value });
+	};
+
+	const editEntryPage = () => {
+		setModal(true);
+	};
+
+	const closeModal = () => {
+		setModal(false);
+	};
+
+	// const handleSubmit = (event) => {
+	// 	event.preventDefault();
+	// 	const id = match.params.id;
+	// 	axios
+	// 		.put(`${APIurl}/logs/${id}`, log)
+	// 		.then(() => {
+	// 			history.push('/');
+	// 		})
+	// 		.catch(console.error);
+	// };
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		const id = match.params.id;
+		axios
+			.put(`${APIurl}/logs/${id}`, log)
+			.then(() => {
+				history.push(`/logs/${id}`);
+				closeModal();
+			})
+
+			.catch(console.error);
+	};
+
+	if (!log) {
+		return <h1>Loading...</h1>;
+	}
+
+	const handleDelete = () => {
+		// Write your DELETE fetch() or axios() request here
+		const id = match.params.id;
+		axios
+			.delete(`${APIurl}/logs/${id}`)
+			.then(() => {
+				history.push('/logs');
+			})
+			.catch(console.error);
+	};
+
 	return (
-		<DashboardMain>
+		<div>
+			{modal ? (
+				<div>
+					<div>
+						<h2>Edit this entry:</h2>
+						<form onSubmit={handleSubmit}>
+							<label htmlFor='title' />
+							<input onChange={handleChange} name='title' value={log.title} />
+							{/* <label htmlFor='content' /> */}
+							<input
+								onChange={handleChange}
+								name='content'
+								value={log.content}
+							/>
+							<br />
+							<button type='submit'>Submit</button>
+						</form>
+						<button onClick={closeModal}>Close</button>
+					</div>
+				</div>
+			) : null}
+			<h2>{log.title}</h2>
+			<h3>content: {log.content}</h3>
+			<button onClick={editEntryPage}>Edit</button>
+			<button onClick={handleDelete}>Delete</button>
+		</div>
+	);
+};
+
+export default LogsOne;
+
+/**
+ * <DashboardMain>
 			<NavPanel />
 			<DashboardContainer>
 				<PageNav>
@@ -108,18 +215,18 @@ function LogsOne(props) {
 							<CardHeader className='card-link'>Go to Logs</CardHeader>
 						</IconDiv>
 						<IconDiv>
-							<IconButton>
+							 <IconButton>
 								<Link to='/compose'>
 									<img src={edit} alt='edit' />
 								</Link>
-							</IconButton>
+							</IconButton> 
+							<Trash onClick={handleDelete}>
+								<DeleteIcon />
+							</Trash>
 						</IconDiv>
 					</HeaderRow>
 					<Entry />
 				</CardDiv>
 			</DashboardContainer>
 		</DashboardMain>
-	);
-}
-
-export default LogsOne;
+ */

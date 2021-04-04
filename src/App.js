@@ -36,7 +36,7 @@ export default function App(props) {
 					<Route path='/dashboard' render={Dashboard} />
 					<Route path='/schedule' render={Schedule} />
 					<Route exact path='/logs' component={LogsAll} />
-					<Route path='/logs/:id' render={LogsOne} />
+					<Route path='/logs/:id' component={LogsOne} />
 					<Route path='/compose' component={Compose} />
 				</Switch>
 			</Router>
