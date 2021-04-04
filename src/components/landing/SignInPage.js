@@ -90,9 +90,7 @@ const InputStyle = styled.input`
 	margin-bottom: 24px;
 `;
 
-function SignInPage(/*{ props }*/) {
-	const history = useHistory();
-
+function SignInPage() {
 	const [customerSignIn, setCustomerSignIn] = useState({
 		email: '',
 		password: '',
@@ -103,21 +101,18 @@ function SignInPage(/*{ props }*/) {
 			...customerSignIn,
 			[event.target.name]: event.target.value,
 		});
+		console.log(customerSignIn);
 	};
-
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		console.log(event);
 
 		axios
-			.post(
-				`${APIurl}/users/login`,
-				customerSignIn /*{ email: 'task@gmail.com', password: '123456'}*/
-				/*{headers: {'Accept': 'application/json'}}*/
-			)
+			.post(`${APIurl}/users/login`, customerSignIn, {
+				headers: { Accept: 'application/json' },
+			})
 			.then(function (response) {
 				console.log(response);
-				// return <Redirect to= "/"/>
 			})
 			.then(() => history.push('/Dashboard'))
 			.catch(function (error) {
@@ -145,6 +140,8 @@ function SignInPage(/*{ props }*/) {
 						<Label>Email</Label>
 						<InputStyle
 							type='text'
+							value={customerSignIn.email}
+							name='email'
 							className='form-control'
 							placeholder='Email'
 							onChange={handleChange}
@@ -155,6 +152,8 @@ function SignInPage(/*{ props }*/) {
 						<Label>Password</Label>
 						<InputStyle
 							type='password'
+							name='password'
+							value={customerSignIn.password}
 							className='form-control'
 							placeholder='Password'
 							onChange={handleChange}
