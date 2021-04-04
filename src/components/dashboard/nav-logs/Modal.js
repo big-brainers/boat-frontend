@@ -94,12 +94,12 @@ const Button = styled.button`
 	}
 `;
 
-const Modal = ({ modal, setModal }) => {
+const Modal = ({ modal, setModal, handleSubmit }) => {
 	return (
 		<>
 			{modal ? (
 				<Background>
-					<ModalWrapper showmodal={setModal}>
+					<ModalWrapper setmodal={setModal}>
 						<ModalContent>
 							<ModalTextDiv>
 								<Icon src={warning} alt='question mark'></Icon>
@@ -111,7 +111,10 @@ const Modal = ({ modal, setModal }) => {
 									onClick={() => setModal((prev) => !prev)}>
 									Cancel
 								</Button>
-								<Button className='primary' type='submit'>
+								<Button
+									onClick={handleSubmit}
+									className='primary'
+									type='submit'>
 									Publish
 								</Button>
 							</ButtonDiv>

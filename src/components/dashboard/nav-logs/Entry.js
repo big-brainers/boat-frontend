@@ -98,7 +98,7 @@ const ButtonDiv = styled.div`
 `;
 
 const Button = styled.button`
-	width: 160px;
+	width: ${(props) => props.width || '160px'};
 	height: 48px;
 	font-family: 'Inconsolata', monospace;
 	font-size: ${(props) => props.size || '1.4rem'};
@@ -209,27 +209,27 @@ const IconButton = styled.button`
 const InputContainer = styled.div`
 	// padding: 16px 32px 8px 32px;
 	padding: 32px;
-	width: 100%;
+	width: ${(props) => props.width || '100%'};
 	border: none;
 
 	outline: none;
 	font-size: 1.2em;
-	font-family: inherit;
-	resize: none;
-	& button {
-		position: relative;
-		right: 32px;
-		bottom: -72px;
-		background: #111b47;
-		color: #fff;
-		border: none;
-		border-radius: 50%;
-		width: 36px;
-		height: 36px;
-		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-		cursor: pointer;
-		outline: none;
-	}
+	// font-family: inherit;
+	// resize: none;
+	// & button {
+	// 	position: relative;
+	// 	right: 32px;
+	// 	bottom: -72px;
+	// 	background: #111b47;
+	// 	color: #fff;
+	// 	border: none;
+	// 	border-radius: 50%;
+	// 	width: 36px;
+	// 	height: 36px;
+	// 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+	// 	cursor: pointer;
+	// 	outline: none;
+	// }
 `;
 
 const Label = styled.label`
@@ -260,8 +260,7 @@ const ModalBox = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-	// height: 100vh;
+	width: ${(props) => props.width || '100%'};
 `;
 
 // const Button = styled.button`
@@ -462,7 +461,7 @@ const Entry = ({ match }) => {
 			.put(`${APIurl}/logs/${id}`, log)
 			.then(() => {
 				history.push(`/logs/${id}`);
-				closeModal();
+				closeEditModal();
 			})
 
 			.catch(console.error);
@@ -514,6 +513,7 @@ const Entry = ({ match }) => {
 			.delete(`${APIurl}/logs/${id}`)
 			.then(() => {
 				history.push('/logs');
+				closeModal();
 			})
 			.catch(console.error);
 	};
@@ -534,8 +534,8 @@ const Entry = ({ match }) => {
 
 								<ModalBox>
 									<div>
-										<form onSubmit={handleSubmit}>
-											<InputContainer>
+										<InputContainer width='90%'>
+											<form onSubmit={handleSubmit}>
 												<label htmlFor='title' />
 												<InputStyle
 													onChange={handleChange}
@@ -558,20 +558,23 @@ const Entry = ({ match }) => {
 												</ButtonDiv> */}
 												<ButtonDiv padding='0'>
 													<Button
+														margin='0 16px 0 0'
 														className='secondary'
 														onClick={() => setEditModal((prev) => !prev)}>
 														Cancel
 													</Button>
 
 													<Button
+														width='200px'
+														margin='0'
 														className='primary'
 														type='submit'
 														onClick={handleSubmit}>
-														Delete
+														Submit Changes
 													</Button>
 												</ButtonDiv>
-											</InputContainer>
-										</form>
+											</form>
+										</InputContainer>
 										{/* <Button onClick={closeEditModal}>Close</Button> */}
 									</div>
 								</ModalBox>

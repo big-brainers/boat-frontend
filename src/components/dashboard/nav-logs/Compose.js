@@ -177,13 +177,14 @@ const Compose = (props) => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-
 		axios
 			.post(`${APIurl}/logs`, entry)
 			.then(() => {
 				props.onAdd(entry);
-				setEntry(initialState);
 				history.push('/logs');
+				closeModal();
+				// setEntry(initialState);
+				// can you set a redirect back to the Logs page and figure out why the modal doesn't close? it works for the handleDelete in Entry.js but doesn't want to carry out the closeModal() after you submit. It gets posted to the MongoDB, but the modal doesn't close and we don't have a redirect route to go back to LogsAll
 			})
 			.catch(console.error);
 	};
@@ -191,6 +192,9 @@ const Compose = (props) => {
 	function expand() {
 		setExpanded(true);
 	}
+	const closeModal = () => {
+		setModal(false);
+	};
 
 	const openModal = () => {
 		setModal((prev) => !prev);
@@ -254,7 +258,7 @@ const Compose = (props) => {
 					{/* <Button type='button' onClick={handleSubmit}>
 							Publish
 						</Button> */}
-					<Modal modal={modal} setModal={setModal} />
+					<Modal modal={modal} onClick={handleSubmit} setModal={setModal} />
 					{/* </ModalBox> */}
 				</CardDiv>
 			</DashboardContainer>
