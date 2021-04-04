@@ -11,9 +11,9 @@ import LogsAll from './components/dashboard/nav-logs/LogsAll';
 import Entry from './components/dashboard/nav-logs/Entry';
 import Compose from './components/dashboard/nav-logs/Compose';
 import Welcome from './components/dashboard/Welcome';
-import Scheduler from './components/dashboard/nav-schedule/Scheduler';
+// import Scheduler from './components/dashboard/nav-schedule/Scheduler';
 import Schedule from './components/dashboard/nav-schedule/Schedule';
-import Calendar from './components/dashboard/nav-schedule/Calendar';
+// import Calendar from './components/dashboard/nav-schedule/Calendar';
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -38,7 +38,7 @@ export default function App(props) {
 					<Route path='/about' render={About} />
 					<Route path='/welcome' component={Welcome} />
 					<Route path='/dashboard' render={Dashboard} />
-					<Route path='/schedule' render={Schedule} />
+
 					<Route exact path='/logs' component={LogsAll} />
 					<Route path='/logs/:id' component={Entry} />
 					<Route path='/compose' component={Compose} />

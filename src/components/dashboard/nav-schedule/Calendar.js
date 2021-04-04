@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
-import GoToSchedule from './GoToSchedule';
-import CalendarCard from './CalendarCard';
+// import GoToSchedule from './GoToSchedule';
+// import CalendarCard from './CalendarCard';
 
 const CardContainerLarge = styled.div`
 	background: #ffffff;
@@ -89,9 +89,8 @@ const Body = styled.div`
 
 const Day = styled.div`
 	width: 14.2%;
-	height: 140px;
+	height: 96px;
 	display: flex;
-	height: 140px;
 	margin: 0 auto;
 	justify-content: flex-end;
 
