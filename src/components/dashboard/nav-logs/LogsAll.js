@@ -192,7 +192,30 @@ const Logs = () => {
 	}
 
 	return (
-		<DashboardMain>
+		<div>
+			{/* <h1>{logs[2].title}</h1> */}
+			<EntryRow
+				title={logs[0].title}
+				content={logs[0].content}
+				date={logs[0].date}
+				index={logs[0]._id}
+			/>
+			{/* {logs.map((entry, index) => (
+				<EntryRow
+					key={index}
+					title={entry.title}
+					content={entry.content}
+					date={entry.date}
+				/>
+			))} */}
+		</div>
+	);
+};
+
+export default Logs;
+
+/**
+ * <DashboardMain>
 			<NavPanel />
 			<DashboardContainer>
 				<HeaderOne>Logs</HeaderOne>
@@ -225,7 +248,14 @@ const Logs = () => {
 				</CardDiv>
 			</DashboardContainer>
 		</DashboardMain>
-	);
-};
+ */
 
-export default Logs;
+// {entries.forEach((entry, index) => {
+// 	return( <EntryRow
+// key={index}
+// title={entries.title}
+// content={entries.content}
+// date={entries.date}
+// onClick={handleClick}
+// />  		)
+// });

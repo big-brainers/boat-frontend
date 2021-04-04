@@ -27,7 +27,6 @@ export default function App(props) {
 	return (
 		<>
 			<Router>
-				<GlobalStyle />
 				<Switch>
 					<Route exact path='/' render={LandingPage} />
 					<Route exact path='/signin' component={SignInPage} />
@@ -36,22 +35,11 @@ export default function App(props) {
 					<Route path='/welcome' component={Welcome} />
 					<Route path='/dashboard' render={Dashboard} />
 					<Route path='/schedule' render={Schedule} />
-<<<<<<< HEAD
 					<Route exact path='/logs' component={LogsAll} />
 					<Route path='/logs/:id' component={Entry} />
 					<Route path='/compose' component={Compose} />
-=======
-<<<<<<< HEAD
-					<Route path='/logs' render={Logs} />
-=======
-					<Route exact path='/logs' render={LogsAll} />
-					<Route path='/logs/:id' render={LogsOne} />
-					<Route path='/compose' component={Compose} />
->>>>>>> 6687297... resolve route rendering and invalid hook calls, fix container spacing in dashboard components
->>>>>>> 398163a... resolve route rendering and invalid hook calls, fix container spacing in dashboard components
 				</Switch>
-			</Router>{' '}
-			*/}
+			</Router>
 		</>
 	);
 }
