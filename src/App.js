@@ -9,6 +9,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import Schedule from './components/dashboard/nav-schedule/Schedule';
 import LogsAll from './components/dashboard/nav-logs/LogsAll';
 import LogsOne from './components/dashboard/nav-logs/LogsOne';
+import Entry from './components/dashboard/nav-logs/Entry';
 import Compose from './components/dashboard/nav-logs/Compose';
 import Welcome from './components/dashboard/Welcome';
 
@@ -36,7 +37,7 @@ export default function App(props) {
 					<Route path='/dashboard' render={Dashboard} />
 					<Route path='/schedule' render={Schedule} />
 					<Route exact path='/logs' component={LogsAll} />
-					<Route path='/logs/:id' component={LogsOne} />
+					<Route path='/logs/:id' component={Entry} />
 					<Route path='/compose' component={Compose} />
 				</Switch>
 			</Router>

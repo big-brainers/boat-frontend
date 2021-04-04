@@ -169,7 +169,7 @@ const Compose = (props) => {
 
 	const [entry, setEntry] = useState(initialState);
 	const [isExpanded, setExpanded] = useState(false);
-	const [showModal, setShowModal] = useState(false);
+	const [modal, setModal] = useState(false);
 
 	const handleChange = (event) => {
 		setEntry({ ...entry, [event.target.name]: event.target.value });
@@ -193,7 +193,7 @@ const Compose = (props) => {
 	}
 
 	const openModal = () => {
-		setShowModal((prev) => !prev);
+		setModal((prev) => !prev);
 	};
 
 	return (
@@ -254,7 +254,7 @@ const Compose = (props) => {
 						<Button type='button' onClick={handleSubmit}>
 							Publish
 						</Button>
-						<Modal showModal={showModal} setShowModal={setShowModal} />
+						<Modal modal={modal} setModal={setModal} />
 					</ModalBox>
 				</CardDiv>
 			</DashboardContainer>

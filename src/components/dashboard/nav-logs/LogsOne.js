@@ -125,17 +125,6 @@ const LogsOne = ({ match }) => {
 		setModal(false);
 	};
 
-	// const handleSubmit = (event) => {
-	// 	event.preventDefault();
-	// 	const id = match.params.id;
-	// 	axios
-	// 		.put(`${APIurl}/logs/${id}`, log)
-	// 		.then(() => {
-	// 			history.push('/');
-	// 		})
-	// 		.catch(console.error);
-	// };
-
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		const id = match.params.id;
@@ -154,7 +143,6 @@ const LogsOne = ({ match }) => {
 	}
 
 	const handleDelete = () => {
-		// Write your DELETE fetch() or axios() request here
 		const id = match.params.id;
 		axios
 			.delete(`${APIurl}/logs/${id}`)
@@ -173,7 +161,7 @@ const LogsOne = ({ match }) => {
 						<form onSubmit={handleSubmit}>
 							<label htmlFor='title' />
 							<input onChange={handleChange} name='title' value={log.title} />
-							{/* <label htmlFor='content' /> */}
+
 							<input
 								onChange={handleChange}
 								name='content'

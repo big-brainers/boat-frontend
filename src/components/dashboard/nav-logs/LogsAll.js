@@ -5,7 +5,6 @@ import NavPanel from '../NavPanel';
 import { useHistory, Link } from 'react-router-dom';
 import APIurl from '../../../config';
 import axios from 'axios';
-import DeleteIcon from '@material-ui/icons/Delete';
 import prev from '../../../images/left.png';
 import EntryRow from './EntryRow';
 import { set } from 'mongoose';
@@ -98,7 +97,7 @@ const Label = styled.h6`
 	margin-bottom: 8px;
 	font-weight: 700;
 	font-size: 1.2rem;
-	display: inline-flex;
+	display: ${(props) => props.display || 'inline-flex'};
 `;
 
 const Button = styled.button`
@@ -125,7 +124,7 @@ const Button = styled.button`
 const EntryContainer = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: ${(props) => props.justify || 'space-between'};
 	flex-flow: row wrap;
 	height: 92px;
 	align-items: center;
@@ -171,15 +170,7 @@ const Trash = styled.button`
 	outline: none;
 `;
 
-// const samplebodytext =
-// 	'Im baby mlkshk pour-over edison bulb kogi, vexillologiststumptown hoodie vegan pok pok raw denim synth lo-fi occupy pabst.';
-
-// function concatBody() {
-// 	return `${samplebodytext.substring(0, 60)} ...`;
-// }
-
 const Logs = () => {
-	// const history = useHistory();
 	const [logs, setLogs] = useState([]);
 
 	useEffect(() => {
@@ -192,78 +183,44 @@ const Logs = () => {
 	}, []);
 
 	if (!logs.length) {
-		return <h1>Loading...</h1>;
+		return (
+			<DashboardMain>
+				<NavPanel />
+				<DashboardContainer>
+					<PageNav>
+						<HeaderOne>Logs</HeaderOne>
+						<Link to='/compose'>
+							<Button className='primary'>New Entry</Button>
+						</Link>
+					</PageNav>
+					<CardDiv>
+						<HeaderRow bottom='none' justify='flex-start'>
+							<IconDiv>
+								<IconButton>
+									<Link to='/dashboard'>
+										<img src={prev} alt='back' />
+									</Link>
+								</IconButton>
+								<CardHeader className='card-link'>
+									Back to the Dashboard
+								</CardHeader>
+							</IconDiv>
+						</HeaderRow>
+						<HeaderRow>
+							<Label>Title</Label>
+							<Label>Status</Label>
+							<Label>Date</Label>
+						</HeaderRow>
+						<EntryContainer justify='center'>
+							<Label display='block'>
+								Let's start a new entry in your captain's log! ↗️
+							</Label>
+						</EntryContainer>
+					</CardDiv>
+				</DashboardContainer>
+			</DashboardMain>
+		);
 	}
-
-	// function getEntries(entry) {
-	// 	axios
-	// 		.get(`${APIurl}/logs`, entry)
-	// 		.then((res) => res.json())
-	// 		.then((res) => {
-	// 			console.log('res', res);
-	// 			let entryData = res.data;
-	// 			console.log('res.data', entryData);
-	// 			setEntries(res.data);
-	// 			history.push('/logs');
-	// 		})
-	// 		.catch((err) => console.log(err));
-	// }
-
-	// useEffect(() => {
-	// 	getEntries(entries);
-	// }, []);
-
-	// useEffect(() => {
-	// 	axios(`${APIurl}/logs`)
-	// 		.then((res) => {
-	// 			console.log(res.data);
-
-	// 			setEntries(res.data);
-	// 		})
-	// 		.catch(console.error);
-	// }, []);
-
-	// if (!entries.length) {
-	// 	return (
-	// 		<DashboardMain>
-	// 			<NavPanel />
-	// 			<DashboardContainer>
-	// 				<PageNav>
-	// 					<HeaderOne>Logs</HeaderOne>
-	// 					<Link to='/compose'>
-	// 						<Button className='primary'>New Entry</Button>
-	// 					</Link>
-	// 				</PageNav>
-	// 				<CardDiv>
-	// 					<HeaderRow bottom='none' justify='flex-start'>
-	// 						<IconDiv>
-	// 							<IconButton>
-	// 								<Link to='/dashboard'>
-	// 									<img src={prev} alt='back' />
-	// 								</Link>
-	// 							</IconButton>
-	// 							<CardHeader className='card-link'>
-	// 								Back to the Dashboard
-	// 							</CardHeader>
-	// 						</IconDiv>
-	// 					</HeaderRow>
-	// 					<HeaderRow>
-	// 						<Label>Title</Label>
-	// 						<Label>Status</Label>
-	// 						<Label>Date</Label>
-	// 					</HeaderRow>
-	// 					<EntryContainer>
-	// 						<Label>Let's start a new entry in your captain's log! ↗️</Label>
-	// 					</EntryContainer>
-	// 				</CardDiv>
-	// 			</DashboardContainer>
-	// 		</DashboardMain>
-	// 	);
-	// }
-
-	// function handleClick() {
-	// 	props.onDelete(props.id);
-	// }
 
 	return (
 		<DashboardMain>
@@ -308,46 +265,3 @@ const Logs = () => {
 };
 
 export default Logs;
-
-/**
- * <DashboardMain>
-			<NavPanel />
-			<DashboardContainer>
-				<PageNav>
-					<HeaderOne>Logs</HeaderOne>
-					<Link to='/compose'>
-						<Button className='primary'>New Entry</Button>
-					</Link>
-				</PageNav>
-				<CardDiv>
-					<HeaderRow bottom='none' justify='flex-start'>
-						<IconDiv>
-							<IconButton>
-								<Link to='/dashboard'>
-									<img src={prev} alt='back' />
-								</Link>
-							</IconButton>
-							<CardHeader className='card-link'>
-								Back to the Dashboard
-							</CardHeader>
-						</IconDiv>
-					</HeaderRow>
-					<HeaderRow>
-						<Label>Title</Label>
-						<Label>Status</Label>
-						<Label>Date</Label>
-					</HeaderRow>
-				</CardDiv>
-			</DashboardContainer>
-		</DashboardMain>
- */
-
-// {entries.forEach((entry, index) => {
-// 	return( <EntryRow
-// key={index}
-// title={entries.title}
-// content={entries.content}
-// date={entries.date}
-// onClick={handleClick}
-// />  		)
-// });

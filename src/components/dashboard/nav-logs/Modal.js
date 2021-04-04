@@ -94,12 +94,12 @@ const Button = styled.button`
 	}
 `;
 
-const Modal = ({ showModal, setShowModal }) => {
+const Modal = ({ modal, setModal }) => {
 	return (
 		<>
-			{showModal ? (
+			{setModal ? (
 				<Background>
-					<ModalWrapper showmodal={showModal}>
+					<ModalWrapper showmodal={setModal}>
 						<ModalContent>
 							<ModalTextDiv>
 								<Icon src={warning} alt='question mark'></Icon>
@@ -108,7 +108,7 @@ const Modal = ({ showModal, setShowModal }) => {
 							<ButtonDiv>
 								<Button
 									className='secondary'
-									onClick={() => setShowModal((prev) => !prev)}>
+									onClick={() => setModal((prev) => !prev)}>
 									Cancel
 								</Button>
 								<Button className='primary' type='submit'>
