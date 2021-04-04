@@ -13,6 +13,7 @@ import useForm from './useForm';
 import google from '../../images/google-logo.png';
 import APIurl from '../../config';
 import axios from 'axios';
+import Dashboard from '../dashboard/Dashboard';
 
 const HeaderOne = styled.h1`
 	font-size: 3rem;
@@ -128,8 +129,9 @@ const SignUpFunc = (/*{ submitForm },*/ props) => {
 			})
 			.then(function (response) {
 				console.log(response);
-				return <Redirect to='/' />;
+				// return <Redirect to= "/Dashboard"/>
 			})
+			.then(() => history.push('/Dashboard'))
 			.catch(function (error) {
 				console.log(error);
 			});
