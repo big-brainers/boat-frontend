@@ -66,7 +66,8 @@ function TaskForm(props) {
 	function handleSubmit(event) {
 		event.preventDefault();
 		props.onAdd(tasks);
-		setTasks(tasks);
+		// setTasks(tasks);
+		setTasks(initialState);
 	}
 
 	return (
@@ -75,7 +76,7 @@ function TaskForm(props) {
 				type='text'
 				name='content'
 				value={tasks.content}
-				placeholder='New Item'
+				placeholder='Add a to-do item here->'
 				onChange={handleChange}
 			/>
 			<AddBtn> +</AddBtn>

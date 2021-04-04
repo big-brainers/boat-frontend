@@ -5,7 +5,8 @@ import TaskItem from './TaskItem';
 
 const CardContainerMedium = styled.div`
 	width: 448px;
-	height: 480px;
+	// height: ${(props) => props.height || '480px'};
+	height: ${(props) => props.height || '90vh'};
 	background: #ffffff;
 	box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
 	border-radius: 2px;

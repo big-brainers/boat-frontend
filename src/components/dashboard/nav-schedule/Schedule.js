@@ -34,6 +34,9 @@ const HeaderOne = styled.h1`
 `;
 
 const Schedule = () => {
+
+	
+
 	return (
 		<DashboardMain>
 			<NavPanel />

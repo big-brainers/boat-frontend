@@ -49,8 +49,9 @@ function Dashboard(props) {
 			<DashboardContainer>
 				<CardDiv>
 					<TasksCard row='1' />
-					<QuickEntry row='4' column='2' />
-					<CalBox />
+
+					{/* <QuickEntry row='4' column='2' /> */}
+					<CalBox></CalBox>
 				</CardDiv>
 			</DashboardContainer>
 		</DashboardMain>
