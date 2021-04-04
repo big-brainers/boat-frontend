@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import TasksCard from './card-tasks/TasksCard';
 import QuickEntry from './card-quickentry/QuickEntry';
 import NavPanel from './NavPanel';
+import Calendar from '../dashboard/nav-schedule/Calendar';
 
 const CalBox = styled.figure`
 	background: #ffffff;
@@ -49,9 +50,9 @@ function Dashboard(props) {
 			<DashboardContainer>
 				<CardDiv>
 					<TasksCard row='1' />
-
-					{/* <QuickEntry row='4' column='2' /> */}
-					<CalBox></CalBox>
+					{/* <CalBox> */}
+					<Calendar />
+					{/* </CalBox> */}
 				</CardDiv>
 			</DashboardContainer>
 		</DashboardMain>
