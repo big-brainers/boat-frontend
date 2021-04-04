@@ -1,9 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Link,
+	useHistory,
+	Redirect,
+} from 'react-router-dom';
 import styled from 'styled-components';
 import validate from './validate';
 import useForm from './useForm';
 import google from '../../images/google-logo.png';
+import APIurl from '../../config';
+import axios from 'axios';
 
 const HeaderOne = styled.h1`
 	font-size: 3rem;
@@ -80,16 +89,84 @@ const Required = styled.div`
 	margin: 24px 0;
 `;
 
-const SignUpFunc = ({ submitForm }) => {
-	const { handleChange, handleSubmit, values, errors } = useForm(
-		submitForm,
-		validate
-	);
+const SignUpFunc = (/*{ submitForm },*/ props) => {
+	// const { handleChange, handleSubmit, values, errors } = useForm(
+	// 	submitForm,
+	// 	validate
+	// );
+
+	const history = useHistory();
+	// let initialState = {
+	// 	email: '',
+	// 	password: '',
+	// }
+
+	// const [email, setEmail] = useState({email: ""})
+	// const [password, setPassword] = useState({password: ""})
+
+	// const [entry, setEntry] = useState(initialState)
+
+	const [customerSignUp, setCustomerSignUp] = useState({
+		email: '',
+		password: '',
+	});
+
+	const handleNewChange = (event) => {
+		setCustomerSignUp({
+			...customerSignUp,
+			[event.target.name]: event.target.value,
+		});
+	};
+
+	const handleNewSubmit = (event) => {
+		event.preventDefault();
+		// console.log(event)
+
+		axios
+			.post(`${APIurl}/users/signup`, customerSignUp, {
+				headers: { Accept: 'application/json' },
+			})
+			.then(function (response) {
+				console.log(response);
+				return <Redirect to='/' />;
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+
+		// axios
+		// .post({
+		// 	method: 'post',
+		// 	url: `${APIurl}/users/signup`
+		// })
+		// 	.post(`${APIurl}/users/signup`)
+		// 	.then((props) => {
+		// 		// props.onAdd(entry)
+		// 		// setEntry(initialState)
+		// 		// history.push('/users')
+		// 		console.log(props)
+		// 	})
+		// 	.then(console.log('you are in'))
+		// 	.catch(console.error)
+	};
+
+	// axios({
+	// 	method: "GET",
+	// 	url: "http://localhost:8000/users",
+	// 	headers: {
+	// 	  "Content-Type": "application/json"
+	// 	}
+	//   }).then(res => {
+	// 	console.log(res);
+	//   })
 
 	return (
 		<>
 			<SignUpContainer>
-				<form onSubmit={handleSubmit} className='form' noValidate>
+				<form
+					onSubmit={/*handleSubmit*/ handleNewSubmit}
+					className='form'
+					noValidate>
 					<HeaderOne>Sign Up</HeaderOne>
 					<TertiaryButton>
 						<Icon src={google} alt='google logo'></Icon>Continue with Google
@@ -104,15 +181,15 @@ const SignUpFunc = ({ submitForm }) => {
 							<Asterisk>*</Asterisk> Email
 						</Label>
 						<InputStyle
-							type='email'
+							type='text'
 							name='email'
-							value={values.email}
-							onChange={handleChange}
+							// value={email.email}
+							onChange={/*handleChange*/ handleNewChange}
 							className='signup-control'
 							placeholder='Required'
 						/>
 
-						{errors.email && <p>{errors.email}</p>}
+						{/* {errors.email && <p>{errors.email}</p>} */}
 					</div>
 
 					<div className='signup-group'>
@@ -122,13 +199,12 @@ const SignUpFunc = ({ submitForm }) => {
 						<InputStyle
 							type='password'
 							name='password'
-							value={values.password}
-							onChange={handleChange}
+							// value={password.password}
+							onChange={/*handleChange*/ handleNewChange}
 							className='signup-control'
 							placeholder='Required'
 						/>
-
-						{errors.password && <p>{errors.password}</p>}
+						{/* {errors.password && <p>{errors.password}</p>} */}
 					</div>
 
 					<div className='signup-group'>
@@ -138,12 +214,12 @@ const SignUpFunc = ({ submitForm }) => {
 						<InputStyle
 							type='password'
 							name='passconfirm'
-							onChange={handleChange}
-							value={values.passconfirm}
+							onChange={/*handleChange*/ handleNewChange}
+							// value={values.passconfirm}
 							className='signup-control'
 							placeholder='Required'
 						/>
-						{errors.passconfirm && <p>{errors.passconfirm}</p>}
+						{/* {errors.passconfirm && <p>{errors.passconfirm}</p>} */}
 					</div>
 
 					<div className='signup-group'>
