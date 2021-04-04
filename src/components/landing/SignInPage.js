@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Link, useHistory } from 'react-router-dom';
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Link,
+	useHistory,
+	Redirect,
+} from 'react-router-dom';
 import SignUpPage from './SignUpPage';
 import styled from 'styled-components';
 import google from '../../images/google-logo.png';
 import APIurl from '../../config';
 import axios from 'axios';
-import Welcome from '../dashboard/Welcome';
 
 const SignInNav = styled.nav`
 	margin: 0 auto;
@@ -84,7 +90,9 @@ const InputStyle = styled.input`
 	margin-bottom: 24px;
 `;
 
-function SignInPage() {
+function SignInPage(/*{ props }*/) {
+	// const history = useHistory()
+
 	const [customerSignIn, setCustomerSignIn] = useState({
 		email: '',
 		password: '',
@@ -106,8 +114,8 @@ function SignInPage() {
 			})
 			.then(function (response) {
 				console.log(response);
+				return <Redirect to='/' />;
 			})
-			.then(() => history.push('/Welcome'))
 			.catch(function (error) {
 				console.log(error);
 			});
@@ -133,8 +141,6 @@ function SignInPage() {
 						<Label>Email</Label>
 						<InputStyle
 							type='text'
-							value={customerSignIn.email}
-							name='email'
 							className='form-control'
 							placeholder='Email'
 							onChange={handleChange}
@@ -144,9 +150,7 @@ function SignInPage() {
 					<div className='form-group'>
 						<Label>Password</Label>
 						<InputStyle
-							type='password'
-							name='password'
-							value={customerSignIn.password}
+							type='text'
 							className='form-control'
 							placeholder='Password'
 							onChange={handleChange}
