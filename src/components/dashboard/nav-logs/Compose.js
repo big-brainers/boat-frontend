@@ -250,12 +250,12 @@ const Compose = (props) => {
 							</InputContainer>
 						</form>
 					</div>
-					<ModalBox>
-						<Button type='button' onClick={handleSubmit}>
+					{/* <ModalBox> */}
+					{/* <Button type='button' onClick={handleSubmit}>
 							Publish
-						</Button>
-						<Modal modal={modal} setModal={setModal} />
-					</ModalBox>
+						</Button> */}
+					<Modal modal={modal} setModal={setModal} />
+					{/* </ModalBox> */}
 				</CardDiv>
 			</DashboardContainer>
 		</DashboardMain>

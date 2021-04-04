@@ -39,7 +39,7 @@ const Background = styled.div`
 `;
 
 const ModalWrapper = styled.div`
-	width: 432px;
+	width: 456px;
 	height: 220px;
 	box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
 	background: #fff;
@@ -76,12 +76,13 @@ const ModalTextDiv = styled.div`
 const Icon = styled.img`
 	height: 20px;
 	width: 20px;
-	padding: 8px;
+	padding: ${(props) => props.padding || '8px'};
 `;
 
 const HeaderSix = styled.h6`
 	font-size: 2rem;
-	color: #505f98;
+	line-height: 1;
+	padding: 16px;
 `;
 
 const ButtonDiv = styled.div`
@@ -95,22 +96,23 @@ const ButtonDiv = styled.div`
 `;
 
 const Button = styled.button`
-	width: 128px;
+	width: 160px;
 	height: 48px;
 	font-family: 'Inconsolata', monospace;
-	font-size: ${(props) => props.size || '1rem'};
+	font-size: ${(props) => props.size || '1.4rem'};
 	border-radius: 2px;
 	margin: ${(props) => props.margin || '0 16px 16px'};
 	border: 1px solid #111b47;
 	font-decoration: none;
 
 	&.primary {
-		background-color: #111b47;
+		background-color: rgba(255, 0, 0, 0.7);
+		border: 1px solid #ff0000;
 		color: #fff;
 	}
 
 	&.secondary {
-		background-color: #e5e7f0;
+		background-color: #fff;
 		color: #222f65;
 	}
 `;
@@ -224,7 +226,7 @@ const InputContainer = styled.div`
 
 const Label = styled.label`
 	color: #767676;
-	margin: 0 auto;
+
 	text-align: left;
 	display: flex;
 	text-transform: uppercase;
@@ -275,7 +277,9 @@ const EntryDiv = styled.div`
 		font-size: 1.1em;
 		margin-bottom: 10px;
 		white-space: pre-wrap;
-		word-wrap: break-all;
+		// word-wrap: break-all;
+		// width: 70%;
+		padding: 16px;
 	}
 
 	& button {
@@ -417,7 +421,7 @@ const Entry = ({ match }) => {
 		setLog({ ...log, [event.target.name]: event.target.value });
 	};
 
-	const editEntryPage = () => {
+	const deleteConfirmation = () => {
 		setModal(true);
 	};
 
@@ -493,7 +497,7 @@ const Entry = ({ match }) => {
 			<NavPanel />
 			<DashboardContainer>
 				<PageNav>
-					<HeaderOne>Compose</HeaderOne>
+					<HeaderOne>Logs ﹥ {log.title}</HeaderOne>
 				</PageNav>
 
 				<CardDiv>
@@ -506,45 +510,57 @@ const Entry = ({ match }) => {
 							</IconButton>
 							<CardHeader className='card-link'>Go to Logs</CardHeader>
 						</IconDiv>
+						<IconDiv>
+							<IconButton>
+								{/* <IconButton onClick={editEntryPage}> */}
+								{/* <IconButton onClick={modal}> */}
+								<img src={edit} alt='edit' />
+							</IconButton>
+							{/* <IconButton onClick={handleDelete}> */}
+							<IconButton onClick={deleteConfirmation}>
+								<DeleteIcon />
+							</IconButton>
+						</IconDiv>
 					</HeaderRow>
 					<div>
-						{/* {modal ? (
-							<Background>
-								<ModalWrapper modal={setModal}>
-									<ModalContent>
-										<ModalTextDiv>
-											<Icon src={x} alt='question mark'></Icon>
-											<HeaderSix>Ready to publish?</HeaderSix>
-										</ModalTextDiv>
-										<ButtonDiv>
-											<Button
-												className='secondary'
-												onClick={() => setModal((prev) => !prev)}>
-												Cancel
-											</Button>
-											<Button className='primary' type='submit'>
-												Delete
-											</Button>
-										</ButtonDiv>
-									</ModalContent>
-								</ModalWrapper>
-							</Background>
-						) : null} */}
-
 						<EntryDiv>
 							<HeaderRow>
 								<Label>{log.title}</Label>
 								<Label>{log.date.substring(0, 10)}</Label>
 							</HeaderRow>
 							<p>{log.content}</p>
-							<button onClick={editEntryPage}>
-								<img src={edit} alt='edit' />
-							</button>
-							<button onClick={handleDelete}>
-								<DeleteIcon />
-							</button>
 						</EntryDiv>
 					</div>
+					{modal ? (
+						<Background>
+							<ModalWrapper modal={setModal}>
+								<ModalContent>
+									<ModalTextDiv>
+										<IconDiv>
+											<Icon
+												padding='32px 0 32px 32px'
+												src={x}
+												alt='warning'></Icon>
+										</IconDiv>
+										<HeaderSix>
+											Are you sure you want to delete this entry?
+										</HeaderSix>
+									</ModalTextDiv>
+									<ButtonDiv>
+										<Button
+											className='secondary'
+											onClick={() => setModal((prev) => !prev)}>
+											Cancel
+										</Button>
+										{/* <Button className='primary' type='submit'> */}
+										<Button className='primary' onClick={handleDelete}>
+											Delete
+										</Button>
+									</ButtonDiv>
+								</ModalContent>
+							</ModalWrapper>
+						</Background>
+					) : null}
 				</CardDiv>
 			</DashboardContainer>
 		</DashboardMain>

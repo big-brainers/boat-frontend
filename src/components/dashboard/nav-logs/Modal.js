@@ -97,7 +97,7 @@ const Button = styled.button`
 const Modal = ({ modal, setModal }) => {
 	return (
 		<>
-			{setModal ? (
+			{modal ? (
 				<Background>
 					<ModalWrapper showmodal={setModal}>
 						<ModalContent>

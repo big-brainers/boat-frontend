@@ -8,6 +8,7 @@ import Entry from './Entry';
 import APIurl from '../../../config';
 import axios from 'axios';
 import DeleteIcon from '@material-ui/icons/Delete';
+// THE EDIT MODAL
 
 const DashboardMain = styled.main`
 	margin: 0;
