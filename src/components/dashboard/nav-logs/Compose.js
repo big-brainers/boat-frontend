@@ -175,6 +175,19 @@ const Compose = (props) => {
 		setEntry({ ...entry, [event.target.name]: event.target.value });
 	};
 
+
+	
+	function expand() {
+		setExpanded(true);
+	}
+	
+	const closeModal = () => {
+		setModal(false);
+	};
+	const openModal = () => {
+		setModal((prev) => !prev);
+	};
+	
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		axios
@@ -189,16 +202,6 @@ const Compose = (props) => {
 			.catch(console.error);
 	};
 
-	function expand() {
-		setExpanded(true);
-	}
-	const closeModal = () => {
-		setModal(false);
-	};
-
-	const openModal = () => {
-		setModal((prev) => !prev);
-	};
 
 	return (
 		<DashboardMain>
@@ -247,7 +250,7 @@ const Compose = (props) => {
 									required
 								/>
 								<Zoom in={isExpanded}>
-									<Fab id='button' type='submit' onClick={openModal}>
+									<Fab id='button' type='button' onClick={openModal}>
 										<AddIcon />
 									</Fab>
 								</Zoom>
@@ -258,7 +261,7 @@ const Compose = (props) => {
 					{/* <Button type='button' onClick={handleSubmit}>
 							Publish
 						</Button> */}
-					<Modal modal={modal} onClick={handleSubmit} setModal={setModal} />
+					<Modal modal={modal} onClick={handleSubmit} setModal={setModal} handleSubmit={handleSubmit}/>
 					{/* </ModalBox> */}
 				</CardDiv>
 			</DashboardContainer>
