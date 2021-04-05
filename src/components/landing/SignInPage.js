@@ -105,13 +105,13 @@ function SignInPage() {
 		console.log(event);
 
 		axios
-			.post(`${APIurl}/users/login`, customerSignIn, {
+			.post(`${APIurl}/users/signin`, customerSignIn, {
 				headers: { Accept: 'application/json' },
 			})
 			.then(function (response) {
 				console.log(response);
 			})
-			.then(() => history.push('/Welcome'))
+			.then(() => history.push('/welcome'))
 			.catch(function (error) {
 				console.log(error);
 			});

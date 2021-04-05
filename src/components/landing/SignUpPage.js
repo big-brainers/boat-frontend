@@ -32,17 +32,17 @@ function SignUpPage(props) {
 				</Link>
 			</SignInNav> */}
 			<div>
-				{!isSubmitted ? (
+				{/* {!isSubmitted ? (
 					<SignUpFunc submitSignUp={submitSignUp} />
 				) : (
 					<SignInPage />
-				)}
-				{/* {!isSubmitted ? (
+				)} */}
+				{!isSubmitted ? (
 					// <SignUpFunc handleSubmit={submitSignUp} />
 					<SignUpFunc handleNewSubmit={submitSignUp} />
 				) : (
 					<SignInPage />
-				)} */}
+				)}
 			</div>
 		</Fragment>
 	);
