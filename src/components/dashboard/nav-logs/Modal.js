@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import warning from '../../../images/warning.png';
-import x from '../../../images/x.png';
 
 const Background = styled.div`
 	background-color: rgba(0, 0, 0, 0.4);

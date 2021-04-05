@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import SignUpPage from './SignUpPage';
 import styled from 'styled-components';
-import google from '../../images/google-logo.png';
 import APIurl from '../../config';
 import axios from 'axios';
-import Welcome from '../dashboard/Welcome';
 
 const SignInNav = styled.nav`
 	margin: 0 auto;
@@ -41,31 +38,10 @@ const PrimaryButton = styled.button`
 	margin: 24px 0;
 `;
 
-const TertiaryButton = styled.button`
-	width: 350px;
-	height: 48px;
-	// border: 1px solid #111b47;
-	border: 1px solid #f14336;
-	border-radius: 2px;
-	color: #222f65;
-	// background-color: #fff;
-	background-color: rgba(241, 67, 54, 0.22);
-	margin: 0 auto;
-	font-family: 'Inconsolata', monospace;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-`;
-
 const Icon = styled.img`
 	height: 20px;
 	width: 20px;
 	padding: 8px;
-`;
-
-const GrayText = styled.p`
-	color: #767676;
-	margin-bottom: 24px;
 `;
 
 const Label = styled.label`
@@ -128,11 +104,6 @@ function SignInPage() {
 			<SignUpContainer>
 				<form onSubmit={handleSubmit}>
 					<HeaderOne>Welcome Back!</HeaderOne>
-					{/* <TertiaryButton>
-						<Icon src={google} alt='google logo'></Icon>Continue with Google
-					</TertiaryButton>
-					<GrayText>or continue with email</GrayText> */}
-
 					<div className='form-group'>
 						<Label>Email</Label>
 						<InputStyle
@@ -163,10 +134,6 @@ function SignInPage() {
 
 					<div className='new-member'>
 						Not yet a crew member? <Link to='/signup'>Sign Up</Link>
-						{/* <Link to='/signup'>
-									<SignUpPage />
-								</Link>
-					 */}
 					</div>
 				</form>
 			</SignUpContainer>

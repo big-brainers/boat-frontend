@@ -1,20 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link,
-	useHistory,
-	Redirect,
-} from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import validate from './validate';
-import useForm from './useForm';
-import SignInPage from './SignInPage';
-import google from '../../images/google-logo.png';
 import APIurl from '../../config';
 import axios from 'axios';
-import Dashboard from '../dashboard/Dashboard';
 import alert from '../../images/alert-triangle.png';
 
 const SignInNav = styled.nav`
@@ -53,11 +41,9 @@ const PrimaryButton = styled.button`
 const TertiaryButton = styled.button`
 	width: 350px;
 	height: 48px;
-	// border: 1px solid #111b47;
 	border: 1px solid #f14336;
 	border-radius: 2px;
 	color: #222f65;
-	// background-color: #fff;
 	background-color: rgba(241, 67, 54, 0.22);
 	margin: 0 auto;
 	font-family: 'Inconsolata', monospace;
@@ -70,10 +56,6 @@ const Icon = styled.img`
 	height: 20px;
 	width: 20px;
 	padding: 8px;
-`;
-
-const GrayText = styled.p`
-	color: #767676;
 `;
 
 const Label = styled.label`
@@ -107,23 +89,8 @@ const Required = styled.div`
 	margin: 24px auto;
 `;
 
-const SignUpFunc = (/*{ submitForm },*/ props) => {
-	// const { handleNewChange, handleNewSubmit, values, errors } = useForm(
-	// 	submitForm,
-	// 	validate
-	// );
-
+const SignUpFunc = (props) => {
 	const history = useHistory();
-	// let initialState = {
-	// 	email: '',
-	// 	password: '',
-	// }
-
-	// const [email, setEmail] = useState({email: ""})
-	// const [password, setPassword] = useState({password: ""})
-
-	// const [entry, setEntry] = useState(initialState)
-
 	const [customerSignUp, setCustomerSignUp] = useState({
 		email: '',
 		password: '',
@@ -142,43 +109,16 @@ const SignUpFunc = (/*{ submitForm },*/ props) => {
 
 		axios
 			.post(`${APIurl}/users/signup`, customerSignUp, {
-				// .post(`${APIurl}/signup`, customerSignUp, {
 				headers: { Accept: 'application/json' },
 			})
 			.then(function (response) {
 				console.log(response);
-				// return <Redirect to= "/Dashboard"/>
 			})
 			.then(() => history.push('/welcome'))
 			.catch(function (error) {
 				console.log(error);
 			});
-
-		// axios
-		// .post({
-		// 	method: 'post',
-		// 	url: `${APIurl}/users/signup`
-		// })
-		// 	.post(`${APIurl}/users/signup`)
-		// 	.then((props) => {
-		// 		// props.onAdd(entry)
-		// 		// setEntry(initialState)
-		// 		// history.push('/users')
-		// 		console.log(props)
-		// 	})
-		// 	.then(console.log('you are in'))
-		// 	.catch(console.error)
 	};
-
-	// axios({
-	// 	method: "GET",
-	// 	url: "http://localhost:8000/users",
-	// 	headers: {
-	// 	  "Content-Type": "application/json"
-	// 	}
-	//   }).then(res => {
-	// 	console.log(res);
-	//   })
 
 	return (
 		<>
@@ -188,16 +128,12 @@ const SignUpFunc = (/*{ submitForm },*/ props) => {
 				</Link>
 			</SignInNav>
 			<SignUpContainer>
-				<form
-					onSubmit={/*handleSubmit*/ handleNewSubmit}
-					className='form'
-					noValidate>
+				<form onSubmit={handleNewSubmit} className='form' noValidate>
 					<HeaderOne>Sign Up</HeaderOne>
 					<TertiaryButton>
 						<Icon src={alert} alt='alert'></Icon>Password must be 6 characters
 						or more
 					</TertiaryButton>
-					{/* <GrayText>or continue with email</GrayText> */}
 					<Required>
 						<Asterisk>*</Asterisk> indicates a required field
 					</Required>
@@ -210,12 +146,10 @@ const SignUpFunc = (/*{ submitForm },*/ props) => {
 							type='text'
 							name='email'
 							value={customerSignUp.email}
-							onChange={/*handleChange*/ handleNewChange}
+							onChange={handleNewChange}
 							className='signup-control'
 							placeholder='Required'
 						/>
-
-						{/* {errors.email && <p>{errors.email}</p>} */}
 					</div>
 
 					<div className='signup-group'>
@@ -230,7 +164,6 @@ const SignUpFunc = (/*{ submitForm },*/ props) => {
 							className='signup-control'
 							placeholder='Required'
 						/>
-						{/* {errors.password && <p>{errors.password}</p>} */}
 					</div>
 
 					<div className='signup-group'>
@@ -240,12 +173,11 @@ const SignUpFunc = (/*{ submitForm },*/ props) => {
 						<InputStyle
 							type='password'
 							name='passconfirm'
-							onChange={/*handleChange*/ handleNewChange}
+							onChange={handleNewChange}
 							value={customerSignUp.passconfirm}
 							className='signup-control'
 							placeholder='Required'
 						/>
-						{/* {errors.passconfirm && <p>{errors.passconfirm}</p>} */}
 					</div>
 
 					<div className='signup-group'>
@@ -261,22 +193,12 @@ const SignUpFunc = (/*{ submitForm },*/ props) => {
 						</div>
 					</div>
 
-					<PrimaryButton
-						// onClick={handleNewSubmit}
-						type='submit'
-						className='btn'>
+					<PrimaryButton type='submit' className='btn'>
 						Sign Up
 					</PrimaryButton>
 
 					<div className='new-member'>
-						{/* <Router> */}
 						Already have an account <Link to='/signin'>Sign In</Link>
-						{/* <Switch>
-								<Route path='/signin'>
-									<SignInPage />
-								</Route>
-							</Switch>
-						</Router> */}
 					</div>
 				</form>
 			</SignUpContainer>

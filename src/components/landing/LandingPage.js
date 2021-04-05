@@ -33,7 +33,6 @@ function Hero() {
 	return (
 		<HeroDiv>
 			<HeaderOne>Bridging Our Advocates Together</HeaderOne>
-
 			<HeaderSix>
 				Join our private networking space, The BOAT, where you can keep
 				organized and keep in touch with amazing advocates, like yourself.

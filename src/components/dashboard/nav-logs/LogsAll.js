@@ -1,13 +1,11 @@
-// import { Label } from '@material-ui/icons';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import NavPanel from '../NavPanel';
-import { useHistory, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import APIurl from '../../../config';
 import axios from 'axios';
 import prev from '../../../images/left.png';
 import EntryRow from './EntryRow';
-
 import { set } from 'mongoose';
 
 const DashboardMain = styled.main`
@@ -134,41 +132,6 @@ const EntryContainer = styled.div`
 	padding: 0 16px;
 	color: #111b47;
 	font-size: 1.2rem;
-`;
-
-const RowSection = styled.div`
-	height: 56px;
-	padding: 0;
-	margin: 0;
-
-	&.title-section {
-		width: 30%;
-		font-weight: 700;
-	}
-	&.body-section {
-		width: 30%;
-	}
-	&.date-section {
-		width: 20%;
-	}
-	&.icon-section {
-		width: 5%;
-	}
-`;
-
-const RowSectionP = styled.p`
-	margin: 0 auto;
-	padding: 8px 0;
-`;
-
-const Trash = styled.button`
-	background-color: #fff;
-	color: #222f65;
-	border: none;
-	width: 36px;
-	height: 36px;
-	cursor: pointer;
-	outline: none;
 `;
 
 const Logs = () => {

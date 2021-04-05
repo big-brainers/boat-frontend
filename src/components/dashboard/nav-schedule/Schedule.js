@@ -1,8 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import NavPanel from '../NavPanel';
 import styled from 'styled-components';
-import prev from '../../../images/left.png';
 
 const DashboardMain = styled.main`
 	margin: 0;
@@ -34,9 +32,6 @@ const HeaderOne = styled.h1`
 `;
 
 const Schedule = () => {
-
-	
-
 	return (
 		<DashboardMain>
 			<NavPanel />

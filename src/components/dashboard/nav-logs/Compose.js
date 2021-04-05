@@ -135,25 +135,6 @@ const InputStyle = styled.input`
 	}
 `;
 
-const ModalBox = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	height: 100vh;
-`;
-
-const Button = styled.button`
-	min-width: 100px;
-	padding: 16px 32px;
-	border-radius: 4px;
-	border: none;
-	background: #111b47;
-	color: #fff;
-	font-size: 24px;
-	cursor: pointer;
-`;
-
 const Compose = (props) => {
 	const history = useHistory();
 	let initialState = {
@@ -246,17 +227,11 @@ const Compose = (props) => {
 							</InputContainer>
 						</form>
 					</div>
-					{/* <ModalBox> */}
-					{/* <Button type='button' onClick={handleSubmit}>
-							Publish
-						</Button> */}
 					<Modal
 						modal={modal}
-						// onClick={handleSubmit}
 						setModal={setModal}
 						handleSubmit={handleSubmit}
 					/>
-					{/* </ModalBox> */}
 				</CardDiv>
 			</DashboardContainer>
 		</DashboardMain>

@@ -7,8 +7,6 @@ import edit from '../../../images/edit-gray.png';
 import APIurl from '../../../config';
 import axios from 'axios';
 import DeleteIcon from '@material-ui/icons/Delete';
-import Modal from './Modal';
-// import EntryEdit from './EntryEdit';
 import x from '../../../images/x.png';
 
 const EntryContainer = styled.div`
@@ -211,25 +209,8 @@ const InputContainer = styled.div`
 	padding: 32px;
 	width: ${(props) => props.width || '100%'};
 	border: none;
-
 	outline: none;
 	font-size: 1.2em;
-	// font-family: inherit;
-	// resize: none;
-	// & button {
-	// 	position: relative;
-	// 	right: 32px;
-	// 	bottom: -72px;
-	// 	background: #111b47;
-	// 	color: #fff;
-	// 	border: none;
-	// 	border-radius: 50%;
-	// 	width: 36px;
-	// 	height: 36px;
-	// 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-	// 	cursor: pointer;
-	// 	outline: none;
-	// }
 `;
 
 const Label = styled.label`
@@ -263,17 +244,6 @@ const ModalBox = styled.div`
 	width: ${(props) => props.width || '100%'};
 `;
 
-// const Button = styled.button`
-// 	min-width: 100px;
-// 	padding: 16px 32px;
-// 	border-radius: 4px;
-// 	border: none;
-// 	background: #111b47;
-// 	color: #fff;
-// 	font-size: 24px;
-// 	cursor: pointer;
-// `;
-
 const EntryDiv = styled.div`
 	background: #fff;
 	padding: 0 8px 8px 8px;
@@ -284,8 +254,6 @@ const EntryDiv = styled.div`
 		font-size: 1.1em;
 		margin-bottom: 10px;
 		white-space: pre-wrap;
-		// word-wrap: break-all;
-		// width: 70%;
 		padding: 16px;
 	}
 
@@ -302,114 +270,6 @@ const EntryDiv = styled.div`
 		outline: none;
 	}
 `;
-
-// const HeaderRow = styled.div`
-// 	padding: 0 16px 16px 16px;
-// 	border-bottom: ${(props) => props.bottom || '1px solid #b0b8bc'};
-// 	height: 56px;
-// 	display: flex;
-// 	align-items: center;
-// 	justify-content: ${(props) => props.justify || 'space-between'};
-// `;
-
-// const Label = styled.h6`
-// 	color: #767676;
-// 	text-transform: uppercase;
-// 	margin-bottom: 8px;
-// 	font-weight: 700;
-// 	font-size: 1.2rem;
-// `;
-
-// const DashboardMain = styled.main`
-// 	margin: 0;
-// 	height: 100vh;
-// 	text-align: center;
-// 	display: grid;
-// 	grid-template-columns: repeat(8, 1fr 3fr);
-// `;
-
-// const DashboardContainer = styled.section`
-// 	grid-column: 2 / 18;
-// 	display: grid;
-// 	grid-template-columns: repeat(8, 32px 1fr 3fr);
-// 	grid-template-rows: 80px 1fr;
-// 	text-align: left;
-// `;
-
-// const CardDiv = styled.div`
-// 	grid-row: 2;
-// 	grid-column: 2;
-// 	background: white;
-// 	box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
-// 	text-align: left;
-// 	width: 75vw;
-// 	overflow-y: scroll;
-// 	overflow-x: hidden;
-// `;
-
-// const PageNav = styled.nav`
-// 	padding: 0 16px;
-// 	width: 75vw;
-// 	height: 56px;
-// 	grid-column: 1 / span 16;
-// 	display: flex;
-// 	align-items: center;
-// 	justify-content: space-between;
-// `;
-
-// const HeaderRow = styled.nav`
-// 	padding: 0 16px;
-// 	display: flex;
-// 	flex-direction: row;
-// 	border-bottom: 1px solid #b0b8bc;
-// 	height: 56px;
-// 	align-items: center;
-// 	justify-content: space-between;
-// `;
-
-// const HeaderOne = styled.h1`
-// 	font-size: 3rem;
-// 	color: #091133;
-// 	padding: 24px;
-// 	margin: 0;
-// `;
-
-// const IconDiv = styled.div`
-// 	margin: 0;
-// 	display: inline-flex;
-
-// 	& a {
-// 		margin: 0;
-// 	}
-// `;
-
-// const CardHeader = styled.p`
-// 	font-size: 1rem;
-// 	color: #192a3e;
-// `;
-
-// const IconButton = styled.button`
-// 	height: 24px;
-// 	width: 24px;
-// 	background-color: #fff;
-// 	color: #222f65;
-// 	border: none;
-// 	margin: 16px;
-// 	display: inline-flex;
-// 	align-items: center;
-// 	justify-content: center;
-// 	grid-column: 14;
-// `;
-
-// const Trash = styled.button`
-// 	background-color: #fff;
-// 	color: #222f65;
-// 	border: none;
-// 	width: 36px;
-// 	height: 36px;
-// 	cursor: pointer;
-// 	outline: none;
-// `;
 
 const Entry = ({ match }) => {
 	const history = useHistory();
@@ -443,15 +303,6 @@ const Entry = ({ match }) => {
 
 	const handleEdit = (event) => {
 		setEditModal(true);
-		// <EntryEdit
-		// 	editModal={editModal}
-		// 	setEditModal={setEditModal}
-		// 	handleSubmit={handleSubmit}
-		// 	handleChange={handleChange}
-		// 	log={log}
-		// 	closeModal={closeModal}
-		// />
-		// setEditModal(true)
 	};
 
 	const handleSubmit = (event) => {
@@ -553,9 +404,6 @@ const Entry = ({ match }) => {
 													value={log.content}
 												/>
 												<hr />
-												{/* <ButtonDiv>
-													<ButtonDiv type='submit'>Submit</ButtonDiv>
-												</ButtonDiv> */}
 												<ButtonDiv padding='0'>
 													<Button
 														margin='0 16px 0 0'
@@ -575,7 +423,6 @@ const Entry = ({ match }) => {
 												</ButtonDiv>
 											</form>
 										</InputContainer>
-										{/* <Button onClick={closeEditModal}>Close</Button> */}
 									</div>
 								</ModalBox>
 							</ModalContent>
@@ -597,12 +444,9 @@ const Entry = ({ match }) => {
 							<CardHeader className='card-link'>Go to Logs</CardHeader>
 						</IconDiv>
 						<IconDiv>
-							{/* <IconButton> */}
 							<IconButton onClick={handleEdit}>
-								{/* <IconButton onClick={modal}> */}
 								<img src={edit} alt='edit' />
 							</IconButton>
-							{/* <IconButton onClick={handleDelete}> */}
 							<IconButton onClick={deleteConfirmation}>
 								<DeleteIcon />
 							</IconButton>
@@ -638,7 +482,6 @@ const Entry = ({ match }) => {
 											onClick={() => setModal((prev) => !prev)}>
 											Cancel
 										</Button>
-										{/* <Button className='primary' type='submit'> */}
 										<Button className='primary-red' onClick={handleDelete}>
 											Delete
 										</Button>

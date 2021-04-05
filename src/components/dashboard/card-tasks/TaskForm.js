@@ -52,7 +52,6 @@ const AddBtn = styled.button`
 `;
 
 function TaskForm(props) {
-	//https://stackoverflow.com/questions/54895883/reset-to-initial-state-with-react-hooks
 	const initialState = {
 		content: '',
 		complete: false,
@@ -66,7 +65,6 @@ function TaskForm(props) {
 	function handleSubmit(event) {
 		event.preventDefault();
 		props.onAdd(tasks);
-		// setTasks(tasks);
 		setTasks(initialState);
 	}
 

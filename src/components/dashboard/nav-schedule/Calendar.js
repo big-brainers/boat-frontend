@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
-// import GoToSchedule from './GoToSchedule';
-// import CalendarCard from './CalendarCard';
 
 const CardContainerLarge = styled.div`
 	background: #ffffff;
@@ -26,11 +24,9 @@ const CardHeader = styled.p`
 
 const HeaderRow = styled.nav`
 	padding: 0 16px;
-	// display: grid;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	// grid-template-columns: repeat(8, 40px 16px);
 	border-bottom: 1px solid #b0b8bc;
 	height: 56px;
 	grid-column: 1 / span 16;
@@ -55,26 +51,6 @@ const Header = styled.header`
 	justify-content: space-between;
 	height: 72px;
 	font-size: 1rem;
-`;
-
-const Footer = styled.footer`
-	position: fixed;
-	display: block;
-	bottom: 0;
-	background-color: #f2f2f2;
-	color: #222f65;
-	height: 100px;
-	width: 100vw;
-	text-align: center;
-	padding-top: 45px;
-	background: #ffffff;
-	border: 1px solid #e8e8e8;
-
-	.footer-text {
-		display: inline-block;
-		color: #222f65;
-		padding: 0 4px;
-	}
 `;
 
 const Body = styled.div`
@@ -106,10 +82,6 @@ const Number = styled.p`
 	padding: 8px;
 `;
 
-const Button = styled.div`
-	cursor: pointer;
-`;
-
 const HeaderSix = styled.h6`
 	font-size: 1.5rem;
 	color: #505f98;
@@ -135,7 +107,6 @@ const WeekdaysDiv = styled.div`
 function Calendar() {
 	const Days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 	const DaysLeap = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-	// const DaysOfTheWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 	const DaysOfTheWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 	const Months = [
 		'January',
@@ -163,8 +134,6 @@ function Calendar() {
 		setDay(date.getDate());
 		setMonth(date.getMonth());
 		setYear(date.getFullYear());
-		console.log(month);
-		// NOT DEFINED- Return to work on this
 		setStartDay(getStartDayOfMonth(date));
 	}, [date]);
 
@@ -185,15 +154,6 @@ function Calendar() {
 				<HeaderSix margin='0'>{Months[month]}</HeaderSix>
 			</HeaderRow>
 			<div>
-				{/* <GoToSchedule /> */}
-				{/* <Button onClick={() => setDate(new Date(year, month - 1, day))}>
-					Last
-				</Button>
-				<Button onClick={() => setDate(new Date(year, month + 1, day))}>
-					Next
-				</Button>
-			</Header> */}
-
 				<WeekdaysDiv>
 					{DaysOfTheWeek.map((d) => (
 						<WeekDiv key={d}>
@@ -207,12 +167,7 @@ function Calendar() {
 						.map((_, index) => {
 							const d = index - (startDay - 2);
 							return (
-								<Day
-									key={index}
-									isToday={d === today.getDate()}
-									// isSelected={d === day}
-									// onClick={() => setDate(new Date(year, month, d))}
-								>
+								<Day key={index} isToday={d === today.getDate()}>
 									<Number>{d > 0 ? d : ''}</Number>
 								</Day>
 							);

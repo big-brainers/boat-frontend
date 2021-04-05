@@ -1,14 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useHistory, Link } from 'react-router-dom';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { Link } from 'react-router-dom';
 
 const EntryContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	flex-flow: row wrap;
-	// height: 92px;
 	align-items: center;
 	border-bottom: 1px solid #b0b8bc;
 	margin: 10px auto;
@@ -18,7 +16,6 @@ const EntryContainer = styled.div`
 `;
 
 const RowSection = styled.div`
-	// height: 56px;
 	padding: 0;
 	margin: 0;
 
@@ -42,16 +39,6 @@ const RowSectionP = styled.p`
 	padding: 8px 0;
 `;
 
-const Trash = styled.button`
-	background-color: #fff;
-	color: #222f65;
-	border: none;
-	width: 36px;
-	height: 36px;
-	cursor: pointer;
-	outline: none;
-`;
-
 const EntryRow = (props) => {
 	return (
 		<EntryContainer>
@@ -66,75 +53,8 @@ const EntryRow = (props) => {
 			<RowSection className='date-section'>
 				<RowSectionP>{props.date}</RowSectionP>
 			</RowSection>
-
-			{/* <Trash onClick={handleDelete}>
-				<DeleteIcon />
-			</Trash> */}
 		</EntryContainer>
 	);
 };
 
 export default EntryRow;
-
-/**
- * <EntryContainer>
-			<RowSection className='title-section'>
-				<Link to='/logs/:id'>
-					<RowSectionP>{props.title}</RowSectionP>
-				</Link>
-			</RowSection>
-			<RowSection className='body-section'>
-				<RowSectionP>{`${props.content.substring(0, 40)} ...`}</RowSectionP>
-			</RowSection>
-			<RowSection className='date-section'>
-				<RowSectionP>{props.date}</RowSectionP>
-			</RowSection>
-			<RowSection className='icon-section'>
-				<Trash onClick={props.onClick}>
-					<DeleteIcon />
-				</Trash>
-			</RowSection>
-		</EntryContainer>
- * 
- * 
- */
-
-// <EntryContainer>
-// 	<RowSection className='title-section'>
-// 		<Link to='/logs/:id'>
-// 			<RowSectionP>Day 1</RowSectionP>
-// 		</Link>
-// 	</RowSection>
-// 	<RowSection className='body-section'>
-// 		<RowSectionP>{concatBody()}</RowSectionP>
-// 	</RowSection>
-// 	<RowSection className='date-section'>
-// 		<RowSectionP>10:20 AM, March 12, 2021</RowSectionP>
-// 	</RowSection>
-// 	<RowSection className='icon-section'>
-// 		<Trash onClick={handleClick}>
-// 			<DeleteIcon />
-// 		</Trash>
-// 	</RowSection>
-// </EntryContainer>;
-/*
- * <EntryContainer>
-	<RowSection className='title-section'>
-		<Link to='/logs/:id'>
-			<RowSectionP>{entries.title}</RowSectionP>
-		</Link>
-	</RowSection>
-	<RowSection className='body-section'>
-		<RowSectionP>{`${entries.content.substring(0, 40)} ...`}</RowSectionP>
-	</RowSection>
-	<RowSection className='date-section'>
-		<RowSectionP>{entries.date}</RowSectionP>
-	</RowSection>
-	<RowSection className='icon-section'>
-		<Trash onClick={handleClick}>
-			<DeleteIcon />
-		</Trash>
-	</RowSection>
-</EntryContainer>
- * 
- */

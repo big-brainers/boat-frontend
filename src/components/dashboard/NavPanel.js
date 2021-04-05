@@ -3,8 +3,6 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import pie from '../../images/pie-blue.png';
 import sheet from '../../images/sheet-blue.png';
-import schedule from '../../images/schedule-blue.png';
-import avatar from '../../images/avatar-white.png';
 import user from '../../images/user.png';
 
 const DashboardNavStyle = styled.nav`
@@ -29,8 +27,6 @@ const DashboardNavStyle = styled.nav`
 		align-content: flex-start;
 	}
 `;
-
-const FlexDiv = styled.div``;
 
 const Icon = styled.img`
 	height: 20px;
@@ -79,9 +75,6 @@ function TopLinks() {
 			<StyledLink to='/dashboard'>
 				<Icon src={pie} alt='dashboard overview'></Icon>Dashboard
 			</StyledLink>
-			{/* <StyledLink to='/schedule'>
-				<Icon src={schedule} alt='schedule'></Icon>Schedule
-			</StyledLink> */}
 			<StyledLink to='/logs'>
 				<Icon src={sheet} alt='logs'></Icon>Logs
 			</StyledLink>
@@ -110,12 +103,12 @@ function BottomLinks() {
 const NavPanel = () => {
 	return (
 		<DashboardNavStyle>
-			<FlexDiv>
+			<div>
 				<a href='/welcome' className='nav-tag'>
 					BOAT
 				</a>
 				<TopLinks />
-			</FlexDiv>
+			</div>
 			<BottomLinks />
 		</DashboardNavStyle>
 	);
