@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Link, useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import SignUpPage from './SignUpPage';
 import styled from 'styled-components';
 import google from '../../images/google-logo.png';
@@ -128,10 +128,10 @@ function SignInPage() {
 			<SignUpContainer>
 				<form onSubmit={handleSubmit}>
 					<HeaderOne>Welcome Back!</HeaderOne>
-					<TertiaryButton>
+					{/* <TertiaryButton>
 						<Icon src={google} alt='google logo'></Icon>Continue with Google
 					</TertiaryButton>
-					<GrayText>or continue with email</GrayText>
+					<GrayText>or continue with email</GrayText> */}
 
 					<div className='form-group'>
 						<Label>Email</Label>

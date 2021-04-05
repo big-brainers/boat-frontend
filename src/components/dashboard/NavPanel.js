@@ -5,6 +5,7 @@ import pie from '../../images/pie-blue.png';
 import sheet from '../../images/sheet-blue.png';
 import schedule from '../../images/schedule-blue.png';
 import avatar from '../../images/avatar-white.png';
+import user from '../../images/user.png';
 
 const DashboardNavStyle = styled.nav`
 	display: flex;
@@ -95,9 +96,8 @@ function BottomLinks() {
 				<Icon
 					padding='8px 8px 8px 0'
 					margin='0 0 0 8px'
-					src={avatar}
+					src={user}
 					alt='user'></Icon>
-				bessie@email.com
 			</StyledLink>
 
 			<StyledLink className='bottom' border='none' exact to='/'>
