@@ -112,7 +112,10 @@ const Modal = ({ modal, setModal, handleSubmit }) => {
 									Cancel
 								</Button>
 								<Button
-									onClick={handleSubmit}
+									onClick={(e) => {
+										handleSubmit(e);
+										setModal((prev) => !prev);
+									}}
 									className='primary'
 									type='submit'>
 									Publish

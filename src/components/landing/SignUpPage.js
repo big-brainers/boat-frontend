@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Link } from 'react-router-dom';
 import styled from 'styled-components';
 import SignUpFunc from './SignUpFunc';
 import SignInPage from './SignInPage';
@@ -17,7 +17,7 @@ const SignInNav = styled.nav`
 	}
 `;
 
-function SignUpPage() {
+function SignUpPage(props) {
 	const [isSubmitted, setIsSubmitted] = useState(false);
 
 	function submitSignUp() {
@@ -26,17 +26,23 @@ function SignUpPage() {
 
 	return (
 		<Fragment>
-			<SignInNav>
+			{/* <SignInNav>
 				<Link className='nav-tag' to='/'>
 					BOAT
 				</Link>
-			</SignInNav>
+			</SignInNav> */}
 			<div>
 				{!isSubmitted ? (
-					<SignUpFunc handleSubmit={submitSignUp} /> //<-- handleSubmit prop?
+					<SignUpFunc submitSignUp={submitSignUp} />
 				) : (
 					<SignInPage />
 				)}
+				{/* {!isSubmitted ? (
+					// <SignUpFunc handleSubmit={submitSignUp} />
+					<SignUpFunc handleNewSubmit={submitSignUp} />
+				) : (
+					<SignInPage />
+				)} */}
 			</div>
 		</Fragment>
 	);

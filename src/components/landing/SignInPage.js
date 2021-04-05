@@ -1,7 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Link, useHistory } from 'react-router-dom';
+import SignUpPage from './SignUpPage';
 import styled from 'styled-components';
 import google from '../../images/google-logo.png';
+import APIurl from '../../config';
+import axios from 'axios';
+import Welcome from '../dashboard/Welcome';
 
 const SignInNav = styled.nav`
 	margin: 0 auto;
@@ -40,10 +44,12 @@ const PrimaryButton = styled.button`
 const TertiaryButton = styled.button`
 	width: 350px;
 	height: 48px;
-	border: 1px solid #111b47;
+	// border: 1px solid #111b47;
+	border: 1px solid #f14336;
 	border-radius: 2px;
 	color: #222f65;
-	background-color: #fff;
+	// background-color: #fff;
+	background-color: rgba(241, 67, 54, 0.22);
 	margin: 0 auto;
 	font-family: 'Inconsolata', monospace;
 	display: inline-flex;
@@ -81,6 +87,36 @@ const InputStyle = styled.input`
 `;
 
 function SignInPage() {
+	const history = useHistory();
+
+	const [customerSignIn, setCustomerSignIn] = useState({
+		email: '',
+		password: '',
+	});
+
+	const handleChange = (event) => {
+		setCustomerSignIn({
+			...customerSignIn,
+			[event.target.name]: event.target.value,
+		});
+	};
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		console.log(event);
+
+		axios
+			.post(`${APIurl}/users/login`, customerSignIn, {
+				headers: { Accept: 'application/json' },
+			})
+			.then(function (response) {
+				console.log(response);
+			})
+			.then(() => history.push('/Welcome'))
+			.catch(function (error) {
+				console.log(error);
+			});
+	};
+
 	return (
 		<>
 			<SignInNav>
@@ -90,7 +126,7 @@ function SignInPage() {
 			</SignInNav>
 
 			<SignUpContainer>
-				<form>
+				<form onSubmit={handleSubmit}>
 					<HeaderOne>Welcome Back!</HeaderOne>
 					<TertiaryButton>
 						<Icon src={google} alt='google logo'></Icon>Continue with Google
@@ -100,9 +136,12 @@ function SignInPage() {
 					<div className='form-group'>
 						<Label>Email</Label>
 						<InputStyle
-							type='email'
+							type='text'
+							value={customerSignIn.email}
+							name='email'
 							className='form-control'
 							placeholder='Email'
+							onChange={handleChange}
 						/>
 					</div>
 
@@ -110,8 +149,11 @@ function SignInPage() {
 						<Label>Password</Label>
 						<InputStyle
 							type='password'
+							name='password'
+							value={customerSignIn.password}
 							className='form-control'
 							placeholder='Password'
+							onChange={handleChange}
 						/>
 					</div>
 

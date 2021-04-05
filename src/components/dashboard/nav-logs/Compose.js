@@ -29,13 +29,14 @@ const DashboardContainer = styled.section`
 const CardDiv = styled.div`
 	grid-row: 2;
 	grid-column: 2;
-	background: white;
-	box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
-	text-align: left;
-	width: 75vw;
-	height: 50vh;
-	overflow-y: scroll;
-	overflow-x: hidden;
+	padding: 24px;
+`;
+
+const HeaderOne = styled.h1`
+	font-size: 3rem;
+	color: #091133;
+	padding: 24px;
+	margin: 0;
 `;
 
 const PageNav = styled.nav`
@@ -56,13 +57,6 @@ const HeaderRow = styled.nav`
 	height: 56px;
 	align-items: center;
 	justify-content: space-between;
-`;
-
-const HeaderOne = styled.h1`
-	font-size: 3rem;
-	color: #091133;
-	padding: 24px;
-	margin: 0;
 `;
 
 const IconDiv = styled.div`
@@ -175,29 +169,28 @@ const Compose = (props) => {
 		setEntry({ ...entry, [event.target.name]: event.target.value });
 	};
 
-	const handleSubmit = (event) => {
-		event.preventDefault();
-		axios
-			.post(`${APIurl}/logs`, entry)
-			.then(() => {
-				props.onAdd(entry);
-				history.push('/logs');
-				closeModal();
-				// setEntry(initialState);
-				// can you set a redirect back to the Logs page and figure out why the modal doesn't close? it works for the handleDelete in Entry.js but doesn't want to carry out the closeModal() after you submit. It gets posted to the MongoDB, but the modal doesn't close and we don't have a redirect route to go back to LogsAll
-			})
-			.catch(console.error);
-	};
-
 	function expand() {
 		setExpanded(true);
 	}
+
 	const closeModal = () => {
 		setModal(false);
 	};
-
 	const openModal = () => {
 		setModal((prev) => !prev);
+	};
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+
+		// axios
+		// 	.post(`${APIurl}/logs`, entry)
+		// 	.then(() => {
+		// 		props.onAdd(entry);
+		// 		history.push('/logs');
+		// 		closeModal();
+		// 	})
+		// 	.catch(console.error);
 	};
 
 	return (
@@ -247,7 +240,7 @@ const Compose = (props) => {
 									required
 								/>
 								<Zoom in={isExpanded}>
-									<Fab id='button' type='submit' onClick={openModal}>
+									<Fab id='button' type='button' onClick={openModal}>
 										<AddIcon />
 									</Fab>
 								</Zoom>
@@ -258,7 +251,12 @@ const Compose = (props) => {
 					{/* <Button type='button' onClick={handleSubmit}>
 							Publish
 						</Button> */}
-					<Modal modal={modal} onClick={handleSubmit} setModal={setModal} />
+					<Modal
+						modal={modal}
+						onClick={handleSubmit}
+						setModal={setModal}
+						handleSubmit={handleSubmit}
+					/>
 					{/* </ModalBox> */}
 				</CardDiv>
 			</DashboardContainer>

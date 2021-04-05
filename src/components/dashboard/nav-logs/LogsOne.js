@@ -26,33 +26,7 @@ const DashboardContainer = styled.section`
 const CardDiv = styled.div`
 	grid-row: 2;
 	grid-column: 2;
-	background: white;
-	box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
-	text-align: left;
-	width: 75vw;
-	// height: 50vh;
-	overflow-y: scroll;
-	overflow-x: hidden;
-`;
-
-const PageNav = styled.nav`
-	padding: 0 16px;
-	width: 75vw;
-	height: 56px;
-	grid-column: 1 / span 16;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-`;
-
-const HeaderRow = styled.nav`
-	padding: 0 16px;
-	display: flex;
-	flex-direction: row;
-	border-bottom: 1px solid #b0b8bc;
-	height: 56px;
-	align-items: center;
-	justify-content: space-between;
+	padding: 24px;
 `;
 
 const HeaderOne = styled.h1`
@@ -62,61 +36,15 @@ const HeaderOne = styled.h1`
 	margin: 0;
 `;
 
-const IconDiv = styled.div`
-	margin: 0;
-	display: inline-flex;
-
-	& a {
-		margin: 0;
-	}
-`;
-
-const CardHeader = styled.p`
-	font-size: 1rem;
-	color: #192a3e;
-`;
-
-const IconButton = styled.button`
-	height: 24px;
-	width: 24px;
-	background-color: #fff;
-	color: #222f65;
-	border: none;
-	margin: 16px;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	grid-column: 14;
-`;
-
 function LogsOne(props) {
 	return (
 		<DashboardMain>
 			<NavPanel />
 			<DashboardContainer>
-				<PageNav>
-					<HeaderOne>Log Entry</HeaderOne>
-				</PageNav>
-
+				<HeaderOne>Compose Completed</HeaderOne>
 				<CardDiv>
-					<HeaderRow>
-						<IconDiv>
-							<IconButton>
-								<Link to='/logs'>
-									<img src={prev} alt='back' />
-								</Link>
-							</IconButton>
-							<CardHeader className='card-link'>Go to Logs</CardHeader>
-						</IconDiv>
-						<IconDiv>
-							<IconButton>
-								<Link to='/compose'>
-									<img src={edit} alt='edit' />
-								</Link>
-							</IconButton>
-						</IconDiv>
-					</HeaderRow>
-					<Entry />
+					<h1>Title</h1>
+					<p>Content</p>
 				</CardDiv>
 			</DashboardContainer>
 		</DashboardMain>
