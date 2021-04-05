@@ -205,7 +205,6 @@ const IconButton = styled.button`
 `;
 
 const InputContainer = styled.div`
-	// padding: 16px 32px 8px 32px;
 	padding: 32px;
 	width: ${(props) => props.width || '100%'};
 	border: none;

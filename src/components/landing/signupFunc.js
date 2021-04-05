@@ -84,7 +84,6 @@ const Asterisk = styled.span`
 const Required = styled.div`
 	font-size: 1rem;
 	text-align: center;
-	// display: inline-block;
 	display: block;
 	margin: 24px auto;
 `;

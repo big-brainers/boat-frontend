@@ -38,12 +38,6 @@ const PrimaryButton = styled.button`
 	margin: 24px 0;
 `;
 
-const Icon = styled.img`
-	height: 20px;
-	width: 20px;
-	padding: 8px;
-`;
-
 const Label = styled.label`
 	color: #767676;
 	margin: 0 auto;
@@ -78,8 +72,6 @@ function SignInPage() {
 	};
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log(event);
-
 		axios
 			.post(`${APIurl}/users/signin`, customerSignIn, {
 				headers: { Accept: 'application/json' },

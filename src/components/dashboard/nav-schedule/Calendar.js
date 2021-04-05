@@ -32,30 +32,7 @@ const HeaderRow = styled.nav`
 	grid-column: 1 / span 16;
 `;
 
-const Frame = styled.div`
-	display: grid;
-	grid-template-columns: 3fr 1fr;
-	width: 635px;
-	height: 968px;
-`;
-const Header = styled.header`
-	position: fixed;
-	background-color: #f2f2f2;
-	color: #222f65;
-	margin: 0 auto;
-	padding: 16px 24px;
-	display: flex;
-	flex-grow: 3;
-	width: 100vw;
-	align-items: center;
-	justify-content: space-between;
-	height: 72px;
-	font-size: 1rem;
-`;
-
 const Body = styled.div`
-	// width: 100vw;
-	// display: block;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
