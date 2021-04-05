@@ -1,18 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link,
-	useHistory,
-	Redirect,
-} from 'react-router-dom';
+import { BrowserRouter as Link, useHistory } from 'react-router-dom';
 import SignUpPage from './SignUpPage';
 import styled from 'styled-components';
 import google from '../../images/google-logo.png';
-import alert from './../../images/alert-triangle.png';
 import APIurl from '../../config';
 import axios from 'axios';
+import Welcome from '../dashboard/Welcome';
 
 const SignInNav = styled.nav`
 	margin: 0 auto;
@@ -93,8 +86,8 @@ const InputStyle = styled.input`
 	margin-bottom: 24px;
 `;
 
-function SignInPage(/*{ props }*/) {
-	// const history = useHistory()
+function SignInPage() {
+	const history = useHistory();
 
 	const [customerSignIn, setCustomerSignIn] = useState({
 		email: '',
@@ -112,16 +105,13 @@ function SignInPage(/*{ props }*/) {
 		console.log(event);
 
 		axios
-			.post(
-				`${APIurl}/users/login`,
-				customerSignIn /*{ email: 'task@gmail.com', password: '123456'}*/
-				/*{headers: {'Accept': 'application/json'}}*/
-			)
+			.post(`${APIurl}/users/login`, customerSignIn, {
+				headers: { Accept: 'application/json' },
+			})
 			.then(function (response) {
 				console.log(response);
-				// return <Redirect to= "/"/>
 			})
-			.then(console.log('hello'))
+			.then(() => history.push('/Welcome'))
 			.catch(function (error) {
 				console.log(error);
 			});
@@ -138,11 +128,17 @@ function SignInPage(/*{ props }*/) {
 			<SignUpContainer>
 				<form onSubmit={handleSubmit}>
 					<HeaderOne>Welcome Back!</HeaderOne>
+					<TertiaryButton>
+						<Icon src={google} alt='google logo'></Icon>Continue with Google
+					</TertiaryButton>
+					<GrayText>or continue with email</GrayText>
 
 					<div className='form-group'>
 						<Label>Email</Label>
 						<InputStyle
 							type='text'
+							value={customerSignIn.email}
+							name='email'
 							className='form-control'
 							placeholder='Email'
 							onChange={handleChange}
@@ -153,6 +149,8 @@ function SignInPage(/*{ props }*/) {
 						<Label>Password</Label>
 						<InputStyle
 							type='password'
+							name='password'
+							value={customerSignIn.password}
 							className='form-control'
 							placeholder='Password'
 							onChange={handleChange}
@@ -165,6 +163,10 @@ function SignInPage(/*{ props }*/) {
 
 					<div className='new-member'>
 						Not yet a crew member? <Link to='/signup'>Sign Up</Link>
+						{/* <Link to='/signup'>
+									<SignUpPage />
+								</Link>
+					 */}
 					</div>
 				</form>
 			</SignUpContainer>

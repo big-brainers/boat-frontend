@@ -10,10 +10,11 @@ import {
 import styled from 'styled-components';
 import validate from './validate';
 import useForm from './useForm';
+import SignInPage from './SignInPage';
 import google from '../../images/google-logo.png';
-import alert from './../../images/alert-triangle.png';
 import APIurl from '../../config';
 import axios from 'axios';
+import Dashboard from '../dashboard/Dashboard';
 
 const SignInNav = styled.nav`
 	margin: 0 auto;
@@ -144,8 +145,9 @@ const SignUpFunc = (/*{ submitForm },*/ props) => {
 			})
 			.then(function (response) {
 				console.log(response);
-				return <Redirect to='/' />;
+				// return <Redirect to= "/Dashboard"/>
 			})
+			.then(() => history.push('/dashboard'))
 			.catch(function (error) {
 				console.log(error);
 			});
