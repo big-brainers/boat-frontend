@@ -5,17 +5,7 @@ import TaskItem from './TaskItem';
 
 const CardContainerMedium = styled.div`
 	width: 448px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-	height: 480px;
-=======
-	// height: ${(props) => props.height || '480px'};
 	height: ${(props) => props.height || '90vh'};
->>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
-=======
-	// height: ${(props) => props.height || '480px'};
-	height: ${(props) => props.height || '90vh'};
->>>>>>> 107e288115202a615ee8473942e4294d6ffb3b1c
 	background: #ffffff;
 	box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
 	border-radius: 2px;
