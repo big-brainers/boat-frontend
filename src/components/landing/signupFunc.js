@@ -15,6 +15,7 @@ import google from '../../images/google-logo.png';
 import APIurl from '../../config';
 import axios from 'axios';
 import Dashboard from '../dashboard/Dashboard';
+import alert from './../../images/alert-triangle.png';
 
 const SignInNav = styled.nav`
 	margin: 0 auto;
