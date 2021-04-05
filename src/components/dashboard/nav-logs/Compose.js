@@ -182,7 +182,6 @@ const Compose = (props) => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-
 		axios
 			.post(`${APIurl}/logs`, entry)
 			.then(() => {

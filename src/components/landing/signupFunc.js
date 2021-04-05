@@ -108,7 +108,7 @@ const Required = styled.div`
 `;
 
 const SignUpFunc = (/*{ submitForm },*/ props) => {
-	// const { handleChange, handleSubmit, values, errors } = useForm(
+	// const { handleNewChange, handleNewSubmit, values, errors } = useForm(
 	// 	submitForm,
 	// 	validate
 	// );
@@ -138,10 +138,11 @@ const SignUpFunc = (/*{ submitForm },*/ props) => {
 
 	const handleNewSubmit = (event) => {
 		event.preventDefault();
-		// console.log(event)
+		console.log(event);
 
 		axios
 			.post(`${APIurl}/users/signup`, customerSignUp, {
+				// .post(`${APIurl}/signup`, customerSignUp, {
 				headers: { Accept: 'application/json' },
 			})
 			.then(function (response) {
@@ -208,7 +209,7 @@ const SignUpFunc = (/*{ submitForm },*/ props) => {
 						<InputStyle
 							type='text'
 							name='email'
-							// value={email.email}
+							value={customerSignUp.email}
 							onChange={/*handleChange*/ handleNewChange}
 							className='signup-control'
 							placeholder='Required'
@@ -224,7 +225,7 @@ const SignUpFunc = (/*{ submitForm },*/ props) => {
 						<InputStyle
 							type='password'
 							name='password'
-							// value={password.password}
+							value={customerSignUp.password}
 							onChange={/*handleChange*/ handleNewChange}
 							className='signup-control'
 							placeholder='Required'
@@ -240,7 +241,7 @@ const SignUpFunc = (/*{ submitForm },*/ props) => {
 							type='password'
 							name='passconfirm'
 							onChange={/*handleChange*/ handleNewChange}
-							// value={values.passconfirm}
+							value={customerSignUp.passconfirm}
 							className='signup-control'
 							placeholder='Required'
 						/>
@@ -260,7 +261,10 @@ const SignUpFunc = (/*{ submitForm },*/ props) => {
 						</div>
 					</div>
 
-					<PrimaryButton type='submit' className='btn'>
+					<PrimaryButton
+						// onClick={handleNewSubmit}
+						type='submit'
+						className='btn'>
 						Sign Up
 					</PrimaryButton>
 
