@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
@@ -5,10 +6,22 @@ import APIurl from '../../../config';
 import axios from 'axios';
 import styled from 'styled-components';
 import NavPanel from '../NavPanel';
+=======
+import React, { useState } from 'react';
+import NavPanel from '../NavPanel';
+import styled from 'styled-components';
+import { useHistory, Link } from 'react-router-dom';
+import APIurl from '../../../config';
+import axios from 'axios';
+>>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 import prev from '../../../images/left.png';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import Zoom from '@material-ui/core/Zoom';
+<<<<<<< HEAD
+=======
+import Modal from './Modal';
+>>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 
 const DashboardMain = styled.main`
 	margin: 0;
@@ -141,14 +154,43 @@ const InputStyle = styled.input`
 	}
 `;
 
+<<<<<<< HEAD
+=======
+const ModalBox = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	height: 100vh;
+`;
+
+const Button = styled.button`
+	min-width: 100px;
+	padding: 16px 32px;
+	border-radius: 4px;
+	border: none;
+	background: #111b47;
+	color: #fff;
+	font-size: 24px;
+	cursor: pointer;
+`;
+
+>>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 const Compose = (props) => {
 	const history = useHistory();
 	let initialState = {
 		title: '',
 		content: '',
 	};
+<<<<<<< HEAD
 	const [entry, setEntry] = useState(initialState);
 	const [isExpanded, setExpanded] = useState(false);
+=======
+
+	const [entry, setEntry] = useState(initialState);
+	const [isExpanded, setExpanded] = useState(false);
+	const [modal, setModal] = useState(false);
+>>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 
 	const handleChange = (event) => {
 		setEntry({ ...entry, [event.target.name]: event.target.value });
@@ -156,14 +198,24 @@ const Compose = (props) => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
+<<<<<<< HEAD
 		console.log(event);
 
+=======
+>>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 		axios
 			.post(`${APIurl}/logs`, entry)
 			.then(() => {
 				props.onAdd(entry);
+<<<<<<< HEAD
 				setEntry(initialState);
 				history.push('/logs');
+=======
+				history.push('/logs');
+				closeModal();
+				// setEntry(initialState);
+				// can you set a redirect back to the Logs page and figure out why the modal doesn't close? it works for the handleDelete in Entry.js but doesn't want to carry out the closeModal() after you submit. It gets posted to the MongoDB, but the modal doesn't close and we don't have a redirect route to go back to LogsAll
+>>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 			})
 			.catch(console.error);
 	};
@@ -171,6 +223,16 @@ const Compose = (props) => {
 	function expand() {
 		setExpanded(true);
 	}
+<<<<<<< HEAD
+=======
+	const closeModal = () => {
+		setModal(false);
+	};
+
+	const openModal = () => {
+		setModal((prev) => !prev);
+	};
+>>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 
 	return (
 		<DashboardMain>
@@ -201,6 +263,11 @@ const Compose = (props) => {
 										onChange={handleChange}
 										value={entry.title}
 										placeholder='Title'
+<<<<<<< HEAD
+=======
+										maxLength='75'
+										required
+>>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 									/>
 								)}
 
@@ -213,15 +280,32 @@ const Compose = (props) => {
 									value={entry.content}
 									placeholder='Tell us more!'
 									rows={isExpanded ? 12 : 1}
+<<<<<<< HEAD
 								/>
 								<Zoom in={isExpanded}>
 									<Fab id='button' type='submit' onClick={handleSubmit}>
+=======
+									maxLength='500'
+									required
+								/>
+								<Zoom in={isExpanded}>
+									<Fab id='button' type='submit' onClick={openModal}>
+>>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 										<AddIcon />
 									</Fab>
 								</Zoom>
 							</InputContainer>
 						</form>
 					</div>
+<<<<<<< HEAD
+=======
+					{/* <ModalBox> */}
+					{/* <Button type='button' onClick={handleSubmit}>
+							Publish
+						</Button> */}
+					<Modal modal={modal} onClick={handleSubmit} setModal={setModal} />
+					{/* </ModalBox> */}
+>>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 				</CardDiv>
 			</DashboardContainer>
 		</DashboardMain>

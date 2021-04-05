@@ -1,16 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
+import About from './components/landing/About';
 import LandingPage from './components/landing/LandingPage';
 import SignInPage from './components/landing/SignInPage';
 import SignUpPage from './components/landing/SignUpPage';
 import Dashboard from './components/dashboard/Dashboard';
-import Schedule from './components/dashboard/nav-schedule/Schedule';
 import LogsAll from './components/dashboard/nav-logs/LogsAll';
-import LogsOne from './components/dashboard/nav-logs/LogsOne';
+// import LogsOne from './components/dashboard/nav-logs/LogsOne';
+import Entry from './components/dashboard/nav-logs/Entry';
 import Compose from './components/dashboard/nav-logs/Compose';
 import Welcome from './components/dashboard/Welcome';
-import About from './components/landing/About';
+// import Scheduler from './components/dashboard/nav-schedule/Scheduler';
+import Schedule from './components/dashboard/nav-schedule/Schedule';
+// import Calendar from './components/dashboard/nav-schedule/Calendar';
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -33,11 +36,11 @@ export default function App(props) {
 					<Route exact path='/signin' component={SignInPage} />
 					<Route exact path='/signup' component={SignUpPage} />
 					<Route path='/about' render={About} />
-					<Route path='/welcome' render={Welcome} />
+					<Route path='/welcome' component={Welcome} />
 					<Route path='/dashboard' render={Dashboard} />
-					<Route path='/schedule' render={Schedule} />
-					<Route exact path='/logs' render={LogsAll} />
-					<Route path='/logs/:id' render={LogsOne} />
+
+					<Route exact path='/logs' component={LogsAll} />
+					<Route path='/logs/:id' component={Entry} />
 					<Route path='/compose' component={Compose} />
 				</Switch>
 			</Router>

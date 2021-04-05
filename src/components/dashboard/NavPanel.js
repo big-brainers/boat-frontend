@@ -78,9 +78,15 @@ function TopLinks() {
 			<StyledLink to='/dashboard'>
 				<Icon src={pie} alt='dashboard overview'></Icon>Dashboard
 			</StyledLink>
+<<<<<<< HEAD
 			<StyledLink to='/schedule'>
 				<Icon src={schedule} alt='schedule'></Icon>Schedule
 			</StyledLink>
+=======
+			{/* <StyledLink to='/schedule'>
+				<Icon src={schedule} alt='schedule'></Icon>Schedule
+			</StyledLink> */}
+>>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 			<StyledLink to='/logs'>
 				<Icon src={sheet} alt='logs'></Icon>Logs
 			</StyledLink>

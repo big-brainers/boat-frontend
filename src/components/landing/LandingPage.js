@@ -139,9 +139,9 @@ const Button = styled.button`
 function LandingNav() {
 	return (
 		<LandingNavStyle>
-			<a href='/' className='nav-tag'>
+			<Link href='/' className='nav-tag'>
 				BOAT
-			</a>
+			</Link>
 
 			<ButtonDiv>
 				<Link to='/signin'>

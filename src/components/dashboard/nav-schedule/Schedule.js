@@ -87,6 +87,12 @@ const IconButton = styled.button`
 `;
 
 const Schedule = () => {
+<<<<<<< HEAD
+=======
+
+	
+
+>>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 	return (
 		<DashboardMain>
 			<NavPanel />
