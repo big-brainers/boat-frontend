@@ -50,14 +50,9 @@ function Dashboard(props) {
 			<DashboardContainer>
 				<CardDiv>
 					<TasksCard row='1' />
-<<<<<<< HEAD
-					<QuickEntry row='4' column='2' />
-					<CalBox />
-=======
 					{/* <CalBox> */}
 					<Calendar />
 					{/* </CalBox> */}
->>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 				</CardDiv>
 			</DashboardContainer>
 		</DashboardMain>

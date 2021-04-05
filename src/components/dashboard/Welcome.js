@@ -1,8 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-// import React, { Fragment, useState, useEffect } from 'react';
-=======
->>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 import styled from 'styled-components';
 import sailboatsmall from '../../images/sailboat-mobile.png';
 import NavPanel from './NavPanel';

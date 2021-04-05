@@ -1,12 +1,4 @@
 // import { Label } from '@material-ui/icons';
-<<<<<<< HEAD
-import React from 'react';
-import styled from 'styled-components';
-import NavPanel from '../NavPanel';
-import { Link } from 'react-router-dom';
-import DeleteIcon from '@material-ui/icons/Delete';
-import prev from '../../../images/left.png';
-=======
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import NavPanel from '../NavPanel';
@@ -17,7 +9,6 @@ import prev from '../../../images/left.png';
 import EntryRow from './EntryRow';
 
 import { set } from 'mongoose';
->>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 
 const DashboardMain = styled.main`
 	margin: 0;
@@ -87,11 +78,7 @@ const HeaderRow = styled.div`
 	grid-column: 1 / span 16;
 	display: flex;
 	align-items: center;
-<<<<<<< HEAD
-	justify-content: ${(props) => props.justify || 'center'};
-=======
 	justify-content: ${(props) => props.justify || 'space-between'};
->>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 `;
 
 const PageNav = styled.nav`
@@ -106,20 +93,12 @@ const PageNav = styled.nav`
 
 const Label = styled.h6`
 	color: #767676;
-<<<<<<< HEAD
-	margin: 0 auto;
-=======
 	margin: 0 80px;
->>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 	text-transform: uppercase;
 	margin-bottom: 8px;
 	font-weight: 700;
 	font-size: 1.2rem;
-<<<<<<< HEAD
-	padding: 0 120px;
-=======
 	display: ${(props) => props.display || 'inline-flex'};
->>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 `;
 
 const Button = styled.button`
@@ -146,11 +125,7 @@ const Button = styled.button`
 const EntryContainer = styled.div`
 	display: flex;
 	align-items: center;
-<<<<<<< HEAD
-	justify-content: space-between;
-=======
 	justify-content: ${(props) => props.justify || 'space-between'};
->>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 	flex-flow: row wrap;
 	height: 92px;
 	align-items: center;
@@ -196,18 +171,6 @@ const Trash = styled.button`
 	outline: none;
 `;
 
-<<<<<<< HEAD
-const samplebodytext =
-	'Im baby mlkshk pour-over edison bulb kogi, vexillologiststumptown hoodie vegan pok pok raw denim synth lo-fi occupy pabst.';
-
-function concatBody() {
-	return `${samplebodytext.substring(0, 60)} ...`;
-}
-
-const Logs = (props) => {
-	function handleClick() {
-		props.onDelete(props.id);
-=======
 const Logs = () => {
 	const [logs, setLogs] = useState([]);
 
@@ -258,7 +221,6 @@ const Logs = () => {
 				</DashboardContainer>
 			</DashboardMain>
 		);
->>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 	}
 
 	return (
@@ -289,33 +251,6 @@ const Logs = () => {
 						<Label>Status</Label>
 						<Label>Date</Label>
 					</HeaderRow>
-<<<<<<< HEAD
-					<EntryContainer>
-						<RowSection className='title-section'>
-							<Link to='/logs/:id'>
-								<RowSectionP>Day 1</RowSectionP>
-							</Link>
-						</RowSection>
-						<RowSection className='body-section'>
-							<RowSectionP>{concatBody()}</RowSectionP>
-						</RowSection>
-						<RowSection className='date-section'>
-							<RowSectionP>10:20 AM, March 12, 2021</RowSectionP>
-						</RowSection>
-						<RowSection className='icon-section'>
-							<Trash onClick={handleClick}>
-								<DeleteIcon />
-							</Trash>
-						</RowSection>
-					</EntryContainer>
-				</CardDiv>
-				{/* 
-				{ logs.forEach(() => {
-	return (		<Label>{logs.title}</Label> 
-		<p>{`{log.content.substring(0, 100)} ...`} 
-	<a href='/logs/{log._id}'>Read More</a>
-	</p> ))	} } */}
-=======
 					{logs.map((entry, index) => (
 						<EntryRow
 							title={entry.title.substring(0, 20)}
@@ -325,7 +260,6 @@ const Logs = () => {
 						/>
 					))}
 				</CardDiv>
->>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 			</DashboardContainer>
 		</DashboardMain>
 	);

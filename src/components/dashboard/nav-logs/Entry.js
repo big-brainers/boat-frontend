@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import styled from 'styled-components';
-import DeleteIcon from '@material-ui/icons/Delete';
-=======
 import React, { useEffect, useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -278,7 +273,6 @@ const ModalBox = styled.div`
 // 	font-size: 24px;
 // 	cursor: pointer;
 // `;
->>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 
 const EntryDiv = styled.div`
 	background: #fff;
@@ -290,13 +284,9 @@ const EntryDiv = styled.div`
 		font-size: 1.1em;
 		margin-bottom: 10px;
 		white-space: pre-wrap;
-<<<<<<< HEAD
-		word-wrap: break-all;
-=======
 		// word-wrap: break-all;
 		// width: 70%;
 		padding: 16px;
->>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 	}
 
 	& button {
@@ -313,44 +303,6 @@ const EntryDiv = styled.div`
 	}
 `;
 
-<<<<<<< HEAD
-const HeaderRow = styled.div`
-	padding: 0 16px 16px 16px;
-	border-bottom: ${(props) => props.bottom || '1px solid #b0b8bc'};
-	height: 56px;
-	display: flex;
-	align-items: center;
-	justify-content: ${(props) => props.justify || 'space-between'};
-`;
-
-const Label = styled.h6`
-	color: #767676;
-	text-transform: uppercase;
-	margin-bottom: 8px;
-	font-weight: 700;
-	font-size: 1.2rem;
-`;
-
-function Entry(props) {
-	// let timestamp = '2021-04-02T19:36:44.090Z'; //print like this? or stringify ?
-
-	function handleClick() {
-		props.onDelete(props.id);
-	}
-	return (
-		<EntryDiv>
-			<HeaderRow>
-				<Label>{props.title}</Label>
-				<Label>{props.date}</Label>
-			</HeaderRow>
-			<p>{props.content}</p>
-			<button onClick={handleClick}>
-				<DeleteIcon />
-			</button>
-		</EntryDiv>
-	);
-}
-=======
 // const HeaderRow = styled.div`
 // 	padding: 0 16px 16px 16px;
 // 	border-bottom: ${(props) => props.bottom || '1px solid #b0b8bc'};
@@ -700,6 +652,5 @@ const Entry = ({ match }) => {
 		</DashboardMain>
 	);
 };
->>>>>>> 9f00e536f38256cfe2de65824dcd97843e4b60e1
 
 export default Entry;
