@@ -29,7 +29,39 @@ const DashboardContainer = styled.section`
 const CardDiv = styled.div`
 	grid-row: 2;
 	grid-column: 2;
-	padding: 24px;
+	background: white;
+	box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
+	text-align: left;
+	width: 75vw;
+	height: 80vh;
+	overflow-y: scroll;
+`;
+
+const IconDiv = styled.div`
+	margin: 0;
+	display: inline-flex;
+
+	& a {
+		margin: 0;
+	}
+`;
+
+const CardHeader = styled.p`
+	font-size: 1rem;
+	color: #192a3e;
+`;
+
+const IconButton = styled.button`
+	height: 24px;
+	width: 24px;
+	background-color: #fff;
+	color: #222f65;
+	border: none;
+	margin: 16px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	grid-column: 14;
 `;
 
 const HeaderOne = styled.h1`
@@ -192,33 +224,15 @@ const Logs = () => {
 	}
 
 	return (
-		<div>
-			{/* <h1>{logs[2].title}</h1> */}
-			<EntryRow
-				title={logs[0].title}
-				content={logs[0].content}
-				date={logs[0].date}
-				index={logs[0]._id}
-			/>
-			{/* {logs.map((entry, index) => (
-				<EntryRow
-					key={index}
-					title={entry.title}
-					content={entry.content}
-					date={entry.date}
-				/>
-			))} */}
-		</div>
-	);
-};
-
-export default Logs;
-
-/**
- * <DashboardMain>
+		<DashboardMain>
 			<NavPanel />
 			<DashboardContainer>
-				<HeaderOne>Logs</HeaderOne>
+				<PageNav>
+					<HeaderOne>Logs</HeaderOne>
+					<Link to='/compose'>
+						<Button className='primary'>New Entry</Button>
+					</Link>
+				</PageNav>
 				<CardDiv>
 					<HeaderRow bottom='none' justify='flex-start'>
 						<IconDiv>
@@ -248,14 +262,7 @@ export default Logs;
 				</CardDiv>
 			</DashboardContainer>
 		</DashboardMain>
- */
+	);
+};
 
-// {entries.forEach((entry, index) => {
-// 	return( <EntryRow
-// key={index}
-// title={entries.title}
-// content={entries.content}
-// date={entries.date}
-// onClick={handleClick}
-// />  		)
-// });
+export default Logs;

@@ -10,6 +10,7 @@ import {
 import SignUpPage from './SignUpPage';
 import styled from 'styled-components';
 import google from '../../images/google-logo.png';
+import alert from './../../images/alert-triangle.png';
 import APIurl from '../../config';
 import axios from 'axios';
 
@@ -50,10 +51,12 @@ const PrimaryButton = styled.button`
 const TertiaryButton = styled.button`
 	width: 350px;
 	height: 48px;
-	border: 1px solid #111b47;
+	// border: 1px solid #111b47;
+	border: 1px solid #f14336;
 	border-radius: 2px;
 	color: #222f65;
-	background-color: #fff;
+	// background-color: #fff;
+	background-color: rgba(241, 67, 54, 0.22);
 	margin: 0 auto;
 	font-family: 'Inconsolata', monospace;
 	display: inline-flex;
@@ -135,10 +138,6 @@ function SignInPage(/*{ props }*/) {
 			<SignUpContainer>
 				<form onSubmit={handleSubmit}>
 					<HeaderOne>Welcome Back!</HeaderOne>
-					<TertiaryButton>
-						<Icon src={google} alt='google logo'></Icon>Continue with Google
-					</TertiaryButton>
-					<GrayText>or continue with email</GrayText>
 
 					<div className='form-group'>
 						<Label>Email</Label>
@@ -166,10 +165,6 @@ function SignInPage(/*{ props }*/) {
 
 					<div className='new-member'>
 						Not yet a crew member? <Link to='/signup'>Sign Up</Link>
-						{/* <Link to='/signup'>
-									<SignUpPage />
-								</Link>
-					 */}
 					</div>
 				</form>
 			</SignUpContainer>

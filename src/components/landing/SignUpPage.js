@@ -26,14 +26,15 @@ function SignUpPage() {
 
 	return (
 		<Fragment>
-			<SignInNav>
+			{/* <SignInNav>
 				<Link className='nav-tag' to='/'>
 					BOAT
 				</Link>
-			</SignInNav>
+			</SignInNav> */}
 			<div>
 				{!isSubmitted ? (
-					<SignUpFunc handleSubmit={submitSignUp} /> //<-- handleSubmit prop?
+					// <SignUpFunc handleSubmit={submitSignUp} />
+					<SignUpFunc handleNewSubmit={submitSignUp} />
 				) : (
 					<SignInPage />
 				)}

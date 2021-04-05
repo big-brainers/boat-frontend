@@ -44,7 +44,6 @@ export default function App(props) {
 					<Route path='/compose' component={Compose} />
 				</Switch>
 			</Router>{' '}
-			*/}
 		</>
 	);
 }

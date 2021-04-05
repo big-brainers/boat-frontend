@@ -59,13 +59,6 @@ const HeaderRow = styled.nav`
 	justify-content: space-between;
 `;
 
-const HeaderOne = styled.h1`
-	font-size: 3rem;
-	color: #091133;
-	padding: 24px;
-	margin: 0;
-`;
-
 const IconDiv = styled.div`
 	margin: 0;
 	display: inline-flex;
@@ -207,7 +200,7 @@ const Compose = (props) => {
 			<DashboardContainer>
 				<HeaderOne>Compose</HeaderOne>
 				<CardDiv>
-					<form onSubmit={handleSubmit} className='create-form'>
+					{/* <form onSubmit={handleSubmit} className='create-form'>
 						<label htmlFor='title'>TITLE </label>
 						<input
 							onChange={handleChange}
@@ -225,7 +218,7 @@ const Compose = (props) => {
 						<button id='button' type='submit'>
 							Submit
 						</button>
-					</form>
+					</form> */}
 					<HeaderRow>
 						<IconDiv>
 							<IconButton>

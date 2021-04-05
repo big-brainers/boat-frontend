@@ -11,9 +11,22 @@ import styled from 'styled-components';
 import validate from './validate';
 import useForm from './useForm';
 import google from '../../images/google-logo.png';
+import alert from './../../images/alert-triangle.png';
 import APIurl from '../../config';
 import axios from 'axios';
 
+const SignInNav = styled.nav`
+	margin: 0 auto;
+	padding: 16px 24px;
+	height: 72px;
+	font-size: 3rem;
+
+	.nav-tag {
+		color: #222f65;
+		font-weight: 700;
+		text-decoration: none;
+	}
+`;
 const HeaderOne = styled.h1`
 	font-size: 3rem;
 `;
@@ -38,10 +51,12 @@ const PrimaryButton = styled.button`
 const TertiaryButton = styled.button`
 	width: 350px;
 	height: 48px;
-	border: 1px solid #111b47;
+	// border: 1px solid #111b47;
+	border: 1px solid #f14336;
 	border-radius: 2px;
 	color: #222f65;
-	background-color: #fff;
+	// background-color: #fff;
+	background-color: rgba(241, 67, 54, 0.22);
 	margin: 0 auto;
 	font-family: 'Inconsolata', monospace;
 	display: inline-flex;
@@ -84,9 +99,10 @@ const Asterisk = styled.span`
 
 const Required = styled.div`
 	font-size: 1rem;
-	text-align: left;
-	display: inline-block;
-	margin: 24px 0;
+	text-align: center;
+	// display: inline-block;
+	display: block;
+	margin: 24px auto;
 `;
 
 const SignUpFunc = (/*{ submitForm },*/ props) => {
@@ -162,6 +178,11 @@ const SignUpFunc = (/*{ submitForm },*/ props) => {
 
 	return (
 		<>
+			<SignInNav>
+				<Link className='nav-tag' to='/'>
+					BOAT
+				</Link>
+			</SignInNav>
 			<SignUpContainer>
 				<form
 					onSubmit={/*handleSubmit*/ handleNewSubmit}
@@ -169,9 +190,10 @@ const SignUpFunc = (/*{ submitForm },*/ props) => {
 					noValidate>
 					<HeaderOne>Sign Up</HeaderOne>
 					<TertiaryButton>
-						<Icon src={google} alt='google logo'></Icon>Continue with Google
+						<Icon src={alert} alt='alert'></Icon>Password must be 6 characters
+						or more
 					</TertiaryButton>
-					<GrayText>or continue with email</GrayText>
+					{/* <GrayText>or continue with email</GrayText> */}
 					<Required>
 						<Asterisk>*</Asterisk> indicates a required field
 					</Required>
