@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import TasksCard from './card-tasks/TasksCard';
-import QuickEntry from './card-quickentry/QuickEntry';
+// import QuickEntry from './card-quickentry/QuickEntry';
 import NavPanel from './NavPanel';
 import Calendar from '../dashboard/nav-schedule/Calendar';
 

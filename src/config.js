@@ -1,5 +1,5 @@
 const APIurl =
 	window.location.hostname === 'localhost'
 		? 'http://localhost:8000'
-		: 'https://boat-dashboard.herokuapp.com/';
+		: 'https://warm-dusk-07017.herokuapp.com/';
 export default APIurl;
