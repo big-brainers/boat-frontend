@@ -183,14 +183,14 @@ const Compose = (props) => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
-		// axios
-		// 	.post(`${APIurl}/logs`, entry)
-		// 	.then(() => {
-		// 		props.onAdd(entry);
-		// 		history.push('/logs');
-		// 		closeModal();
-		// 	})
-		// 	.catch(console.error);
+		axios
+			.post(`${APIurl}/logs`, entry)
+			.then(() => {
+				props.onAdd(entry);
+				history.push('/logs');
+				closeModal();
+			})
+			.catch(console.error);
 	};
 
 	return (
@@ -253,7 +253,7 @@ const Compose = (props) => {
 						</Button> */}
 					<Modal
 						modal={modal}
-						onClick={handleSubmit}
+						// onClick={handleSubmit}
 						setModal={setModal}
 						handleSubmit={handleSubmit}
 					/>
